@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  /* Brand color palette */
+  --brand-purple: #d1baff; /* DEX D1BAFF */
+  --brand-green: #c0fab2; /* DEX C0FAB2 */
+  --brand-orange: #ffa988; /* DEX FFA988 */
+  --brand-blue: #82c3ff; /* DEX 82C3FF */
+  --brand-pink: #f7a7e1; /* DEX F7A7E1 */
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--brand-purple),
+    var(--brand-purple)
+  );
+  z-index: -1;
+}
+
+@font-face {
+  font-family: "Darker_Grotesque";
+  src: url("/fonts/DarkerGrotesque.ttf") format("truetype");
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  cursor: url("/ui/cursour.svg") 8 8, auto;
+  font-family: "Darker_Grotesque", Arial, Helvetica, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  cursor: url("/ui/cursour.svg") 8 8, auto !important;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Darker_Grotesque", Arial, Helvetica, sans-serif;
+}
+
+a,
+button,
+input,
+.pointer-cursor {
+  cursor: url("/ui/cursour.svg") 8 8, auto !important;
+}
+
+section {
+  scroll-margin-top: 100px;
+}
+
+.ticker-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.ticker-track {
+  display: flex;
+  width: fit-content;
+  animation: ticker 30s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+.ticker-content {
+  display: flex;
+  white-space: nowrap;
+}
+
+.ticker-item {
+  display: inline-block;
+  padding: 0 1rem;
+  text-align: center;
+  font-size: 1rem;
+  color: rgb(55, 65, 81);
+}
+
+@media (min-width: 640px) {
+  .ticker-item {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .ticker-item {
+    font-size: 1rem;
+  }
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.noscrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.noscrollbar::-webkit-scrollbar {
+  display: none;
+}
