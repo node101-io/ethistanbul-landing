@@ -126,14 +126,14 @@ const Overview = () => {
           <LiquidButton
             isActive={selectedSection === "Conference"}
             onClick={() => setSelectedSection("Conference")}
-            className=" text-gray-800 text-base sm:text-lg md:text-xl lg:text-2xl"
+            className="border border-black text-gray-800 text-base sm:text-lg md:text-xl lg:text-2xl"
           >
             Conference
           </LiquidButton>
           <LiquidButton
             isActive={selectedSection === "Hackathon"}
             onClick={() => setSelectedSection("Hackathon")}
-            className=" text-gray-800 text-base sm:text-lg md:text-xl lg:text-2xl"
+            className="border border-black text-gray-800 text-base sm:text-lg md:text-xl lg:text-2xl"
           >
             Hackathon
           </LiquidButton>
