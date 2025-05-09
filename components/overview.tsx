@@ -147,7 +147,7 @@ const Overview = () => {
               animate="visible"
               exit="hidden"
               variants={contentVariants}
-              className="rounded-2xl overflow-hidden h-full"
+              className="rounded-4xl border border-black overflow-hidden h-full"
             >
               <Image
                 src={
@@ -254,7 +254,7 @@ const Overview = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 justify-center max-w-4xl">
-            <div className="relative group rounded-4xl overflow-hidden max-w-md mx-auto">
+            <div className="relative group rounded-4xl border border-black overflow-hidden max-w-md mx-auto">
               <Image
                 src={IstanbulGuideImage}
                 alt="Istanbul Bridge"
@@ -292,7 +292,7 @@ const Overview = () => {
               </div>
             </div>
 
-            <div className="relative group rounded-4xl overflow-hidden max-w-md mx-auto">
+            <div className="relative group rounded-4xl border border-black overflow-hidden max-w-md mx-auto">
               <Image
                 src={BuildersWeekImage}
                 alt="Builders Week"
