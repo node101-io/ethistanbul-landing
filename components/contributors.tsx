@@ -167,6 +167,7 @@ const Contributors = () => {
                     contributor={mentor}
                     onClick={() => handleContributorClick(mentor)}
                     isMobile={isMobile}
+                    imageCover={true}
                   />
                 ))
             )}
@@ -252,10 +253,12 @@ const ContributorCard = ({
   contributor,
   onClick,
   isMobile,
+  imageCover = false,
 }: {
   contributor: Contributor;
   onClick: () => void;
   isMobile: boolean;
+  imageCover?: boolean;
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -272,7 +275,7 @@ const ContributorCard = ({
 
   return (
     <motion.div
-      className="rounded-2xl sm:rounded-3xl overflow-hidden cursor-pointer shadow-sm hover:shadow-md transition-shadow"
+      className="rounded-2xl sm:rounded-3xl overflow-hidden cursor-pointer shadow-sm hover:shadow-md transition-shadow border border-black"
       onMouseEnter={() => !isMobile && setIsHovered(true)}
       onMouseLeave={() => !isMobile && setIsHovered(false)}
       onClick={handleCardClick}
@@ -287,7 +290,9 @@ const ContributorCard = ({
           alt={contributor.name}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
-          className="object-cover -translate-y-[2px]"
+          className={`${
+            imageCover ? "object-cover" : "object-contain"
+          }`}
           loading="lazy"
         />
         <div

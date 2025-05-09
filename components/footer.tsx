@@ -27,7 +27,7 @@ const Footer = () => {
             MOVE TO ITS RHYTHM.
           </p>
         </div>
-        <div className="w-full mb-12 px-4 md:px-6 mt-auto flex justify-between items-center text-xs sm:text-sm text-[#A374FF]">
+        <div className="w-full mb-20 px-4 md:px-6 mt-auto flex justify-between items-center text-xs sm:text-sm text-[#A374FF]">
           <a
             href="https://www.figma.com/design/DMg8MPKWMPMRLx3ZKY6VSi/ETHIstanbul-Brand-Kit"
             target="_blank"
