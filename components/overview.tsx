@@ -3,11 +3,11 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import ConferenceImage from "@/assets/conference_image.png";
-import HackathonImage from "@/assets/hackathon_image.png";
+import ConferenceImage from "@/assets/conference_image.webp";
+import HackathonImage from "@/assets/hackathon_image.webp";
 import CountUp from "react-countup";
-import IstanbulGuideImage from "@/assets/istanbul_bridge.png";
-import BuildersWeekImage from "@/assets/galataport.png";
+import IstanbulGuideImage from "@/assets/istanbul_bridge.webp";
+import BuildersWeekImage from "@/assets/bwi.webp";
 import LiquidButton from "./ui/liquid-button";
 
 const LeftStar = (
