@@ -8,6 +8,7 @@ import LiquidButton from "./ui/liquid-button";
 
 const HeroSection = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +18,36 @@ const HeroSection = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleSubscribe = async (email: string) => {
+    if (!email) return;
+
+    try {
+      const response = await fetch("https://node101.io/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email,
+          type: "buildersweekistanbul",
+        }),
+      });
+
+      const data = await response.json();
+
+      if ((!data || data.error) && data.error !== "duplicated_unique_field") {
+        throw new Error(data.error || "Subscription failed");
+      }
+
+      setMessage("Thanks for subscribing!");
+      setTimeout(() => setMessage(""), 3000);
+      return true;
+    } catch (error) {
+      console.error("Subscription error:", error);
+      setMessage("Failed to subscribe. Please try again.");
+      setTimeout(() => setMessage(""), 3000);
+      return false;
+    }
+  };
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
@@ -61,18 +92,47 @@ const HeroSection = () => {
         <h1 className="text-6xl md:text-8xl font-bold mb-8">ETHISTANBUL</h1>
 
         <div className="flex flex-col sm:flex-row gap-4 text-gray-800">
-          <LiquidButton
-            className="border-none"
-            disabled={true}
-          >
-            Get Your Tickets
-          </LiquidButton>
-          <LiquidButton
-            className="border-none"
-            disabled={true}
-          >
-            Apply To Hack
-          </LiquidButton>
+          <div className="flex flex-col items-center gap-2">
+            <div className="flex items-center gap-2">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="px-4 pt-1 pb-2 rounded-full border border-gray-300 focus:outline-none focus:ring-0 "
+                onKeyDown={async (e) => {
+                  if (e.key === "Enter") {
+                    const success = await handleSubscribe(
+                      e.currentTarget.value
+                    );
+                    if (success) {
+                      e.currentTarget.value = "";
+                    }
+                  }
+                }}
+              />
+              <LiquidButton
+                className="border-none"
+                onClick={async (e) => {
+                  const input = e.currentTarget
+                    .previousElementSibling as HTMLInputElement;
+                  const success = await handleSubscribe(input.value);
+                  if (success) {
+                    input.value = "";
+                  }
+                }}
+              >
+                Subscribe
+              </LiquidButton>
+            </div>
+            {message && (
+              <p
+                className={`text-sm ${
+                  message.includes("Thanks") ? "text-green-600" : "text-red-600"
+                }`}
+              >
+                {message}
+              </p>
+            )}
+          </div>
         </div>
       </div>
 
