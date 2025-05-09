@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import TextLogo from "@/assets/text-logo.png";
+import TextLogo from "@/assets/text-logo.webp";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = ({ position }: { position?: string }) => {

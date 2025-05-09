@@ -2,13 +2,15 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Navbar from "./ui/nav-bar";
-import IstanbulBackground from "@/assets/istanbul-background.png";
+import IstanbulBackground from "@/assets/istanbul-background.webp";
 import { motion } from "framer-motion";
 import LiquidButton from "./ui/liquid-button";
 
 const HeroSection = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [buttonText, setButtonText] = useState("Subscribe");
   const [message, setMessage] = useState("");
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,15 +21,15 @@ const HeroSection = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleSubscribe = async (email: string) => {
-    if (!email) return;
+  const handleSubscribe = async (emailToSubscribe: string) => {
+    if (!emailToSubscribe) return;
 
     try {
       const response = await fetch("https://node101.io/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          email,
+          email: emailToSubscribe,
           type: "buildersweekistanbul",
         }),
       });
@@ -38,8 +40,9 @@ const HeroSection = () => {
         throw new Error(data.error || "Subscription failed");
       }
 
-      setMessage("Thanks for subscribing!");
-      setTimeout(() => setMessage(""), 3000);
+      setEmail("");
+      setButtonText("Thanks!");
+      setTimeout(() => setButtonText("Subscribe"), 10000);
       return true;
     } catch (error) {
       console.error("Subscription error:", error);
@@ -59,7 +62,7 @@ const HeroSection = () => {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-blue-500/30 to-purple-500/30 mix-blend-multiply" />
+        <div className="absolute inset-0 mix-blend-multiply" />
       </div>
 
       <motion.div
@@ -96,31 +99,23 @@ const HeroSection = () => {
             <div className="flex items-center gap-2">
               <input
                 type="email"
-                placeholder="Enter your email"
-                className="px-4 pt-1 pb-2 rounded-full border border-gray-300 focus:outline-none focus:ring-0 "
+                placeholder="vitalik@ethereum.org"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="px-4 pt-1 pb-2 rounded-full border border-black focus:outline-none focus:ring-0 placeholder:#459874"
                 onKeyDown={async (e) => {
                   if (e.key === "Enter") {
-                    const success = await handleSubscribe(
-                      e.currentTarget.value
-                    );
-                    if (success) {
-                      e.currentTarget.value = "";
-                    }
+                    await handleSubscribe(email);
                   }
                 }}
               />
               <LiquidButton
-                className="border-none"
-                onClick={async (e) => {
-                  const input = e.currentTarget
-                    .previousElementSibling as HTMLInputElement;
-                  const success = await handleSubscribe(input.value);
-                  if (success) {
-                    input.value = "";
-                  }
+                className="border border-black"
+                onClick={async () => {
+                  await handleSubscribe(email);
                 }}
               >
-                Subscribe
+                {buttonText}
               </LiquidButton>
             </div>
             {message && (

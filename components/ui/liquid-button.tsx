@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react";
 
 const LiquidButton: React.FC<{
@@ -12,7 +14,7 @@ const LiquidButton: React.FC<{
   isActive,
   disabled = false,
   onClick,
-  className,
+  className = "",
   activeColor = "bg-purple-500",
 }) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -69,7 +71,7 @@ const LiquidButton: React.FC<{
     <button
       ref={buttonRef}
       disabled={disabled}
-      className={`relative overflow-hidden px-6 pb-2 pt-1 rounded-full w-full sm:w-auto border transition-all duration-300 ${
+      className={`relative overflow-hidden px-6 pb-2 pt-1 rounded-full w-full sm:w-auto ${
         disabled
           ? "bg-gray-100 border-gray-300 text-gray-400 cursor-not-allowed"
           : `${className} ${
@@ -79,7 +81,9 @@ const LiquidButton: React.FC<{
       onClick={handleClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      style={!disabled && !isActive ? { background: "white" } : undefined}
+      style={{
+        background: !disabled && !isActive ? "white" : undefined
+      }}
     >
       {!isActive && !disabled && (
         <div className="absolute inset-0 pointer-events-none">
