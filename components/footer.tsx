@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import FooterImage from "@/assets/footer_image.png";
+import FooterImage from "@/assets/footer_image.webp";
 
 const Footer = () => {
   return (
