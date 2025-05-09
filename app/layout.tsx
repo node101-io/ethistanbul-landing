@@ -11,9 +11,9 @@ const darker_grotesque = Darker_Grotesque({
 });
 
 export const metadata: Metadata = {
-  title: "ETHistanbul",
+  title: "ETHIstanbul",
   description:
-    "ETHistanbul is a conference and hackathon connecting you with global talents, industry professionals, and web3 companies advancing technology.",
+    "ETHIstanbul is a conference and hackathon connecting you with global talents, industry professionals, and web3 companies advancing technology.",
 };
 
 export default function RootLayout({

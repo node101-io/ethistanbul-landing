@@ -36,7 +36,7 @@ const FAQ = () => {
   const questionsData: Record<Category, FAQItem[]> = {
     "Event Details": [
       {
-        question: "When and where is ETHistanbul taking place?",
+        question: "When and where is ETHIstanbul taking place?",
         answer:
           "Anyone passionate about blockchain! Whether you’re a developer, designer, or just curious about Ethereum, you’re welcome to apply. No prior experience? No problem, you’ll find plenty of support from mentors and fellow hackers.",
       },

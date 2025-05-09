@@ -116,10 +116,10 @@ const Overview = () => {
             BUILD YOUR OWN <br />
             <span className="text-[#9F62FF]">{` "NEW ROME"`}</span> IN TECH
           </h2>
-          <p className="text-xl max-w-2xl mx-auto">
+          {/* <p className="text-xl max-w-2xl mx-auto">
             Lorem Ipsum has been the industrys standard dummy text ever since
             the 1500s.
-          </p>
+          </p> */}
         </div>
 
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 mb-8 sm:mb-12 md:mb-16">
@@ -174,8 +174,8 @@ const Overview = () => {
             >
               <h3 className="text-xl sm:text-2xl md:text-3xl mb-3 md:mb-4">
                 {selectedSection === "Conference"
-                  ? "ETHistanbul is a conference connecting you with global talents, industry professionals, and web3 companies advancing technology."
-                  : "ETHistanbul is a hackathon where you can turn your blockchain product ideas into reality alongside like-minded builders."}
+                  ? "ETHIstanbul is a conference connecting you with global talents, industry professionals, and web3 companies advancing technology."
+                  : "ETHIstanbul is a hackathon where you can turn your blockchain product ideas into reality alongside like-minded builders."}
               </h3>
 
               <div className="mb-4 sm:mb-6 text-lg sm:text-xl md:text-2xl lg:text-3xl">
@@ -302,7 +302,12 @@ const Overview = () => {
               />
               <div className="absolute top-6 right-6">
                 <LiquidButton
-                  disabled={true}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (typeof window !== "undefined") {
+                      window.open("https://buildersweekistanbul.com", "_blank");
+                    }
+                  }}
                   className="bg-green-200 text-green-900 px-6 pb-2 pt-1 border-1 border-black rounded-full flex items-center gap-2 hover:bg-green-300 transition-all cursor-pointer"
                 >
                   Builders Week Istanbul
