@@ -28,7 +28,13 @@ const Footer = () => {
           </p>
         </div>
         <div className="w-full mb-12 px-4 md:px-6 mt-auto flex justify-between items-center text-xs sm:text-sm text-[#A374FF]">
-          <div>Design & development by nodeIOI</div>
+          <a
+            href="https://www.figma.com/design/DMg8MPKWMPMRLx3ZKY6VSi/ETHIstanbul-Brand-Kit"
+            target="_blank"
+            className="hover:text-[#B996FF]"
+          >
+            Brand Kit
+          </a>
           <a
             href="mailto:hello@ethistanbul.io"
             className="hover:text-[#B996FF]"
@@ -37,21 +43,18 @@ const Footer = () => {
           </a>
           <div className="flex items-center space-x-3 sm:space-x-6">
             <a
-              href="#"
+              href="https://x.com/ETHIstanbul_io"
               className="hover:text-[#B996FF]"
             >
               X
             </a>
             <a
-              href="#"
+              href="https://t.me/ETHIstanbul_io"
               className="hover:text-[#B996FF]"
             >
               Telegram
             </a>
           </div>
-        </div>
-        <div className="w-full px-4 md:px-6 mt-2 flex justify-between items-center text-xs sm:text-sm text-[#A374FF]">
-          Brand Kit
         </div>
       </div>
     </footer>
