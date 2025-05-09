@@ -275,7 +275,7 @@ const ContributorCard = ({
 
   return (
     <motion.div
-      className="rounded-2xl sm:rounded-3xl overflow-hidden cursor-pointer shadow-sm hover:shadow-md transition-shadow border border-black"
+      className="rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-md transition-shadow border border-black"
       onMouseEnter={() => !isMobile && setIsHovered(true)}
       onMouseLeave={() => !isMobile && setIsHovered(false)}
       onClick={handleCardClick}
