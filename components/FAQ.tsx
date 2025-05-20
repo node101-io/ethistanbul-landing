@@ -7,7 +7,8 @@ type Category =
   | "Event Details"
   | "Participation & Application"
   | "Costs & Benefits"
-  | "Experience & Networking";
+  | "Experience & Networking"
+  | "Partnerships";
 interface FAQItem {
   question: string;
   answer: string;
@@ -31,14 +32,20 @@ const FAQ = () => {
     "Participation & Application",
     "Costs & Benefits",
     "Experience & Networking",
+    "Partnerships",
   ];
 
   const questionsData: Record<Category, FAQItem[]> = {
     "Event Details": [
       {
-        question: "When and where is ETHIstanbul taking place?",
+        question: "When and where is ETHistanbul taking place?",
         answer:
-          "Anyone passionate about blockchain! Whether you’re a developer, designer, or just curious about Ethereum, you’re welcome to apply. No prior experience? No problem, you’ll find plenty of support from mentors and fellow hackers.",
+          "ETHistanbul will take place between Sep 5-7 at XXX in Istanbul. The conference will be held on the 5th of September; the rest is the hackathon. Make sure to arrive early to secure your spot!",
+      },
+      {
+        question: "What is ETHistanbul?",
+        answer:
+          "ETHistanbul is a hackathon and conference focused on Ethereum and the broader blockchain ecosystem. It’s a space where builders, developers, and innovators come together to create, collaborate, and push the boundaries of decentralized tech.",
       },
     ],
     "Participation & Application": [
@@ -50,26 +57,63 @@ const FAQ = () => {
       {
         question: "How can I apply to participate?",
         answer:
-          "Anyone passionate about blockchain! Whether you’re a developer, designer, or just curious about Ethereum, you’re welcome to apply. No prior experience? No problem, you’ll find plenty of support from mentors and fellow hackers.",
+          "You can apply to participate by filling out the application form on our website. We review applications on a rolling basis, so be sure to submit early to increase your chances of acceptance.",
       },
       {
         question: "Can I apply as a team?",
         answer:
-          "Anyone passionate about blockchain! Whether you’re a developer, designer, or just curious about Ethereum, you’re welcome to apply. No prior experience? No problem, you’ll find plenty of support from mentors and fellow hackers.",
+          "Absolutely! You can apply solo or as a team. If you don’t have a team, don’t worry—we’ll have a team formation session at the start of the hackathon.",
       },
     ],
     "Costs & Benefits": [
       {
         question: "How much does it cost to attend?",
         answer:
-          "Anyone passionate about blockchain! Whether you’re a developer, designer, or just curious about Ethereum, you’re welcome to apply. No prior experience? No problem, you’ll find plenty of support from mentors and fellow hackers.",
+          "ETHistanbul is 100% free for accepted participants. We’ve got you covered with meals, Wi-Fi, and even some cool swag!",
+      },
+      {
+        question: "Are there prizes?",
+        answer:
+          "Yes! We’ll have multiple prize tracks sponsored by leading protocols and projects. Prizes will be announced closer to the event.",
+      },
+      {
+        question: "Will travel and accommodation be covered?",
+        answer:
+          "We have a limited number of travel and accommodation grants available. Check the application form for more details on how to apply for a grant.",
+      },
+      {
+        question: "Will food and drinks be provided?",
+        answer:
+          "Yes! We’ll provide food, drinks, and snacks throughout the event to keep you energized and focused.",
+      },
+      {
+        question: "Do I need to bring my own equipment?",
+        answer:
+          "Yes, please bring your own laptop and any equipment you need for hacking. We’ll have Wi-Fi and power outlets available, but make sure your devices are fully charged!",
       },
     ],
     "Experience & Networking": [
       {
         question: "Can I attend just as a spectator?",
         answer:
-          "Anyone passionate about blockchain! Whether you’re a developer, designer, or just curious about Ethereum, you’re welcome to apply. No prior experience? No problem, you’ll find plenty of support from mentors and fellow hackers.",
+          "ETHistanbul is primarily for builders and participants. However, the demo day and final presentations will be open to the public, stay tuned for more details!",
+      },
+      {
+        question: "Can I work on my project after hours?",
+        answer:
+          "Absolutely! ETHistanbul is a 48-hour hackathon, so you’re welcome to work on your project at any time. Just remember to rest and recharge when you can!",
+      },
+      {
+        question: "Will there be networking opportunities?",
+        answer:
+          "Yes, ETHistanbul is a fantastic opportunity to meet fellow developers, entrepreneurs, and industry leaders. We’ll have dedicated networking sessions throughout the event to help you connect.",
+      },
+    ],
+    Partnerships: [
+      {
+        question: "How can I become a partner?",
+        answer:
+          "We’d love to have you on board! Reach out to us via this form for partnership opportunities.",
       },
     ],
   };
