@@ -29,6 +29,7 @@ interface Mentors {
   image: string | StaticImageData;
   type: "Mentors";
   twitter?: string;
+  linkedin?: string;
 }
 
 const mentors: Mentors[] = [
@@ -38,6 +39,7 @@ const mentors: Mentors[] = [
     image: Abdullah,
     type: "Mentors",
     twitter: "https://x.com/aeryz2?s=21&t=_622jfOfGQKD0pLPsXnjKg",
+    linkedin: "https://x.com/aeryz2?s=21&t=_622jfOfGQKD0pLPsXnjKg",
   },
   {
     name: "Abdullah Talayhan",

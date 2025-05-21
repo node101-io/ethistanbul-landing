@@ -4,10 +4,11 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
 import mentors from "@/lib/contributors/mentors";
+import speakers from "@/lib/contributors/speakers";
 import LiquidButton from "./ui/liquid-button";
 import Arrow from "@/assets/ui/arrow.svg";
 
-type ContributorType = "Judges" | "Speakers" | "Mentors";
+type ContributorType = "Speakers" | "Judges" | "Mentors";
 
 const TwitterIcon = (
   <svg
@@ -17,8 +18,21 @@ const TwitterIcon = (
     width="24"
     height="24"
     viewBox="0 0 50 50"
+    className="fill-current"
   >
     <path d="M 6.9199219 6 L 21.136719 26.726562 L 6.2285156 44 L 9.40625 44 L 22.544922 28.777344 L 32.986328 44 L 43 44 L 28.123047 22.3125 L 42.203125 6 L 39.027344 6 L 26.716797 20.261719 L 16.933594 6 L 6.9199219 6 z"></path>
+  </svg>
+);
+
+const LinkedInIcon = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    className="fill-current"
+  >
+    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
   </svg>
 );
 
@@ -27,11 +41,13 @@ interface Contributor {
   company: string;
   image: string | StaticImageData;
   type: ContributorType;
+  presentationTitle?: string;
   twitter?: string;
+  linkedin?: string;
 }
 
 const Contributors = () => {
-  const [activeType, setActiveType] = useState<ContributorType>("Mentors");
+  const [activeType, setActiveType] = useState<ContributorType>("Speakers");
   const [selectedContributor, setSelectedContributor] =
     useState<Contributor | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -61,7 +77,7 @@ const Contributors = () => {
     setIsModalOpen(false);
   };
 
-  const contributorTypes: ContributorType[] = ["Judges", "Speakers", "Mentors"];
+  const contributorTypes: ContributorType[] = ["Speakers", "Judges", "Mentors"];
 
   const FORM_URLS: Record<ContributorType, string> = {
     Judges: "https://forms.gle/v5ooyVinYTz1BESb8",
@@ -79,6 +95,16 @@ const Contributors = () => {
         return "Mentor";
       default:
         return "Mentor";
+    }
+  };
+
+  const getContributorsByType = (type: ContributorType) => {
+    if (type === "Speakers") {
+      return speakers;
+    } else if (type === "Mentors") {
+      return mentors;
+    } else {
+      return [];
     }
   };
 
@@ -149,8 +175,7 @@ const Contributors = () => {
             transition={{ duration: 0.3 }}
             className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4 md:gap-6"
           >
-            {mentors.filter((mentor) => mentor.type === activeType).length ===
-            0 ? (
+            {getContributorsByType(activeType).length === 0 ? (
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -159,17 +184,15 @@ const Contributors = () => {
                 Coming Soon - TBA
               </motion.div>
             ) : (
-              mentors
-                .filter((mentor) => mentor.type === activeType)
-                .map((mentor, index) => (
-                  <ContributorCard
-                    key={index}
-                    contributor={mentor}
-                    onClick={() => handleContributorClick(mentor)}
-                    isMobile={isMobile}
-                    imageCover={true}
-                  />
-                ))
+              getContributorsByType(activeType).map((contributor, index) => (
+                <ContributorCard
+                  key={index}
+                  contributor={contributor}
+                  onClick={() => handleContributorClick(contributor)}
+                  isMobile={isMobile}
+                  imageCover={activeType === "Speakers"}
+                />
+              ))
             )}
           </motion.div>
         </AnimatePresence>
@@ -229,16 +252,34 @@ const Contributors = () => {
                   <p className="text-lg text-gray-600">
                     {selectedContributor.company}
                   </p>
-                  {selectedContributor.twitter && (
-                    <a
-                      href={`${selectedContributor.twitter}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-2"
-                    >
-                      {TwitterIcon}
-                    </a>
-                  )}
+                  {selectedContributor.type === "Speakers" &&
+                    selectedContributor.presentationTitle && (
+                      <p className="text-md text-purple-600 font-medium mt-2">
+                        "{selectedContributor.presentationTitle}"
+                      </p>
+                    )}
+                  <div className="flex space-x-3 mt-2">
+                    {selectedContributor.twitter && (
+                      <a
+                        href={selectedContributor.twitter}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-700 hover:text-black"
+                      >
+                        {TwitterIcon}
+                      </a>
+                    )}
+                    {selectedContributor.linkedin && (
+                      <a
+                        href={selectedContributor.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-700 hover:text-black"
+                      >
+                        {LinkedInIcon}
+                      </a>
+                    )}
+                  </div>
                 </div>
               </motion.div>
             </motion.div>
@@ -246,6 +287,74 @@ const Contributors = () => {
         </AnimatePresence>
       </div>
     </section>
+  );
+};
+
+const Pill = ({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => (
+  <div
+    className={`bg-white border border-black rounded-full px-6 py-2 text-lg font-medium text-black shadow text-center ${className}`}
+  >
+    {children}
+  </div>
+);
+
+const BottomPillOrText = ({
+  contributor,
+  isHovered,
+  isSpeaker,
+  showSpeakerHover,
+  isMobile,
+}: {
+  contributor: Contributor;
+  isHovered: boolean;
+  isSpeaker: boolean;
+  showSpeakerHover: boolean;
+  isMobile: boolean;
+}) => {
+  if (showSpeakerHover && isSpeaker) return null;
+  return (
+    <div className="absolute bottom-2 sm:bottom-4 left-2 right-2 sm:left-4 sm:right-4 md:left-6 md:right-6 pb-1 text-center">
+      {isMobile ? (
+        <div className="text-xs sm:text-sm md:text-base text-black font-medium px-2 py-1">
+          {contributor.name}
+        </div>
+      ) : (
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={
+              isHovered
+                ? contributor.type === "Speakers"
+                  ? "presentation"
+                  : "company"
+                : "name"
+            }
+            className="flex justify-center"
+          >
+            {isSpeaker ? (
+              isHovered && contributor.presentationTitle ? (
+                <span className="text-xs sm:text-sm md:text-base text-black font-medium px-2 py-1">
+                  {contributor.presentationTitle}
+                </span>
+              ) : (
+                <Pill className="text-xs sm:text-sm md:text-base py-1 px-4">
+                  {contributor.name}
+                </Pill>
+              )
+            ) : (
+              <Pill className="text-xs sm:text-sm md:text-base py-1 px-4">
+                {contributor.name}
+              </Pill>
+            )}
+          </motion.div>
+        </AnimatePresence>
+      )}
+    </div>
   );
 };
 
@@ -266,77 +375,141 @@ const ContributorCard = ({
     onClick();
   };
 
-  const handleTwitterClick = (e: React.MouseEvent) => {
-    if (contributor.twitter && !isMobile) {
+  const handleSocialClick = (e: React.MouseEvent, url?: string) => {
+    if (url && !isMobile) {
       e.stopPropagation();
-      window.open(`${contributor.twitter}`, "_blank");
+      window.open(url, "_blank");
     }
   };
 
+  const isSpeaker = contributor.type === "Speakers";
+  const showSpeakerHover = isSpeaker && isHovered && !isMobile;
+
   return (
     <motion.div
-      className="rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-md transition-shadow border border-black"
+      className={`rounded-4xl overflow-hidden cursor-pointer shadow-sm hover:shadow-md transition-shadow border border-black ${
+        showSpeakerHover ? "bg-[#E0D2FF]" : ""
+      }`}
       onMouseEnter={() => !isMobile && setIsHovered(true)}
       onMouseLeave={() => !isMobile && setIsHovered(false)}
       onClick={handleCardClick}
       initial={{ scale: 1 }}
-      whileHover={{ scale: isMobile ? 1 : 1.02 }}
       transition={{ duration: 0.2 }}
-      onClickCapture={handleTwitterClick}
     >
-      <div className="relative h-40 sm:h-48 md:h-56 lg:h-64 w-full overflow-hidden">
+      <div className="relative h-40 sm:h-48 md:h-56 lg:max-h-64 w-full overflow-hidden">
         <Image
           src={contributor.image}
           alt={contributor.name}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
-          className={`${
-            imageCover ? "object-cover" : "object-contain"
-          }`}
+          className={`${imageCover ? "object-cover" : "object-contain"}`}
           loading="lazy"
         />
-        <div
-          className={`absolute inset-0 bg-[#D1BAFF66] transition-opacity duration-300 ${
-            isHovered && !isMobile ? "opacity-80" : "opacity-0"
-          }`}
-        />
-        {isHovered && !isMobile && (
-          <motion.div
-            initial={{ opacity: 0, x: 10, y: -10 }}
-            animate={{ opacity: 1, x: 0, y: 0 }}
-            exit={{ opacity: 0, x: 10, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className="absolute top-2 right-2 sm:top-4 sm:right-4"
-          >
-            <Image
-              src={Arrow}
-              alt="Arrow"
-              width={32}
-              height={32}
-              className="object-contain"
-            />
-          </motion.div>
-        )}
-        <div className="absolute bottom-2 sm:bottom-4 left-2 right-2 sm:left-4 sm:right-4 md:left-6 md:right-6 pb-1 bg-white border border-black rounded-full bg-opacity-90 text-center">
-          {isMobile ? (
-            <div className="text-xs sm:text-sm md:text-base text-black font-medium px-2 py-1">
-              {contributor.name}
+        {showSpeakerHover && (
+          <div className="absolute inset-0 flex flex-col justify-between items-center p-4 bg-[#E0D2FF]">
+            <div className="w-full flex justify-center">
+              <Pill>{contributor.name}</Pill>
             </div>
-          ) : (
-            <AnimatePresence mode="wait">
+            <div className="mt-1 text-base font-normal text-black text-center">
+              {contributor.company}
+            </div>
+            <div className="flex space-x-4 mt-2 mb-2">
+              {contributor.twitter && (
+                <a
+                  href={contributor.twitter}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex  items-center justify-center size-[18px] rounded border border-black bg-white hover:bg-[#C0FAB2]"
+                  onClick={(e) => handleSocialClick(e, contributor.twitter)}
+                >
+                  <span className="sr-only">Twitter</span>
+                  {TwitterIcon}
+                </a>
+              )}
+              {contributor.linkedin && (
+                <a
+                  href={contributor.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex  items-center justify-center size-[18px] rounded border border-black bg-white hover:bg-[#C0FAB2]"
+                  onClick={(e) => handleSocialClick(e, contributor.linkedin)}
+                >
+                  <span className="sr-only">LinkedIn</span>
+                  {LinkedInIcon}
+                </a>
+              )}
+            </div>
+            {contributor.presentationTitle && (
+              <div className="w-full text-center mt-auto mb-0">
+                <span
+                  className="block text-xl font-bold text-black"
+                  style={{ wordBreak: "break-word" }}
+                >
+                  "{contributor.presentationTitle}"
+                </span>
+              </div>
+            )}
+          </div>
+        )}
+        {!showSpeakerHover && (
+          <>
+            <div
+              className={`absolute inset-0 bg-[#D1BAFF66] transition-opacity duration-300 ${
+                isHovered && !isMobile ? "opacity-80" : "opacity-0"
+              }`}
+            />
+            {isHovered && !isMobile && (
               <motion.div
-                key={isHovered ? "company" : "name"}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
+                initial={{ opacity: 0, x: 10, y: -10 }}
+                animate={{ opacity: 1, x: 0, y: 0 }}
+                exit={{ opacity: 0, x: 10, y: -10 }}
                 transition={{ duration: 0.2 }}
-                className="text-xs sm:text-sm md:text-base text-black font-medium px-2 py-1"
+                className="absolute top-2 right-2 sm:top-4 sm:right-4"
               >
-                {isHovered ? contributor.company : contributor.name}
+                <Image
+                  src={Arrow}
+                  alt="Arrow"
+                  width={32}
+                  height={32}
+                  className="object-contain"
+                />
               </motion.div>
-            </AnimatePresence>
-          )}
-        </div>
+            )}
+            {isHovered && !isMobile && isSpeaker && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="absolute top-4 left-4 flex space-x-2"
+              >
+                {contributor.twitter && (
+                  <div
+                    className="bg-white p-1 rounded-full cursor-pointer"
+                    onClick={(e) => handleSocialClick(e, contributor.twitter)}
+                  >
+                    <div className="text-black">{TwitterIcon}</div>
+                  </div>
+                )}
+                {contributor.linkedin && (
+                  <div
+                    className="bg-white p-1 rounded-full cursor-pointer"
+                    onClick={(e) => handleSocialClick(e, contributor.linkedin)}
+                  >
+                    <div className="text-black">{LinkedInIcon}</div>
+                  </div>
+                )}
+              </motion.div>
+            )}
+          </>
+        )}
+        <BottomPillOrText
+          contributor={contributor}
+          isHovered={isHovered}
+          isSpeaker={isSpeaker}
+          showSpeakerHover={showSpeakerHover}
+          isMobile={isMobile}
+        />
       </div>
     </motion.div>
   );
