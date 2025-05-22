@@ -190,7 +190,6 @@ const Contributors = () => {
                   contributor={contributor}
                   onClick={() => handleContributorClick(contributor)}
                   isMobile={isMobile}
-                  imageCover={activeType === "Speakers"}
                 />
               ))
             )}
@@ -321,8 +320,10 @@ const BottomPillOrText = ({
   return (
     <div className="absolute bottom-2 sm:bottom-4 left-2 right-2 sm:left-4 sm:right-4 md:left-6 md:right-6 pb-1 text-center">
       {isMobile ? (
-        <div className="text-xs sm:text-sm md:text-base text-black font-medium px-2 py-1">
-          {contributor.name}
+        <div className="flex justify-center">
+          <div className="bg-white border border-black rounded-full text-xs sm:text-sm md:text-base text-black font-medium px-2 py-1">
+            {contributor.name}
+          </div>
         </div>
       ) : (
         <AnimatePresence mode="wait">
@@ -362,12 +363,10 @@ const ContributorCard = ({
   contributor,
   onClick,
   isMobile,
-  imageCover = false,
 }: {
   contributor: Contributor;
   onClick: () => void;
   isMobile: boolean;
-  imageCover?: boolean;
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -402,7 +401,7 @@ const ContributorCard = ({
           alt={contributor.name}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
-          className={`${imageCover ? "object-cover" : "object-contain"}`}
+          className="object-cover"
           loading="lazy"
         />
         {showSpeakerHover && (
