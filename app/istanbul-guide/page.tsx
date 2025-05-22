@@ -508,7 +508,7 @@ const IstanbulGuidePage = () => {
       <Navbar position="top" />
       <section
         id="istanbul-guide"
-        className="min-h-screen pt-44 bg-[#E0D2FF]"
+        className="min-h-screen sm:pt-44 pt-24 bg-[#E0D2FF]"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div>
@@ -517,7 +517,28 @@ const IstanbulGuidePage = () => {
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
-            <div className="md:col-span-3">
+            <div className="md:hidden overflow-x-auto whitespace-nowrap pb-4 noscrollbar border-b border-black">
+              <div className="flex space-x-4 px-4 ">
+                {categories.map((category) => (
+                  <button
+                    key={category}
+                    onClick={() => handleCategoryClick(category)}
+                    className={`inline-flex items-center text-left text-lg cursor-pointer transition-colors duration-300 ${
+                      activeCategory === category
+                        ? "text-black font-bold"
+                        : "text-gray-600 hover:text-black"
+                    }`}
+                  >
+                    {activeCategory === category && (
+                      <span className="size-1 bg-black rounded-full mr-2 mt-1"></span>
+                    )}
+                    {category}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="hidden md:block md:col-span-3 ">
               <div className="flex flex-col space-y-6 md:sticky md:top-24">
                 {categories.map((category) => (
                   <button
@@ -536,7 +557,7 @@ const IstanbulGuidePage = () => {
             </div>
 
             <div
-              className="md:col-span-9 noscrollbar"
+              className="md:col-span-9 noscrollbar "
               ref={scrollContainerRef}
               style={{
                 maxHeight: "72vh",
