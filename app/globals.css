@@ -120,3 +120,43 @@ section {
 .noscrollbar::-webkit-scrollbar {
   display: none;
 }
+
+@layer utilities {
+  .no-scroll {
+    overflow: hidden;
+    height: 100vh;
+    touch-action: none;
+    -ms-touch-action: none;
+  }
+}
+
+.intro-introduction {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 99;
+  background-color: #d1baff;
+}
+
+.intro-svg {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: calc(100% + 300px);
+}
+
+.intro-path {
+  fill: #d1baff;
+}
+
+body.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+  touch-action: none;
+  -ms-touch-action: none;
+  position: fixed;
+  width: 100%;
+}
