@@ -160,9 +160,9 @@ const PartnerCard = ({
           <Image
             src={partner.logo}
             alt={partner.name}
-            width={200}
-            height={80}
-            className="object-contain w-full h-full"
+            width={150}
+            height={60}
+            className="object-contain "
           />
         </div>
         {!isMobile && (
