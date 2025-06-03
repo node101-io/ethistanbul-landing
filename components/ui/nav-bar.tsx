@@ -11,16 +11,13 @@ const Navbar = ({ position }: { position?: string }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > window.innerHeight * 0.7);
+      setIsScrolled(window.scrollY > window.innerHeight * 0.9);
 
       const sections = document.querySelectorAll("section");
       const scrollPosition = window.scrollY + window.innerHeight / 2;
 
       sections.forEach((section) => {
-        const style = window.getComputedStyle(section);
-        const paddingTop = parseFloat(style.paddingTop);
-
-        const top = section.offsetTop - paddingTop;
+        const top = section.offsetTop;
         const bottom = top + section.offsetHeight;
         const id = section.getAttribute("id");
 

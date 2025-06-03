@@ -106,10 +106,7 @@ const Overview = () => {
   };
 
   return (
-    <section
-      className="pt-10 bg-white sm:pt-16 md:pt-20 overflow-hidden"
-      id="overview"
-    >
+    <section className="pt-10 bg-white sm:pt-16 md:pt-44 overflow-hidden rounded-t-4xl">
       <div className="max-w-7xl container mx-auto px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-12 md:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-[110px] mb-4 font-bold">
