@@ -64,8 +64,9 @@ const greetings = [
 const HeroSection = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [currentGreeting, setCurrentGreeting] = useState(0);
-  const [showMainTitle, setShowMainTitle] = useState(false);
+  const [showMainTitle, setShowMainTitle] = useState(true);
   const [dimension, setDimension] = useState({ width: 0, height: 0 });
+  const [hasVisited, setHasVisited] = useState(true);
   const mainContentRef = useRef<HTMLDivElement>(null);
 
   const { scrollY } = useScroll();
@@ -94,6 +95,15 @@ const HeroSection = () => {
   }, []);
 
   useEffect(() => {
+    const visited = localStorage.getItem("hasVisitedBefore");
+    if (!visited) {
+      setShowMainTitle(false);
+      setHasVisited(false);
+      localStorage.setItem("hasVisitedBefore", "true");
+    }
+  }, []);
+
+  useEffect(() => {
     if (!showMainTitle) {
       document.body.classList.add("no-scroll");
     } else {
@@ -105,7 +115,7 @@ const HeroSection = () => {
   }, [showMainTitle]);
 
   useEffect(() => {
-    if (currentGreeting < greetings.length - 1) {
+    if (!hasVisited && currentGreeting < greetings.length - 1) {
       const timer = setTimeout(
         () => {
           setCurrentGreeting((prev) => prev + 1);
@@ -116,7 +126,7 @@ const HeroSection = () => {
     } else if (!showMainTitle) {
       setShowMainTitle(true);
     }
-  }, [currentGreeting, showMainTitle]);
+  }, [currentGreeting, showMainTitle, hasVisited]);
 
   const initialPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${
     dimension.height
@@ -187,15 +197,18 @@ const HeroSection = () => {
             />
           </div>
 
-          <div className="relative z-20 flex flex-col h-full justify-center items-center text-white px-4 mt-[-10vh] perspective-[1000px]">
+          <motion.div
+            initial={{ y: 70, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
+            className="relative z-20 flex flex-col h-full justify-center items-center text-white px-4 mt-[-10vh] perspective-[1000px]"
+          >
             <motion.p
               style={{
                 scale: dateScale,
                 y: dateY,
                 z: dateZ,
               }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
               className="text-2xl md:text-4xl origin-center font-semibold mb-0 md:-mb-4"
             >
               September 5-6-7, 2025
@@ -206,13 +219,11 @@ const HeroSection = () => {
                 y: titleY,
                 z: titleZ,
               }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
               className="text-6xl md:text-8xl lg:text-[10rem] xl:text-[12rem] font-bold origin-center text-center leading-none"
             >
               ETHISTANBUL
             </motion.h1>
-          </div>
+          </motion.div>
         </section>
         <div className="relative z-50">
           <Navbar />
