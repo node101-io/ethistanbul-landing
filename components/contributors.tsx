@@ -111,7 +111,7 @@ const Contributors = () => {
   return (
     <section
       id="contributors"
-      className="min-h-screen pt-16 pb-20 md:pt-24 md:pb-32 bg-white"
+      className="pt-16 md:pt-24 bg-white"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div>
@@ -386,7 +386,7 @@ const ContributorCard = ({
 
   return (
     <motion.div
-      className={`rounded-4xl overflow-hidden cursor-pointer shadow-sm hover:shadow-md transition-shadow border border-black ${
+      className={`rounded-4xl overflow-hidden   shadow-sm hover:shadow-md transition-shadow border border-black ${
         showSpeakerHover ? "bg-[#E0D2FF]" : ""
       }`}
       onMouseEnter={() => !isMobile && setIsHovered(true)}
@@ -484,7 +484,7 @@ const ContributorCard = ({
               >
                 {contributor.twitter && (
                   <div
-                    className="bg-white p-1 rounded-full cursor-pointer"
+                    className="bg-white p-1 rounded-full  "
                     onClick={(e) => handleSocialClick(e, contributor.twitter)}
                   >
                     <div className="text-black">{TwitterIcon}</div>
@@ -492,7 +492,7 @@ const ContributorCard = ({
                 )}
                 {contributor.linkedin && (
                   <div
-                    className="bg-white p-1 rounded-full cursor-pointer"
+                    className="bg-white p-1 rounded-full  "
                     onClick={(e) => handleSocialClick(e, contributor.linkedin)}
                   >
                     <div className="text-black">{LinkedInIcon}</div>

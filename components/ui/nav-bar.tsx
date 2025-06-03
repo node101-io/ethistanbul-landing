@@ -92,13 +92,13 @@ const Navbar = ({ position }: { position?: string }) => {
           ? "/#contributors"
           : "#contributors",
     },
-    // {
-    //   label: "Partners",
-    //   href:
-    //     typeof window !== "undefined" && window.location.pathname !== "/"
-    //       ? "/#partners"
-    //       : "#partners",
-    // },
+    {
+      label: "Partners",
+      href:
+        typeof window !== "undefined" && window.location.pathname !== "/"
+          ? "/#partners"
+          : "#partners",
+    },
     // {
     //   label: "Venue",
     //   href:
@@ -158,7 +158,7 @@ const Navbar = ({ position }: { position?: string }) => {
               <motion.button
                 key={link.href}
                 onClick={() => scrollToSection(link.href)}
-                className={`px-4 pb-2 pt-1 rounded-full cursor-pointer ${
+                className={`px-4 pb-2 pt-1 rounded-full   ${
                   activeSection === link.href
                     ? "bg-[#D1BAFF] border border-black"
                     : "hover:bg-purple-100"

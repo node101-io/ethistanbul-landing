@@ -523,7 +523,7 @@ const IstanbulGuidePage = () => {
                   <button
                     key={category}
                     onClick={() => handleCategoryClick(category)}
-                    className={`inline-flex items-center text-left text-lg cursor-pointer transition-colors duration-300 ${
+                    className={`inline-flex items-center text-left text-lg   transition-colors duration-300 ${
                       activeCategory === category
                         ? "text-black font-bold"
                         : "text-gray-600 hover:text-black"
@@ -544,7 +544,7 @@ const IstanbulGuidePage = () => {
                   <button
                     key={category}
                     onClick={() => handleCategoryClick(category)}
-                    className={`text-left text-lg cursor-pointer transition-colors duration-300 ${
+                    className={`text-left text-lg   transition-colors duration-300 ${
                       activeCategory === category
                         ? "text-black font-bold"
                         : "text-gray-600 hover:text-black"
