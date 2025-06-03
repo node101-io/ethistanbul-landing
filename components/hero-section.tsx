@@ -198,8 +198,6 @@ const HeroSection = () => {
           </div>
 
           <motion.div
-            initial={{ y: 70, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
             className="relative z-20 flex flex-col h-full justify-center items-center text-white px-4 mt-[-10vh] perspective-[1000px]"
           >
