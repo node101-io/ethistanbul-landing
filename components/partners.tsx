@@ -6,7 +6,8 @@ import { motion } from "framer-motion";
 import partners from "@/lib/contributors/partners";
 
 const Partners = () => {
-  const FORM_URL = "https://forms.gle/iLFQbW7tc8SmiEcc6";
+  const FORM_URL =
+    "https://docs.google.com/forms/d/e/1FAIpQLSeLZDfo8L_zYj3PzqrYc7pPZk7_PYJjpruQGgzCscwNw8CG4g/viewform";
 
   return (
     <section
