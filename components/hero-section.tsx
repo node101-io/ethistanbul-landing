@@ -10,7 +10,7 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import LiquidButton from "./ui/liquid-button";
-import Overview from "./overview";
+import Overview from "./overview/overview";
 
 const opacity = {
   initial: {

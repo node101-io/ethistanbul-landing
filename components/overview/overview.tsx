@@ -2,13 +2,13 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
 import ConferenceImage from "@/assets/conference_image.webp";
 import HackathonImage from "@/assets/hackathon_image.webp";
-import CountUp from "react-countup";
 import IstanbulGuideImage from "@/assets/istanbul_bridge.webp";
 import BuildersWeekImage from "@/assets/bwi.webp";
-import LiquidButton from "./ui/liquid-button";
+import LiquidButton from "../ui/liquid-button";
+import SectionSwitcher from "./SectionSwitcher";
+import AnimatedHeading from "./AnimatedHeading";
 
 const LeftStar = (
   props: React.JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>
@@ -93,130 +93,22 @@ const TechTicker = React.memo(() => {
   );
 });
 
-TechTicker.displayName = "TechTicker";
-
 const Overview = () => {
-  const [selectedSection, setSelectedSection] = useState("Conference");
-
+  const [selectedSection, setSelectedSection] = useState<
+    "Conference" | "Hackathon"
+  >("Conference");
   const memoizedTechTicker = React.useMemo(() => <TechTicker />, []);
 
-  const contentVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  };
-
   return (
-    <section className="pt-10 bg-white sm:pt-16 md:pt-44 overflow-hidden rounded-t-4xl">
+    <section className="pt-28 bg-white sm:pt-16 md:pt-44 overflow-hidden rounded-t-4xl">
       <div className="max-w-7xl container mx-auto px-4 sm:px-6">
-        <div className="text-center mb-8 sm:mb-12 md:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-[110px] mb-4 font-bold">
-            BUILD YOUR OWN <br />
-            <span className="text-[#9F62FF]">{` "NEW ROME"`}</span> IN TECH
-          </h2>
-          {/* <p className="text-xl max-w-2xl mx-auto">
-            Lorem Ipsum has been the industrys standard dummy text ever since
-            the 1500s.
-          </p> */}
-        </div>
-
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 mb-8 sm:mb-12 md:mb-16">
-          <LiquidButton
-            isActive={selectedSection === "Conference"}
-            onClick={() => setSelectedSection("Conference")}
-            className="border border-black text-gray-800 text-base sm:text-lg md:text-xl lg:text-2xl"
-          >
-            Conference
-          </LiquidButton>
-          <LiquidButton
-            isActive={selectedSection === "Hackathon"}
-            onClick={() => setSelectedSection("Hackathon")}
-            className="border border-black text-gray-800 text-base sm:text-lg md:text-xl lg:text-2xl"
-          >
-            Hackathon
-          </LiquidButton>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-10">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={selectedSection}
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
-              variants={contentVariants}
-              className="rounded-4xl border border-black overflow-hidden h-full"
-            >
-              <Image
-                src={
-                  selectedSection === "Conference"
-                    ? ConferenceImage
-                    : HackathonImage
-                }
-                alt={selectedSection}
-                width={600}
-                height={400}
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
-          </AnimatePresence>
-
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={selectedSection}
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
-              variants={contentVariants}
-              className="flex flex-col justify-start pt-2 md:pt-4"
-            >
-              <h3 className="text-xl sm:text-2xl md:text-3xl mb-3 md:mb-4">
-                {selectedSection === "Conference"
-                  ? "ETHIstanbul is a conference connecting you with global talents, industry professionals, and web3 companies advancing technology."
-                  : "ETHIstanbul is a hackathon where you can turn your blockchain product ideas into reality alongside like-minded builders."}
-              </h3>
-
-              <div className="mb-4 sm:mb-6 text-lg sm:text-xl md:text-2xl lg:text-3xl">
-                {selectedSection === "Conference" ? (
-                  <p className="mb-4 sm:mb-6">Friday, September 5</p>
-                ) : (
-                  <p className="mb-4 sm:mb-6">
-                    Saturday & Sunday, September 6-7
-                  </p>
-                )}
-              </div>
-
-              {selectedSection === "Conference" ? (
-                <div className="grid grid-cols-3 text-sm sm:text-base md:text-lg lg:text-2xl gap-2 sm:gap-4 text-start">
-                  <div>
-                    <p>Attendees</p>
-                    <p className="text-lg sm:text-xl md:text-2xl font-bold text-purple-600">
-                      +<CountUp end={800} />
-                    </p>
-                  </div>
-                  <div>
-                    <p>Protocols</p>
-                    <p className="text-lg sm:text-xl md:text-2xl font-bold text-purple-600">
-                      +<CountUp end={101} />
-                    </p>
-                  </div>
-                  <div>
-                    <p>Workshops</p>
-                    <p className="text-lg sm:text-xl md:text-2xl font-bold text-purple-600">
-                      +<CountUp end={10} />
-                    </p>
-                  </div>
-                </div>
-              ) : (
-                <div>
-                  <p className="text-base sm:text-lg">Available in prizes</p>
-                  <p className="text-xl sm:text-2xl md:text-3xl text-purple-600 font-bold">
-                    TBA
-                  </p>
-                </div>
-              )}
-            </motion.div>
-          </AnimatePresence>
-        </div>
+        <AnimatedHeading />
+        <SectionSwitcher
+          selectedSection={selectedSection}
+          onSectionChange={setSelectedSection}
+          conferenceImage={ConferenceImage}
+          hackathonImage={HackathonImage}
+        />
       </div>
 
       <div className="w-full mt-10 sm:mt-16 md:mt-20 py-2 overflow-hidden">
