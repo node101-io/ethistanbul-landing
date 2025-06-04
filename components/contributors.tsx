@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
 import mentors from "@/lib/contributors/mentors";
@@ -51,7 +51,14 @@ const Contributors = () => {
   const [selectedContributor, setSelectedContributor] =
     useState<Contributor | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const isMobile = window.innerWidth < 768;
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleContributorClick = (contributor: Contributor) => {
     setSelectedContributor(contributor);
