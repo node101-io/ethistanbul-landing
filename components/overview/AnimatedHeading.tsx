@@ -46,10 +46,6 @@ const AnimatedHeading = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           className="inline-block"
-          style={{
-            transformStyle: "preserve-3d",
-            backfaceVisibility: "hidden",
-          }}
         >
           {char === " " ? "\u00A0" : char}
         </motion.span>
@@ -63,9 +59,9 @@ const AnimatedHeading = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
-      className="text-center mb-8 sm:mb-12 md:mb-16"
+      className="text-center mb-8 sm:mb-12 md:mb-16 overflow-visible"
     >
-      <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-[110px] mb-4 font-bold relative">
+      <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-[110px] mb-4 font-bold relative">
         <div className="relative">
           {renderAnimatedText(text1)}
           <br />
