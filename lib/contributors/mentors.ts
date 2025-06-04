@@ -18,10 +18,10 @@ import OguzYayla from "@/assets/contributors/mentors/oguz_yayla.webp";
 import OmerYanar from "@/assets/contributors/mentors/omer_yanar.webp";
 import OrkunKulce from "@/assets/contributors/mentors/orkun_kulce.webp";
 import UgurSen from "@/assets/contributors/mentors/ugur_sen.webp";
-import YamanCan from "@/assets/contributors/mentors/yaman_can.webp";
 import YigitKilicoglu from "@/assets/contributors/mentors/yigit_kilicoglu.webp";
 import YunusGurlek from "@/assets/contributors/mentors/yunus_gurlek.webp";
 import IsaSertkaya from "@/assets/contributors/mentors/isa_sertkaya.webp";
+import YamanCan from "@/assets/contributors/mentors/yaman_can.webp";
 
 interface Mentors {
   name: string;
