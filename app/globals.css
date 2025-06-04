@@ -37,12 +37,7 @@ body {
   color: var(--foreground);
   cursor: url("/ui/cursour.svg") 8 8, auto;
   font-family: "Darker_Grotesque", Arial, Helvetica, sans-serif;
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: "Darker_Grotesque", Arial, Helvetica, sans-serif;
+  overscroll-behavior-y: none;
 }
 
 a,

@@ -4,6 +4,7 @@ import HeroSection from "@/components/hero-section";
 import Footer from "@/components/footer";
 import React from "react";
 import Partners from "@/components/partners";
+import FooterImage from "@/components/FooterImage";
 
 export default function Home() {
   return (
@@ -12,7 +13,13 @@ export default function Home() {
       <Contributors />
       <Partners />
       <FAQ />
-      <Footer />
+
+      <div className="relative bg-[#D5FFCA]">
+        <FooterImage />
+        <div className="relative -mt-[25vh] sm:-mt-[20vh]">
+          <Footer />
+        </div>
+      </div>
     </main>
   );
 }

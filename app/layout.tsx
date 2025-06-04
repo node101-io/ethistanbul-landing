@@ -14,7 +14,15 @@ export const metadata: Metadata = {
   title: "ETHIstanbul",
   description:
     "ETHIstanbul is a conference and hackathon connecting you with global talents, industry professionals, and web3 companies advancing technology.",
-  keywords: ["ethereum", "blockchain", "conference", "hackathon", "istanbul", "web3", "crypto"],
+  keywords: [
+    "ethereum",
+    "blockchain",
+    "conference",
+    "hackathon",
+    "istanbul",
+    "web3",
+    "crypto",
+  ],
   metadataBase: new URL("https://ethistanbul.io"),
   openGraph: {
     title: "ETHIstanbul 2025",
@@ -65,7 +73,7 @@ export default function RootLayout({
       className={`${darker_grotesque.variable}`}
     >
       <body>
-        <main className="relative z-10">{children}</main>
+        <main className="relative z-10 overflow-x-hidden">{children}</main>
       </body>
     </html>
   );

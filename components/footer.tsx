@@ -1,63 +1,91 @@
 "use client";
-import Image from "next/image";
-import React from "react";
-import FooterImage from "@/assets/footer_image.webp";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const Footer = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end end"],
+  });
+
+  const x = useTransform(scrollYProgress, [0, 1], [80, 0]);
+  const overlay = useTransform(scrollYProgress, [0, 0.6], [1.4, 0]);
+
   return (
-    <footer
+    <motion.footer
       id="faq"
-      className="h-screen flex flex-col"
+      ref={containerRef}
+      className="relative flex flex-col z-10 max-h-[40vh] min-h-[40vh] w-full bg-[#D5FFCA] overflow-hidden rounded-t-xl"
     >
-      <div className="relative w-full h-[65vh]">
-        <Image
-          src={FooterImage}
-          alt="Footer"
-          layout="fill"
-          objectFit="cover"
-          className="rounded-none"
-        />
-      </div>
-      <div className="bg-[#D5FFCA] w-full flex flex-col items-center justify-between pb-4 md:pb-6 lg:pb-8 h-[40vh]">
-        <div className="w-full px-4 md:px-6">
-          <h1 className="text-[#B996FF] text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] 2xl:text-[12rem] font-black mb-0 leading-none">
-            LIVE ISTANBUL
-          </h1>
-          <p className="text-[#B996FF] text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-wide">
+      <motion.div
+        style={{ opacity: overlay }}
+        className="absolute inset-0 bg-black pointer-events-none z-10"
+      />
+
+      <motion.div className="relative w-full flex flex-col items-center justify-between pb-6 md:pb-10 h-[42dvh] min-h-[320px]">
+        <div className="w-full px-4 md:px-10 py-8">
+          <motion.div
+            ref={titleRef}
+            style={{ x }}
+            className="relative hover-title select-none"
+          >
+            <h1 className="relative z-10 text-[#B996FF] text-4xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[8rem] 2xl:text-[11rem] font-black leading-none tracking-tight transition-all duration-200">
+              LIVE ISTANBUL
+            </h1>
+          </motion.div>
+
+          <motion.p
+            style={{ x: useTransform(scrollYProgress, [0, 1], [40, 0]) }}
+            className="mt-2 text-[#B996FF] text-lg sm:text-2xl md:text-3xl font-semibold tracking-wider"
+          >
             MOVE TO ITS RHYTHM.
-          </p>
+          </motion.p>
         </div>
-        <div className="w-full mb-20 px-4 md:px-6 mt-auto flex justify-between items-center text-xs sm:text-sm text-[#A374FF]">
-          <a
+
+        <motion.div
+          style={{ y: useTransform(scrollYProgress, [0, 1], [30, 0]) }}
+          className="w-full mb-16 px-4 md:px-10 mt-auto flex flex-row justify-between items-center gap-4 text-xs sm:text-base text-[#A374FF] font-medium"
+        >
+          <motion.a
+            whileHover={{ scale: 1.08 }}
             href="https://www.figma.com/design/DMg8MPKWMPMRLx3ZKY6VSi/ETHIstanbul-Brand-Kit"
             target="_blank"
-            className="hover:text-[#B996FF]"
+            rel="noreferrer"
+            className="hover:text-[#B996FF] transition-all"
           >
             Brand Kit
-          </a>
-          <a
+          </motion.a>
+          <motion.a
+            whileHover={{ scale: 1.08 }}
             href="mailto:hello@ethistanbul.io"
-            className="hover:text-[#B996FF]"
+            className="hover:text-[#B996FF] transition-all"
           >
             hello@ethistanbul.io
-          </a>
-          <div className="flex items-center space-x-3 sm:space-x-6">
-            <a
+          </motion.a>
+          <div className="flex items-center gap-4">
+            <motion.a
+              whileHover={{ scale: 1.13 }}
               href="https://x.com/ETHIstanbul_io"
-              className="hover:text-[#B996FF]"
+              className="hover:text-[#B996FF] transition-all"
+              aria-label="X"
             >
               X
-            </a>
-            <a
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.13 }}
               href="https://t.me/ETHIstanbul_io"
-              className="hover:text-[#B996FF]"
+              className="hover:text-[#B996FF] transition-all"
+              aria-label="Telegram"
             >
               Telegram
-            </a>
+            </motion.a>
           </div>
-        </div>
-      </div>
-    </footer>
+        </motion.div>
+      </motion.div>
+    </motion.footer>
   );
 };
 
