@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import partners from "@/lib/contributors/partners";
@@ -108,18 +108,7 @@ const PartnerCard = ({
   index: number;
 }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 640);
-    };
-
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
+  const [isMobile] = useState(window.innerWidth < 768);
 
   const handleInteraction = (e: React.MouseEvent | React.TouchEvent) => {
     if (isMobile) {
