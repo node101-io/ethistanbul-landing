@@ -262,16 +262,6 @@ const Contributors = () => {
                         {TwitterIcon}
                       </a>
                     )}
-                    {selectedContributor.linkedin && (
-                      <a
-                        href={selectedContributor.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-700 hover:text-black"
-                      >
-                        {LinkedInIcon}
-                      </a>
-                    )}
                   </div>
                 </div>
               </motion.div>
@@ -375,7 +365,7 @@ const ContributorCard = ({
 
   return (
     <motion.div
-      className={`rounded-4xl overflow-hidden   shadow-sm hover:shadow-md transition-shadow border border-black ${
+      className={`rounded-4xl overflow-hidden border border-black ${
         showSpeakerHover ? "bg-[#E0D2FF]" : ""
       }`}
       onMouseEnter={() => !isMobile && setIsHovered(true)}
@@ -447,7 +437,10 @@ const ContributorCard = ({
               }`}
             />
             {isHovered && !isMobile && (
-              <motion.div
+              <motion.a
+                href={contributor.twitter || ""}
+                target="_blank"
+                rel="noopener noreferrer"
                 initial={{ opacity: 0, x: 10, y: -10 }}
                 animate={{ opacity: 1, x: 0, y: 0 }}
                 exit={{ opacity: 0, x: 10, y: -10 }}
@@ -461,7 +454,7 @@ const ContributorCard = ({
                   height={32}
                   className="object-contain"
                 />
-              </motion.div>
+              </motion.a>
             )}
             {isHovered && !isMobile && isSpeaker && (
               <motion.div
