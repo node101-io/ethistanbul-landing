@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
 import mentors from "@/lib/contributors/mentors";
@@ -51,20 +51,7 @@ const Contributors = () => {
   const [selectedContributor, setSelectedContributor] =
     useState<Contributor | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkIsMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    checkIsMobile();
-    window.addEventListener("resize", checkIsMobile);
-
-    return () => {
-      window.removeEventListener("resize", checkIsMobile);
-    };
-  }, []);
+  const isMobile = window.innerWidth < 768;
 
   const handleContributorClick = (contributor: Contributor) => {
     setSelectedContributor(contributor);
@@ -308,53 +295,48 @@ const BottomPillOrText = ({
   isHovered,
   isSpeaker,
   showSpeakerHover,
-  isMobile,
 }: {
   contributor: Contributor;
   isHovered: boolean;
   isSpeaker: boolean;
   showSpeakerHover: boolean;
-  isMobile: boolean;
 }) => {
   if (showSpeakerHover && isSpeaker) return null;
   return (
     <div className="absolute bottom-2 sm:bottom-4 left-2 right-2 sm:left-4 sm:right-4 md:left-6 md:right-6 pb-1 text-center">
-      {isMobile ? (
-        <div className="flex justify-center">
-          <div className="bg-white border border-black rounded-full text-xs sm:text-sm md:text-base text-black font-medium px-2 py-1">
-            {contributor.name}
-          </div>
+      <div className="md:hidden flex justify-center">
+        <div className="bg-white border border-black rounded-full text-xs sm:text-sm md:text-base text-black font-medium px-2 py-1">
+          {contributor.name}
         </div>
-      ) : (
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={
-              isHovered
-                ? contributor.type === "Speakers"
-                  ? "presentation"
-                  : "company"
-                : "name"
-            }
-            className="flex justify-center"
-          >
-            {isSpeaker ? (
-              isHovered && contributor.presentationTitle ? (
-                <span className="text-xs sm:text-sm md:text-base text-black font-medium px-2 py-1">
-                  {contributor.presentationTitle}
-                </span>
-              ) : (
-                <Pill className="text-xs sm:text-sm md:text-base py-1 px-4">
-                  {contributor.name}
-                </Pill>
-              )
+      </div>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={
+            isHovered
+              ? contributor.type === "Speakers"
+                ? "presentation"
+                : "company"
+              : "name"
+          }
+          className="md:flex hidden justify-center"
+        >
+          {isSpeaker ? (
+            isHovered && contributor.presentationTitle ? (
+              <span className="text-xs sm:text-sm md:text-base text-black font-medium px-2 py-1">
+                {contributor.presentationTitle}
+              </span>
             ) : (
               <Pill className="text-xs sm:text-sm md:text-base py-1 px-4">
                 {contributor.name}
               </Pill>
-            )}
-          </motion.div>
-        </AnimatePresence>
-      )}
+            )
+          ) : (
+            <Pill className="text-xs sm:text-sm md:text-base py-1 px-4">
+              {contributor.name}
+            </Pill>
+          )}
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 };
@@ -507,7 +489,6 @@ const ContributorCard = ({
           isHovered={isHovered}
           isSpeaker={isSpeaker}
           showSpeakerHover={showSpeakerHover}
-          isMobile={isMobile}
         />
       </div>
     </motion.div>
