@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     siteName: "ETHIstanbul",
     images: [
       {
-        url: "/opengraph-image.webp",
+        url: "https://ethistanbul.io/opengraph-image.webp",
         width: 1200,
         height: 630,
         alt: "ETHIstanbul 2025",
@@ -46,8 +46,9 @@ export const metadata: Metadata = {
     title: "ETHIstanbul 2025",
     description:
       "ETHIstanbul is a conference and hackathon connecting you with global talents, industry professionals, and web3 companies advancing technology.",
-    images: ["/opengraph-image.webp"],
+    images: ["https://ethistanbul.io/opengraph-image.webp"],
     creator: "@ETHIstanbul_io",
+    site: "@ETHIstanbul_io",
   },
   robots: {
     index: true,
