@@ -1,6 +1,5 @@
 "use client";
-
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 const LiquidButton: React.FC<{
   children: React.ReactNode;
@@ -20,7 +19,6 @@ const LiquidButton: React.FC<{
   const buttonRef = useRef<HTMLButtonElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
-  const [wasActive, setWasActive] = useState(isActive);
   const [currentColor, setCurrentColor] = useState("#D1BAFF");
 
   const brandColors = ["#D1BAFF", "#C0FAB2", "#FFA988", "#82C3FF", "#F7A7E1"];
@@ -29,14 +27,6 @@ const LiquidButton: React.FC<{
     const randomIndex = Math.floor(Math.random() * brandColors.length);
     return brandColors[randomIndex];
   };
-
-  useEffect(() => {
-    if (isActive) {
-      setWasActive(true);
-    } else if (wasActive && !isActive) {
-      setWasActive(false);
-    }
-  }, [isActive, wasActive]);
 
   const handleMouseEnter = (e: React.MouseEvent) => {
     if (!buttonRef.current || isActive || disabled) return;
@@ -82,7 +72,7 @@ const LiquidButton: React.FC<{
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       style={{
-        background: !disabled && !isActive ? "white" : undefined
+        background: !disabled && !isActive ? "white" : undefined,
       }}
     >
       {!isActive && !disabled && (
