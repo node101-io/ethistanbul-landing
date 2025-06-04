@@ -22,6 +22,7 @@ import YigitKilicoglu from "@/assets/contributors/mentors/yigit_kilicoglu.webp";
 import YunusGurlek from "@/assets/contributors/mentors/yunus_gurlek.webp";
 import IsaSertkaya from "@/assets/contributors/mentors/isa_sertkaya.webp";
 import YamanCan from "@/assets/contributors/mentors/yaman_can.webp";
+import TalhaUnsal from "@/assets/contributors/mentors/talha_unsal.webp";
 
 interface Mentors {
   name: string;
@@ -29,7 +30,6 @@ interface Mentors {
   image: string | StaticImageData;
   type: "Mentors";
   twitter?: string;
-  linkedin?: string;
 }
 
 const mentors: Mentors[] = [
@@ -39,7 +39,6 @@ const mentors: Mentors[] = [
     image: Abdullah,
     type: "Mentors",
     twitter: "https://x.com/aeryz2?s=21&t=_622jfOfGQKD0pLPsXnjKg",
-    linkedin: "https://x.com/aeryz2?s=21&t=_622jfOfGQKD0pLPsXnjKg",
   },
   {
     name: "Abdullah Talayhan",
@@ -194,6 +193,13 @@ const mentors: Mentors[] = [
     image: IsaSertkaya,
     type: "Mentors",
     twitter: "https://x.com/isa_sertkaya?s=21&t=_622jfOfGQKD0pLPsXnjKg",
+  },
+  {
+    name: "Talha Ünsal",
+    company: "Community Growth",
+    image: TalhaUnsal,
+    type: "Mentors",
+    twitter: "https://x.com/talhab62",
   },
 ];
 export default mentors;
