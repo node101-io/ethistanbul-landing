@@ -32,7 +32,7 @@ const Footer = () => {
             style={{ x }}
             className="relative hover-title select-none"
           >
-            <h1 className="relative z-10 text-[#B996FF] text-4xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[8rem] 2xl:text-[11rem] font-black leading-none tracking-tight transition-all duration-200">
+            <h1 className="relative z-10 text-[#B996FF] text-6xl md:text-8xl lg:text-9xl xl:text-[8rem] 2xl:text-[11rem] font-black leading-none tracking-tight transition-all duration-200">
               LIVE ISTANBUL
             </h1>
           </motion.div>
