@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { motion } from "framer-motion";
 import partners from "@/lib/contributors/partners";
 
@@ -75,10 +75,7 @@ const Partners = () => {
               partner={{
                 color: partner.color ?? "",
                 name: partner.name,
-                logo:
-                  typeof partner.logo === "string"
-                    ? partner.logo
-                    : partner.logo.src ?? "",
+                logo: partner.logo,
                 hoverImage:
                   typeof partner.hoverImage === "string"
                     ? partner.hoverImage
@@ -99,9 +96,9 @@ const PartnerCard = ({
   index,
 }: {
   partner: {
+    logo: React.ComponentType<any> | StaticImageData;
     color: string;
     name: string;
-    logo: string;
     hoverImage: string;
     website: string;
   };
@@ -145,21 +142,25 @@ const PartnerCard = ({
     >
       <div
         onClick={handleClick}
-        className="block w-full aspect-[2.14/1] relative rounded-[40px] border-1 border-black shadow-sm hover:shadow-md transition-all duration-300 mx-auto bg-white  "
+        className="block w-full aspect-[2.14/1] relative rounded-[40px] border-1 border-black shadow-sm hover:shadow-md transition-all duration-300 mx-auto bg-white"
         onMouseEnter={handleInteraction}
         onMouseLeave={handleInteraction}
       >
-        <div
-          className="w-full h-full flex rounded-[40px] items-center justify-center p-3 sm:p-4 transition-all duration-300"
-          style={{ backgroundColor: isHovered ? partner.color : "transparent" }}
-        >
-          <Image
-            src={partner.logo}
-            alt={partner.name}
-            width={150}
-            height={60}
-            className="object-contain "
-          />
+        <div className="w-full h-full flex rounded-[40px]  overflow-hidden items-center justify-center p-3 sm:p-4 transition-all duration-300">
+          {typeof partner.logo === "function" ? (
+            React.createElement(partner.logo, {
+              fill: isHovered ? "#D1BAFF" : "#333235",
+              isHovered: isHovered,
+            })
+          ) : (
+            <Image
+              src={partner.logo}
+              alt={partner.name}
+              fill
+              className="object-contain"
+              priority
+            />
+          )}
         </div>
         {!isMobile && (
           <div
