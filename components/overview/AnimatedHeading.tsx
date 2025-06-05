@@ -3,7 +3,7 @@ import React from "react";
 
 const AnimatedHeading = () => {
   const text1 = "BUILD YOUR OWN";
-  const text2 = "NEW ROME";
+  const text2 = "“NEW ROME”";
   const text3 = "IN TECH";
 
   const letterVariants = {
