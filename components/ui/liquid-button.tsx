@@ -95,7 +95,7 @@ const LiquidButton: React.FC<{
         </div>
       )}
 
-      <span className="relative z-10 flex flex-row gap-2 items-center">
+      <span className="relative z-10 flex flex-row gap-2 items-center w-full justify-center">
         {children}
       </span>
     </button>

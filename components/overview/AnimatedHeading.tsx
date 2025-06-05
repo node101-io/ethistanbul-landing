@@ -44,7 +44,7 @@ const AnimatedHeading = () => {
           custom={i}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-50px" }}
           className="inline-block"
         >
           {char === " " ? "\u00A0" : char}

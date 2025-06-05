@@ -44,7 +44,7 @@ const SectionSwitcher: React.FC<SectionSwitcherProps> = ({
 
   return (
     <div className="relative">
-      <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 mb-8 sm:mb-12 md:mb-16">
+      <div className="flex flex-row text-center justify-center items-center gap-4 sm:gap-8 mb-8 sm:mb-12 md:mb-16">
         <LiquidButton
           isActive={selectedSection === "Conference"}
           onClick={() => onSectionChange("Conference")}
