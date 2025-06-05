@@ -1,9 +1,9 @@
-import Contributors from "@/components/contributors";
+import Contributors from "@/components/contributors/contributors";
 import FAQ from "@/components/FAQ";
 import HeroSection from "@/components/hero-section";
 import Footer from "@/components/footer";
 import React from "react";
-import Partners from "@/components/partners";
+import Partners from "@/components/partners/partners";
 import FooterImage from "@/components/FooterImage";
 
 export default function Home() {
