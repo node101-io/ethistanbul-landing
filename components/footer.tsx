@@ -6,7 +6,14 @@ const Footer = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
 
+  // Determine scroll container element synchronously on client
+  const scrollContainerEl =
+    typeof window !== "undefined"
+      ? (document.getElementById("scrollable") as HTMLDivElement | null)
+      : null;
+
   const { scrollYProgress } = useScroll({
+    container: scrollContainerEl ? { current: scrollContainerEl } : undefined,
     target: containerRef,
     offset: ["start end", "end end"],
   });
@@ -18,7 +25,7 @@ const Footer = () => {
     <motion.footer
       id="faq"
       ref={containerRef}
-      className="relative flex flex-col z-10 max-h-[40vh] min-h-[40vh] w-full bg-[#D5FFCA] overflow-hidden rounded-t-xl"
+      className="relative flex flex-col z-30 max-h-[40vh] min-h-[40vh] w-full bg-[#D5FFCA] overflow-hidden"
     >
       <motion.div
         style={{ opacity: overlay }}
