@@ -9,6 +9,8 @@ import modapalasWeb from "@/assets/partners/modapalas-web.png";
 import { StaticImageData } from "next/image";
 import Bratislava from "@/assets/partners/bratislava";
 import bratislavaWeb from "@/assets/partners/bratislava-web.png";
+import EthVietnam from "@/assets/partners/ethvietnam";
+import ethvietnamWeb from "@/assets/partners/ethvietnam-web.png";
 
 interface Partner {
   name: string;
@@ -54,6 +56,12 @@ const partners: Partner[] = [
     hoverImage: bratislavaWeb,
     website: "https://ethbratislava.com/",
     color: "#000000",
+  },
+  {
+    name: "EthVietnam",
+    logo: EthVietnam,
+    hoverImage: ethvietnamWeb,
+    website: "https://www.eth-vietnam.com/",
   },
 ];
 
