@@ -16,7 +16,7 @@ export default function Home() {
 
       <div className="relative bg-[#D5FFCA]">
         <FooterImage />
-        <div className="relative -mt-[25vh] sm:-mt-[20vh]">
+        <div className="relative">
           <Footer />
         </div>
       </div>

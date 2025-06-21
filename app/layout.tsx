@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Darker_Grotesque } from "next/font/google";
 import "./globals.css";
+import Image from "next/image";
+import cat from "@/assets/cat.webp";
 
 const darker_grotesque = Darker_Grotesque({
   subsets: ["latin"],
@@ -74,7 +76,20 @@ export default function RootLayout({
       className={`${darker_grotesque.variable}`}
     >
       <body>
-        <main className="relative z-10 overflow-x-hidden">{children}</main>
+        <div className="pull-container">
+          <div className="pullable" id="pullable">
+            <Image className="pull-indicator" aria-hidden="true" src={cat} alt="cat" width={140} height={140} />
+            <main className="relative z-10 overflow-x-hidden overflow-y-auto h-screen"
+              id="scrollable"
+              style={{
+                WebkitOverflowScrolling: 'touch',
+                overscrollBehaviorY: 'contain'
+              }}>
+              {children}
+            </main>
+          </div>
+        </div>
+        <script src="/pull-to-reveal.js" async></script>
       </body>
     </html>
   );
