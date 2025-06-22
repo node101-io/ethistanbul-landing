@@ -119,7 +119,7 @@ const SectionSwitcher: React.FC<SectionSwitcherProps> = ({
                         />
                       </p>
                     </div>
-                    <div>
+                    {/* <div>
                       <p>Protocols</p>
                       <p className="text-lg sm:text-xl md:text-2xl font-bold text-purple-600">
                         +
@@ -128,7 +128,7 @@ const SectionSwitcher: React.FC<SectionSwitcherProps> = ({
                           duration={1}
                         />
                       </p>
-                    </div>
+                    </div> */}
                     <div>
                       <p>Workshops</p>
                       <p className="text-lg sm:text-xl md:text-2xl font-bold text-purple-600">
