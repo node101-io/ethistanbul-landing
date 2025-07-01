@@ -110,13 +110,13 @@ const mentors: Mentors[] = [
     type: "Mentors",
     twitter: "https://x.com/junger0x?s=21&t=_622jfOfGQKD0pLPsXnjKg",
   },
-  {
-    name: "Kaan Uzadoğan",
-    company: "Sourcify",
-    image: KaanUzadogan,
-    type: "Mentors",
-    twitter: "https://x.com/kaanuzdogan?s=21&t=_622jfOfGQKD0pLPsXnjKg",
-  },
+  // {
+  //   name: "Kaan Uzadoğan",
+  //   company: "Sourcify",
+  //   image: KaanUzadogan,
+  //   type: "Mentors",
+  //   twitter: "https://x.com/kaanuzdogan?s=21&t=_622jfOfGQKD0pLPsXnjKg",
+  // },
   {
     name: "Mehmet Gönen",
     company: "Cryptography Researcher",
