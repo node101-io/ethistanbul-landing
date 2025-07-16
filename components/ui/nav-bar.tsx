@@ -99,6 +99,13 @@ const Navbar = ({ position }: { position?: string }) => {
           ? "/#partners"
           : "#partners",
     },
+    {
+      label: "Sponsors",
+      href:
+        typeof window !== "undefined" && window.location.pathname !== "/"
+          ? "/#sponsors"
+          : "#sponsors",
+    },
     // {
     //   label: "Venue",
     //   href:

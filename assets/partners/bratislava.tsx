@@ -2,8 +2,9 @@ import * as React from "react";
 
 const SVGComponent = ({
   fill = "#333235",
+  isHovered,
   ...props
-}: { fill?: string } & React.SVGProps<SVGSVGElement>) => (
+}: { fill?: string; isHovered?: boolean } & React.SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="161"

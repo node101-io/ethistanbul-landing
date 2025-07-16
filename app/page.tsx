@@ -4,6 +4,7 @@ import HeroSection from "@/components/hero-section";
 import Footer from "@/components/footer";
 import React from "react";
 import Partners from "@/components/partners/partners";
+import Sponsors from "@/components/sponsors/sponsors";
 import FooterImage from "@/components/FooterImage";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
     <main className="relative">
       <HeroSection />
       <Contributors />
+      <Sponsors />
       <Partners />
       <FAQ />
 
