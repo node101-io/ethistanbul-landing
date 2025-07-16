@@ -152,6 +152,7 @@ const Navbar = ({ position }: { position?: string }) => {
             stiffness: 200,
             damping: 30,
           }}
+          onClick={() => (window.location.href = "/")}
         >
           <Image
             src={TextLogo}
