@@ -1,14 +1,15 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
-import partners from "@/lib/contributors/partners";
+import partnersData from "@/lib/contributors/partners";
 import PartnerCard from "./PartnerCard";
 
 const Partners = () => {
   const FORM_URL =
     "https://docs.google.com/forms/d/e/1FAIpQLSeLZDfo8L_zYj3PzqrYc7pPZk7_PYJjpruQGgzCscwNw8CG4g/viewform";
+
+  const { communityPartners, mediaPartners } = partnersData;
 
   return (
     <section
@@ -62,48 +63,55 @@ const Partners = () => {
             </svg>
           </a>
         </motion.div>
-
         <motion.div
-          className="flex flex-wrap justify-start gap-3 sm:gap-4 md:gap-6 w-full"
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mb-12"
+        >
+          <h3 className="text-xl sm:text-2xl md:text-3xl mb-6 text-[#1a1a2e] lg:px-12">
+            Community Partners
+          </h3>
+          <div className="flex flex-wrap justify-start gap-3 sm:gap-4 md:gap-6 w-full lg:px-12">
+            {communityPartners.map((partner, index) => (
+              <PartnerCard
+                key={partner.name}
+                partner={{
+                  color: partner.color ?? "",
+                  name: partner.name,
+                  logo: partner.logo,
+                  website: partner.website,
+                }}
+                index={index}
+              />
+            ))}
+          </div>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          {partners.map((partner, index) => (
-            <PartnerCard
-              key={partner.name}
-              partner={{
-                color: partner.color ?? "",
-                name: partner.name,
-                logo: partner.logo,
-                hoverImage:
-                  typeof partner.hoverImage === "string"
-                    ? partner.hoverImage
-                    : partner.hoverImage?.src ?? "",
-                website: partner.website,
-              }}
-              index={index}
-            />
-          ))}
+          <h3 className="text-xl sm:text-2xl md:text-3xl mb-6 text-[#1a1a2e] lg:px-12">
+            Media Partners
+          </h3>
+          <div className="flex flex-wrap justify-start gap-3 sm:gap-4 md:gap-6 w-full lg:px-12">
+            {mediaPartners.map((partner, index) => (
+              <PartnerCard
+                key={partner.name}
+                partner={{
+                  color: partner.color ?? "",
+                  name: partner.name,
+                  logo: partner.logo,
+                  website: partner.website,
+                }}
+                index={index}
+              />
+            ))}
+          </div>
         </motion.div>
-
-        <div style={{ display: "none" }}>
-          {partners.map(
-            (partner) =>
-              partner.hoverImage && (
-                <Image
-                  key={partner.name + "-hover-preload"}
-                  src={partner.hoverImage}
-                  alt=""
-                  width={10}
-                  height={10}
-                  style={{ display: "none" }}
-                  priority={false}
-                />
-              )
-          )}
-        </div>
       </div>
     </section>
   );

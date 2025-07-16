@@ -64,7 +64,7 @@ const Sponsors = () => {
         </motion.div>
 
         <motion.div
-          className="flex flex-wrap justify-start gap-3 sm:gap-4 md:gap-6 w-full"
+          className="flex flex-wrap justify-start gap-3 sm:gap-4 md:gap-6 w-full lg:px-12"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
