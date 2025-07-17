@@ -99,7 +99,7 @@ const SectionSwitcher: React.FC<SectionSwitcherProps> = ({
 
                 <div className="mb-4 sm:mb-6 text-lg sm:text-xl md:text-2xl lg:text-3xl">
                   {selectedSection === "Conference" ? (
-                    <p className="mb-4 sm:mb-6">Friday, September 5</p>
+                    <p className="mb-4 sm:mb-6">Friday, September 5, <a className="text-purple-400 hover:text-purple-300" href="https://ramikutuphanesi.gov.tr/en">Rami Library</a></p>
                   ) : (
                     <p className="mb-4 sm:mb-6">
                       Saturday & Sunday, September 6-7

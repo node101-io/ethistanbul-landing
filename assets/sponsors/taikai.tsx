@@ -5,8 +5,7 @@ const SVGComponent = ({
   isHovered,
   ...props
 }: { fill?: string; isHovered?: boolean } & React.SVGProps<SVGSVGElement>) => (
-
-  <svg viewBox="-27 -14 200 70" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+  <svg width={200} height={70} viewBox="-27 -14 200 70" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
   <g clipPath="url(#clip0_791_14)">
   <path d="M61.8246 39.4971H56.5974V0.49707H61.8246V39.4971Z" fill={fill}/>
   <path d="M140.742 39.4971H135.514V0.49707H140.742V39.4971Z" fill={fill}/>

@@ -20,33 +20,13 @@ const SVGComponent = ({
     xmlnsXlink="http://www.w3.org/1999/xlink"
     {...props}
   >
-    <rect
-      x={0.162598}
-      y={0.5}
+    <image
+      id="image0_537_309"
       width={512}
       height={191}
-      fill="url(#pattern0_537_309)"
+      preserveAspectRatio="none"
+      xlinkHref={isHovered ? placeholderBase64 : originalBase64}
     />
-    <defs>
-      <pattern
-        id="pattern0_537_309"
-        patternContentUnits="objectBoundingBox"
-        width={1}
-        height={1}
-      >
-        <use
-          xlinkHref="#image0_537_309"
-          transform="scale(0.00195312 0.0052356)"
-        />
-      </pattern>
-      <image
-        id="image0_537_309"
-        width={512}
-        height={191}
-        preserveAspectRatio="none"
-        xlinkHref={isHovered ? placeholderBase64 : originalBase64}
-      />
-    </defs>
   </svg>
 );
 
