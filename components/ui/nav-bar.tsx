@@ -3,8 +3,11 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import TextLogo from "@/assets/text-logo.webp";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRouter, usePathname } from "next/navigation";
 
 const Navbar = ({ position }: { position?: string }) => {
+  const router = useRouter();
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
@@ -49,8 +52,11 @@ const Navbar = ({ position }: { position?: string }) => {
   }, [isMobileMenuOpen]);
 
   const scrollToSection = (id: string) => {
-    if (window.location.pathname !== "/") {
-      window.location.href = id;
+    if (pathname !== "/") {
+      if (typeof window !== "undefined") {
+        sessionStorage.setItem("scrollToSection", id);
+      }
+      router.push("/");
     } else {
       const section = document.querySelector(id);
       if (section) {
@@ -58,74 +64,31 @@ const Navbar = ({ position }: { position?: string }) => {
           behavior: "smooth",
           block: "start",
         });
-        setIsMobileMenuOpen(false);
       }
+      setIsMobileMenuOpen(false);
     }
   };
 
   const navLinks = [
     {
       label: "Overview",
-      href:
-        typeof window !== "undefined" && window.location.pathname !== "/"
-          ? "/#overview"
-          : "#overview",
+      href: "#overview",
     },
-    // {
-    //   label: "Schedule",
-    //   href:
-    //     typeof window !== "undefined" && window.location.pathname !== "/"
-    //       ? "/#schedule"
-    //       : "#schedule",
-    // },
-    // {
-    //   label: "HackerKit",
-    //   href:
-    //     typeof window !== "undefined" && window.location.pathname !== "/"
-    //       ? "/#hacker-kit"
-    //       : "#hacker-kit",
-    // },
     {
       label: "Contributors",
-      href:
-        typeof window !== "undefined" && window.location.pathname !== "/"
-          ? "/#contributors"
-          : "#contributors",
+      href: "#contributors",
     },
     {
       label: "Partners",
-      href:
-        typeof window !== "undefined" && window.location.pathname !== "/"
-          ? "/#partners"
-          : "#partners",
+      href: "#partners",
     },
     {
       label: "Sponsors",
-      href:
-        typeof window !== "undefined" && window.location.pathname !== "/"
-          ? "/#sponsors"
-          : "#sponsors",
+      href: "#sponsors",
     },
-    // {
-    //   label: "Venue",
-    //   href:
-    //     typeof window !== "undefined" && window.location.pathname !== "/"
-    //       ? "/#venue"
-    //       : "#venue",
-    // },
-    // {
-    //   label: "Prizes",
-    //   href:
-    //     typeof window !== "undefined" && window.location.pathname !== "/"
-    //       ? "/#prizes"
-    //       : "#prizes",
-    // },
     {
       label: "FAQ",
-      href:
-        typeof window !== "undefined" && window.location.pathname !== "/"
-          ? "/#faq"
-          : "#faq",
+      href: "#faq",
     },
   ];
 
@@ -152,7 +115,19 @@ const Navbar = ({ position }: { position?: string }) => {
             stiffness: 200,
             damping: 30,
           }}
-          onClick={() => (window.location.href = "/")}
+          onClick={() => {
+            if (pathname !== "/") {
+              router.push("/");
+            } else {
+              const homeSection = document.querySelector("#home");
+              if (homeSection) {
+                homeSection.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }
+            }
+          }}
         >
           <Image
             src={TextLogo}
@@ -186,10 +161,12 @@ const Navbar = ({ position }: { position?: string }) => {
             ))}
           </div>
 
+          {/* not working on mobile properly */}
           <motion.button
             className="lg:hidden p-2 focus:outline-none"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             whileTap={{ scale: 0.9 }}
+            type="button"
           >
             <svg
               className="h-6 w-6"
