@@ -249,7 +249,7 @@ const HeroSection = () => {
         >
           <LiquidButton
             onClick={() => {
-              window.open("https://forms.gle/Vd69Fqpkvcv6VyEK8", "_blank");
+              window.open("https://form.ethistanbul.io/partnership", "_blank");
             }}
             className="text-gray-800 border border-black hover:bg-gray-100 px-5 pb-2 pt-1 rounded-full font-medium text-lg   bg-white/90 backdrop-blur-sm"
           >

@@ -39,9 +39,9 @@ const Contributors = () => {
   const contributorTypes: ContributorType[] = ["Speakers", "Judges", "Mentors"];
 
   const FORM_URLS: Record<ContributorType, string> = {
-    Judges: "https://forms.gle/v5ooyVinYTz1BESb8",
-    Mentors: "https://forms.gle/F2TQx7TU2jUmmA3N6",
-    Speakers: "https://forms.gle/iLFQbW7tc8SmiEcc6",
+    Judges: "https://form.ethistanbul.io/judge",
+    Mentors: "https://form.ethistanbul.io/mentor",
+    Speakers: "https://form.ethistanbul.io/speaker",
   };
 
   const getSingularType = (type: ContributorType) => {
