@@ -95,7 +95,7 @@ const Partners = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           <h3 className="text-xl sm:text-2xl md:text-3xl mb-6 text-[#1a1a2e] lg:px-12">
-            Media Partners
+            Media Supporters
           </h3>
           <div className="flex flex-wrap justify-start gap-3 sm:gap-4 md:gap-6 w-full lg:px-12">
             {mediaPartners.map((partner, index) => (
