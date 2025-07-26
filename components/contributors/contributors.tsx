@@ -4,14 +4,18 @@ import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import mentors from "@/lib/contributors/mentors";
-import speakers from "@/lib/contributors/speakers";
+import { Speaker } from "@/lib/api/speakers";
 import LiquidButton from "../ui/liquid-button";
 import TwitterIcon from "./icons/TwitterIcon";
 import ContributorCard from "./ContributorCard";
 import { ContributorType } from "./types";
 import { Contributor } from "./types";
 
-const Contributors = () => {
+interface ContributorsProps {
+  speakers: Speaker[];
+}
+
+const Contributors = ({ speakers }: ContributorsProps) => {
   const [activeType, setActiveType] = useState<ContributorType>("Speakers");
   const [selectedContributor, setSelectedContributor] =
     useState<Contributor | null>(null);
