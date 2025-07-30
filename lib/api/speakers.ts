@@ -21,6 +21,20 @@ export interface SpeakersApiResponse {
 const speakerImageMap: Record<string, StaticImageData> = {
   "Luca Donnoh": LucaDonnoh,
   "Davide Rezzoli": DavideRezzoli,
+  // "Ahmad Bitar": a,
+  // "Arnaud Schenk": a,
+  // "Nicky Chelebi": a,
+  // "Kassandra": a,
+  // "Miszke": a,
+  // "Akaki Mamageishvili": a,
+  // "Melike Keçecioğlu": a,
+  // "Istvan Andreas Seres": a,
+  // "Greg": a,
+  // "Dan Mills": a,
+  // "Filip Pajić": a,
+  // "Sami": a,
+  // "Martinet Lee": a,
+  // "Defi Dave": a,
 };
 
 export async function fetchSpeakersData(): Promise<SpeakersApiResponse> {
