@@ -115,26 +115,26 @@ const Navbar = ({ position }: { position?: string }) => {
             stiffness: 200,
             damping: 30,
           }}
-          onClick={() => {
-            if (pathname !== "/") {
-              router.push("/");
-            } else {
-              const homeSection = document.querySelector("#home");
-              if (homeSection) {
-                homeSection.scrollIntoView({
-                  behavior: "smooth",
-                  block: "start",
-                });
-              }
-            }
-          }}
         >
           <Image
             src={TextLogo}
             alt="Logo"
             width={120}
             height={40}
-            className="w-24 sm:w-32 md:w-36 h-auto"
+            className="w-24 sm:w-32 md:w-36 h-auto cursor-pointer"
+            onClick={() => {
+              if (pathname !== "/") {
+                router.push("/");
+              } else {
+                const homeSection = document.querySelector("#home");
+                if (homeSection) {
+                  homeSection.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
+                }
+              }
+            }}
           />
           <div className="hidden lg:flex space-x-3 xl:space-x-6 items-center">
             {navLinks.map((link) => (
