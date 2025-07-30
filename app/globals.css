@@ -195,7 +195,7 @@ body.no-scroll {
   position: fixed !important;
   z-index: 9998 !important;
 }
-
+/*
 #scrollable::-webkit-scrollbar {
   width: 0px;
   background: transparent;
@@ -204,7 +204,7 @@ body.no-scroll {
 #scrollable {
   scrollbar-width: none;
   -ms-overflow-style: none;
-}
+} */
 
 @media (max-width: 768px) {
   :root {

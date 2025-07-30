@@ -359,7 +359,7 @@ const IstanbulGuidePage = () => {
               <li>
                 <span className="font-medium">Metro:</span>{" "}
                 {`"M" is the sign of
-                    metro Istanbul. By using the lines connecting various points of 
+                    metro Istanbul. By using the lines connecting various points of
                     the city, you can reach your desired destination in the fastest
                     and most comfortable way.`}
               </li>
@@ -508,9 +508,9 @@ const IstanbulGuidePage = () => {
       <Navbar position="top" />
       <section
         id="istanbul-guide"
-        className="min-h-screen sm:pt-44 pt-24 bg-[#E0D2FF]"
+        className="min-h-screen max-h-screen h-screen bg-[#E0D2FF] flex flex-col"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 mt-auto">
           <div>
             <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-10 text-[#1a1a2e]">
               ISTANBUL GUIDE
@@ -560,7 +560,7 @@ const IstanbulGuidePage = () => {
               className="md:col-span-9 noscrollbar "
               ref={scrollContainerRef}
               style={{
-                maxHeight: "72vh",
+                maxHeight: "calc(100dvh - 300px)",
                 overflowY: "auto",
                 scrollBehavior: "smooth",
               }}
