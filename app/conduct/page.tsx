@@ -107,7 +107,7 @@ const ConductPage = () => {
                 <p className="mb-4">We only collect data necessary to support your participation, including:</p>
 
                 <div className="overflow-x-auto">
-                  <table className="w-full bg-white rounded-lg border border-gray-200">
+                  <table className="w-full bg-white border border-gray-200">
                     <thead className="bg-gray-50">
                       <tr>
                         <th className="px-4 py-3 text-left font-medium text-gray-900">Action</th>
