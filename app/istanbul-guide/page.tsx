@@ -291,7 +291,6 @@ const IstanbulGuidePage = () => {
             <div className="mb-6">
               <p className="font-bold mb-2">Mobile & Internet</p>
               <ul className="list-disc pl-5">
-                <li>E-SIM providers: You can use Holafly or Airalo</li>
                 <li>
                   {`SIM cards with best 4G coverage: Turkcell, Türk Telekom and
                   Vodafone are Turkey's largest service providers`}
