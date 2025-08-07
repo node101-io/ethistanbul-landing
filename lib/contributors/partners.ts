@@ -8,6 +8,7 @@ import EthVietnam from "@/assets/partners/ethvietnam";
 import Metahub from "@/assets/partners/metahub";
 import Zukas from "@/assets/partners/zukas";
 import CrpytoDataSpace from "@/assets/partners/cryptodata";
+import Coinzonia from "@/assets/partners/coinzonia";
 
 interface Partner {
   name: string;
@@ -69,6 +70,11 @@ const mediaPartners: Partner[] = [
     name: "CryptoDataSpace",
     logo: CrpytoDataSpace,
     website: "https://cryptodataspace.com/",
+  },
+  {
+    name: "Coinzonia",
+    logo: Coinzonia,
+    website: "",
   },
 ];
 
