@@ -14,6 +14,9 @@ import ArnaudSchenk from "@/assets/contributors/speakers/arnaud_schenk.png";
 import NickyChalabi from "@/assets/contributors/speakers/nicky_chalabi.jpg";
 import Kassandra from "@/assets/contributors/speakers/kassandra.jpg";
 import Sami from "@/assets/contributors/speakers/sami.jpg";
+import DefiDave from "@/assets/contributors/speakers/defi_dave.jpg";
+import FurkanDogan from "@/assets/contributors/speakers/furkan_dogan.jpg";
+import DavidTSE from "@/assets/contributors/speakers/david_tse.jpg";
 
 export interface Speaker {
   name: string;
@@ -45,7 +48,9 @@ const speakerImageMap: Record<string, StaticImageData> = {
   "Nicky Chalabi": NickyChalabi,
   "Kassandra": Kassandra,
   "Sami": Sami,
-  // "Defi Dave": a,
+  "Defi Dave": DefiDave,
+  "Furkan Doğan": FurkanDogan,
+  "David TSE": DavidTSE,
 };
 
 export async function fetchSpeakersData(): Promise<SpeakersApiResponse> {

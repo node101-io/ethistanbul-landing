@@ -221,6 +221,24 @@ const HeroSection = () => {
             >
               ETHISTANBUL
             </motion.h1>
+            <motion.div className="mt-8 flex justify-center gap-4">
+              <LiquidButton
+                onClick={() => {
+                  window.open("https://lu.ma/ethistanbul", "_blank");
+                }}
+                className="text-nowrap text-black border border-none w-fit hover:bg-white hover:text-[#7C3AED] px-8 pb-2 pt-1 rounded-full text-xl max-sm:text-base bg-[#7C3AED]/90 backdrop-blur-sm transition-colors duration-200"
+              >
+                Get your tickets
+              </LiquidButton>
+              <LiquidButton
+                onClick={() => {
+                  window.open("https://taikai.network/ethistanbul/hackathons/ethistanbul-2025", "_blank");
+                }}
+                className="text-nowrap text-black border border-none w-fit hover:bg-white hover:text-[#7C3AED] px-8 pb-2 pt-1 rounded-full text-xl max-sm:text-base bg-[#7C3AED]/90 backdrop-blur-sm transition-colors duration-200"
+              >
+                Apply to hack
+              </LiquidButton>
+            </motion.div>
           </motion.div>
         </section>
         <div className="relative z-50">
