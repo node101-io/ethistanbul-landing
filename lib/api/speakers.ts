@@ -9,6 +9,11 @@ import MartinetLee from "@/assets/contributors/speakers/martinet_lee.png";
 import MelikeKececioglu from "@/assets/contributors/speakers/melike_kececioglu.png";
 import Miszke from "@/assets/contributors/speakers/miszke.png";
 import IstvanAndreasSeres from "@/assets/contributors/speakers/istvan_andreas_seres.png";
+import AhmadBitar from "@/assets/contributors/speakers/ahmad_bitar.jpg";
+import ArnaudSchenk from "@/assets/contributors/speakers/arnaud_schenk.png";
+import NickyChalabi from "@/assets/contributors/speakers/nicky_chalabi.jpg";
+import Kassandra from "@/assets/contributors/speakers/kassandra.jpg";
+import Sami from "@/assets/contributors/speakers/sami.jpg";
 
 export interface Speaker {
   name: string;
@@ -35,12 +40,11 @@ const speakerImageMap: Record<string, StaticImageData> = {
   "Melike Keçecioğlu": MelikeKececioglu,
   "Miszke": Miszke,
   "Istvan Andreas Seres": IstvanAndreasSeres,
-  // "Ahmad Bitar": a,
-  // "Arnaud Schenk": a,
-  // "Nicky Chelebi": a,
-  // "Kassandra": a,
-  // "Greg": a,
-  // "Sami": a,
+  "Ahmad Bitar": AhmadBitar,
+  "Arnaud Schenk": ArnaudSchenk,
+  "Nicky Chalabi": NickyChalabi,
+  "Kassandra": Kassandra,
+  "Sami": Sami,
   // "Defi Dave": a,
 };
 
