@@ -128,7 +128,7 @@ const ContributorCard = ({
             {contributor.presentationTitle && (
               <div className="w-full text-center mt-auto mb-0">
                 <span
-                  className="block text-xl font-bold text-black"
+                  className="block text-base font-bold text-black"
                   style={{ wordBreak: "break-word" }}
                 >
                   "{contributor.presentationTitle}"
