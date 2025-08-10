@@ -181,103 +181,120 @@ const PlanYourWeek = () => {
           </motion.p>
         </div>
 
-        <div className="flex flex-col md:flex-row min-h-[400px] h-[600px] select-none gap-4 sm:gap-6 justify-center items-center px-4 sm:px-6 md:px-12 lg:px-20">
-          <motion.div
-            className={`relative !cursor-none w-full md:w-[50%] lg:w-[50%] h-[300px] md:h-full group rounded-[24px] md:rounded-[43px] overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-black ${
-              activeSection === "left" ? "cursor-hide" : ""
-            }`}
-            onMouseMove={!isTouchDevice ? handleMouseMove("left") : undefined}
-            onMouseEnter={!isTouchDevice ? handleMouseEnter("left") : undefined}
-            onMouseLeave={!isTouchDevice ? handleMouseLeave("left") : undefined}
-            onClick={() => window.open("/istanbul-guide", "_blank")}
-          >
-            <Image
-              src={IstanbulGuideImage}
-              alt="Istanbul Bridge"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 90vw, 42vw"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 md:hidden block" />
+        <motion.div
+          variants={itemVariants}
+          className="w-full"
+        >
+          <div className="flex flex-col md:flex-row min-h-[400px] h-[400px] select-none gap-4 sm:gap-6 justify-center items-center px-4 sm:px-6 md:px-12 lg:px-20 max-md:h-[600px]">
+            <motion.div
+              className={`relative !cursor-none w-full md:w-[50%] lg:w-[50%] h-[300px] md:h-full group rounded-[24px] md:rounded-[43px] overflow-hidden duration-300 border border-black ${
+                activeSection === "left" ? "cursor-hide" : ""
+              }`}
+              onMouseMove={!isTouchDevice ? handleMouseMove("left") : undefined}
+              onMouseEnter={
+                !isTouchDevice ? handleMouseEnter("left") : undefined
+              }
+              onMouseLeave={
+                !isTouchDevice ? handleMouseLeave("left") : undefined
+              }
+              onClick={() => window.open("/istanbul-guide", "_blank")}
+            >
+              <Image
+                src={IstanbulGuideImage}
+                alt="Istanbul Bridge"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 90vw, 42vw"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 md:hidden" />
 
-            <div className="md:hidden absolute inset-0 flex flex-col items-center justify-between p-6 text-white">
-              <h3 className="text-2xl font-bold text-center">Istanbul Guide</h3>
-              <button className="bg-[#D1BAFF] text-black px-6 py-2 rounded-full font-medium transform hover:scale-105 transition-transform">
-                Explore Guide
-              </button>
-            </div>
+              <div className="absolute inset-0 p-6 md:hidden flex flex-col items-center justify-between max-md:min-h-50">
+                <h3 className="text-white text-2xl font-bold text-center mb-4">
+                  Istanbul Guide
+                </h3>
+                <button className="bg-[#D1BAFF] text-black px-6 py-2 rounded-full font-medium transform hover:scale-105 transition-transform">
+                  Explore Guide
+                </button>
+              </div>
+              <p className="text-black font-medium text-lg leading-snug absolute bottom-0 left-0 right-0 px-6 pb-3 pt-2 bg-[#E0D3FF] max-md:hidden">
+                Explore the city with a travel guide that highlights food, venues, historical sites, natural wonders, accommodations, transportation, and local insider tips.
+              </p>
 
-            {!isTouchDevice && (
-              <motion.div
-                className="absolute pointer-events-none"
-                style={{
-                  x: leftX,
-                  y: leftY,
-                  translateX: "-50%",
-                  translateY: "-50%",
-                }}
-              >
-                <CustomCursor
-                  text="Istanbul Guide"
-                  isVisible={activeSection === "left"}
-                />
-              </motion.div>
-            )}
-          </motion.div>
+              {!isTouchDevice && (
+                <motion.div
+                  className="absolute pointer-events-none"
+                  style={{
+                    x: leftX,
+                    y: leftY,
+                    translateX: "-50%",
+                    translateY: "-50%",
+                  }}
+                >
+                  <CustomCursor
+                    text="Istanbul Guide"
+                    isVisible={activeSection === "left"}
+                  />
+                </motion.div>
+              )}
+            </motion.div>
 
-          <motion.div
-            className={`relative !cursor-none w-full md:w-[50%] lg:w-[50%] h-[300px] md:h-full group rounded-[24px] md:rounded-[43px] overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-black ${
-              activeSection === "right" ? "cursor-hide" : ""
-            }`}
-            onMouseMove={!isTouchDevice ? handleMouseMove("right") : undefined}
-            onMouseEnter={
-              !isTouchDevice ? handleMouseEnter("right") : undefined
-            }
-            onMouseLeave={
-              !isTouchDevice ? handleMouseLeave("right") : undefined
-            }
-            onClick={() =>
-              window.open("https://buildersweekistanbul.com", "_blank")
-            }
-          >
-            <Image
-              src={BuildersWeekImage}
-              alt="Builders Week"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 90vw, 42vw"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 md:hidden block" />
+            <motion.div
+              className={`relative !cursor-none w-full md:w-[50%] lg:w-[50%] h-[300px] md:h-full group rounded-[24px] md:rounded-[43px] overflow-hidden duration-300 border border-black ${
+                activeSection === "right" ? "cursor-hide" : ""
+              }`}
+              onMouseMove={!isTouchDevice ? handleMouseMove("right") : undefined}
+              onMouseEnter={
+                !isTouchDevice ? handleMouseEnter("right") : undefined
+              }
+              onMouseLeave={
+                !isTouchDevice ? handleMouseLeave("right") : undefined
+              }
+              onClick={() =>
+                window.open("https://buildersweekistanbul.com", "_blank")
+              }
+            >
+              <Image
+                src={BuildersWeekImage}
+                alt="Builders Week"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 90vw, 42vw"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 md:hidden" />
 
-            <div className="md:hidden absolute inset-0 flex flex-col items-center justify-between p-6 text-white">
-              <h3 className="text-2xl font-bold text-center">
-                Builders Week Istanbul
-              </h3>
-              <button className="bg-[#C0FAB2] text-black px-6 py-2 rounded-full font-medium transform hover:scale-105 transition-transform">
-                View Events
-              </button>
-            </div>
+              <div className="absolute inset-0 p-6 md:hidden flex flex-col items-center justify-between max-md:min-h-50">
+                <h3 className="text-white text-2xl font-bold text-center mb-4">
+                  Builders Week Istanbul
+                </h3>
+                <button className="bg-[#C0FAB2] text-black px-6 py-2 rounded-full font-medium transform hover:scale-105 transition-transform">
+                  View Events
+                </button>
+              </div>
+              <p className="text-black font-medium text-lg leading-snug absolute bottom-0 left-0 right-0 px-6 pb-3 pt-2 bg-[#E0D3FF] max-md:hidden">
+                BWI is a week-long series of permissionless events designed to scale the blockchain development ecosystem.
+              </p>
 
-            {!isTouchDevice && (
-              <motion.div
-                className="absolute pointer-events-none"
-                style={{
-                  x: rightX,
-                  y: rightY,
-                  translateX: "-50%",
-                  translateY: "-50%",
-                }}
-              >
-                <CustomCursor
-                  text="Builders Week Istanbul"
-                  isVisible={activeSection === "right"}
-                />
-              </motion.div>
-            )}
-          </motion.div>
-        </div>
+              {!isTouchDevice && (
+                <motion.div
+                  className="absolute pointer-events-none"
+                  style={{
+                    x: rightX,
+                    y: rightY,
+                    translateX: "-50%",
+                    translateY: "-50%",
+                  }}
+                >
+                  <CustomCursor
+                    text="Builders Week Istanbul"
+                    isVisible={activeSection === "right"}
+                  />
+                </motion.div>
+              )}
+            </motion.div>
+          </div>
+        </motion.div>
       </motion.div>
     </div>
   );

@@ -4,9 +4,19 @@ import React, { useEffect, useState } from "react";
 import Image, { StaticImageData } from "next/image";
 import { motion } from "framer-motion";
 
+const sizeClasses = {
+  xlarge: "w-72 h-48",
+  large: "w-68 h-48",
+  medium: "w-56 h-42",
+  small: "w-46 h-36",
+  xsmall: "w-38 h-30",
+};
+
 const SponsorCard = ({
   sponsor,
   index,
+  tier,
+  size,
 }: {
   sponsor: {
     logo: React.ComponentType<any> | StaticImageData;
@@ -16,6 +26,8 @@ const SponsorCard = ({
     website: string;
   };
   index: number;
+  tier: "premium" | "platinum" | "gold" | "silver" | "bronze";
+  size?: "xlarge" | "large" | "medium" | "small" | "xsmall";
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -43,7 +55,7 @@ const SponsorCard = ({
 
   return (
     <motion.div
-      className="relative group w-[calc(50%-6px)] sm:w-[calc(33.333%-16px)] md:w-[calc(33.333%-24px)] lg:w-[calc(25%-24px)]"
+      className={`relative group ${sizeClasses[size!]} max-sm:w-[calc((100%-16px)/2)]!`}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -51,15 +63,16 @@ const SponsorCard = ({
     >
       <div
         onClick={handleClick}
-        className="block w-full aspect-[2.14/1] relative rounded-[40px] border-1 border-black shadow-sm hover:shadow-md transition-all duration-300 mx-auto bg-white"
+        className="w-full h-full relative rounded-3xl border border-black shadow-sm hover:shadow-md transition-all duration-300 mx-auto bg-white flex items-center justify-center"
         onMouseEnter={handleInteraction}
         onMouseLeave={handleInteraction}
       >
-        <div className="w-full h-full flex rounded-[40px] overflow-hidden items-center justify-center p-3 sm:p-4 transition-all duration-300">
+        <div
+          className="w-full h-full flex rounded-3xl overflow-hidden items-center justify-center relative"
+        >
           {typeof sponsor.logo === "function" ? (
             React.createElement(sponsor.logo, {
-              fill: isHovered ? "#D1BAFF" : "#000000",
-              isHovered: isHovered,
+              className: "w-full h-auto max-w-full max-h-full p-10 max-sm:p-6",
             })
           ) : (
             <Image
@@ -70,14 +83,33 @@ const SponsorCard = ({
               priority={false}
             />
           )}
+          {/* Tier badge */}
+          <div
+            className="absolute bottom-[5%] left-1/2 -translate-x-1/2 pb-0.5 px-4 rounded-full border border-black text-sm"
+            style={{
+              backgroundColor:
+                tier === "premium"
+                  ? "#C0FAB2"
+                  : tier === "platinum"
+                  ? "#CABAFF"
+                  : tier === "gold"
+                  ? "#FFE28D"
+                  : tier === "silver"
+                  ? "#8CF0FF"
+                  : "#D3D3D3",
+            }}
+          >
+            {tier.charAt(0).toUpperCase() + tier.slice(1)}
+          </div>
         </div>
         {!isMobile && (
           <div
-            className={`absolute left-1/2 -translate-x-1/2 -top-[90%] w-[90%] aspect-video rounded-[10px] border border-black overflow-hidden transition-all duration-300 ${
+            className={`absolute left-1/2 -translate-x-1/2 w-[90%] aspect-video rounded-[10px] border border-black overflow-hidden transition-all duration-300 ${
               isHovered
                 ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-4 pointer-events-none"
+                : "opacity-0 translate-y-2 pointer-events-none"
             }`}
+            style={{ bottom: "calc(100% - 20px)" }}
           >
             <Image
               src={sponsor.hoverImage}

@@ -75,7 +75,7 @@ const Navbar = ({ position }: { position?: string }) => {
       href: "#overview",
     },
     {
-      label: "Contributors",
+      label: "Speakers",
       href: "#contributors",
     },
     {

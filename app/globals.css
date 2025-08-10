@@ -40,6 +40,10 @@ body {
   overscroll-behavior-y: none;
 }
 
+#scrollable {
+  overscroll-behavior-y: none;
+}
+
 a,
 button,
 input,

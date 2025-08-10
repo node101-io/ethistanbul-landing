@@ -82,8 +82,7 @@ export default function RootLayout({
             <main className="relative z-10 overflow-x-hidden overflow-y-auto h-screen"
               id="scrollable"
               style={{
-                WebkitOverflowScrolling: 'touch',
-                overscrollBehaviorY: 'contain'
+                WebkitOverflowScrolling: 'touch'
               }}>
               {children}
             </main>

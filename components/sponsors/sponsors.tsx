@@ -10,6 +10,14 @@ const Sponsors = () => {
   const FORM_URL =
     "https://calendar.app.google/rQDSqCZ5BwHRb6o36";
 
+  const conferenceSponsors = sponsors.filter(
+    (s) => s.category === "conference"
+  );
+  const hackathonSponsors = sponsors.filter((s) => s.category === "hackathon");
+
+  const conferenceTiers: ("premium" | "platinum" | "gold" | "silver" | "bronze")[] = ["premium"];
+  const hackathonTiers: ("premium" | "platinum" | "gold" | "silver" | "bronze")[] = ["platinum", "gold", "silver", "bronze"];
+
   return (
     <section
       id="sponsors"
@@ -63,37 +71,94 @@ const Sponsors = () => {
           </a>
         </motion.div>
 
-        <motion.div
-          className="flex flex-wrap justify-start gap-3 sm:gap-4 md:gap-6 w-full lg:px-12"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          {sponsors.map((sponsor, index) => (
-            <SponsorCard
-              key={sponsor.name}
-              sponsor={{
-                color: sponsor.color ?? "",
-                name: sponsor.name,
-                logo: sponsor.logo,
-                hoverImage:
-                  typeof sponsor.hoverImage === "string"
-                    ? sponsor.hoverImage
-                    : sponsor.hoverImage?.src ?? "",
-                website: sponsor.website,
-              }}
-              index={index}
-            />
-          ))}
-        </motion.div>
+        {/* Conference Sponsors */}
+        <div className="mb-16">
+          <h3 className="text-3xl font-bold mb-8 text-left">Conference</h3>
+          {conferenceTiers.map((tier) => {
+            const tieredSponsors = conferenceSponsors.filter(
+              (s) => s.tier === tier
+            );
+            if (tieredSponsors.length === 0) return null;
+
+            return (
+              <motion.div
+                key={tier}
+                className="flex flex-wrap justify-start gap-6 mb-6 max-sm:gap-4 max-sm:mb-4"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                {tieredSponsors.map((sponsor, index) => (
+                  <SponsorCard
+                    key={`${sponsor.name}-conference-${index}`}
+                    sponsor={{
+                      color: sponsor.color ?? "",
+                      name: sponsor.name,
+                      logo: sponsor.logo,
+                      hoverImage:
+                        typeof sponsor.hoverImage === "string"
+                          ? sponsor.hoverImage
+                          : sponsor.hoverImage?.src ?? "",
+                      website: sponsor.website,
+                    }}
+                    index={index}
+                    tier={sponsor.tier!}
+                    size={sponsor.size}
+                  />
+                ))}
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Hackathon Sponsors */}
+        <div>
+          <h3 className="text-3xl font-bold mb-8 text-left">Hackathon</h3>
+          {hackathonTiers.map((tier) => {
+            const tieredSponsors = hackathonSponsors.filter(
+              (s) => s.tier === tier
+            );
+            if (tieredSponsors.length === 0) return null;
+
+            return (
+              <motion.div
+                key={tier}
+                className="flex flex-wrap justify-start gap-6 mb-6 max-sm:gap-4 max-sm:mb-4"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
+                {tieredSponsors.map((sponsor, index) => (
+                  <SponsorCard
+                    key={`${sponsor.name}-hackathon-${index}`}
+                    sponsor={{
+                      color: sponsor.color ?? "",
+                      name: sponsor.name,
+                      logo: sponsor.logo,
+                      hoverImage:
+                        typeof sponsor.hoverImage === "string"
+                          ? sponsor.hoverImage
+                          : sponsor.hoverImage?.src ?? "",
+                      website: sponsor.website,
+                    }}
+                    index={index}
+                    tier={sponsor.tier!}
+                    size={sponsor.size}
+                  />
+                ))}
+              </motion.div>
+            );
+          })}
+        </div>
 
         <div style={{ display: "none" }}>
           {sponsors.map(
             (sponsor) =>
               sponsor.hoverImage && (
                 <Image
-                  key={sponsor.name + "-hover-preload"}
+                  key={sponsor.name + sponsor.tier + "-hover-preload"}
                   src={sponsor.hoverImage}
                   alt=""
                   width={10}
