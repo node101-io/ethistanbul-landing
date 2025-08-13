@@ -1,8 +1,8 @@
 import { StaticImageData } from "next/image";
 import Babylon from "@/assets/sponsors/babylon";
 import babylonWeb from "@/assets/sponsors/babylon-web.webp";
-import Olas from "@/assets/sponsors/olas";
-import olasWeb from "@/assets/sponsors/olas-web.webp";
+// import Olas from "@/assets/sponsors/olas";
+// import olasWeb from "@/assets/sponsors/olas-web.webp";
 import Taikai from "@/assets/sponsors/taikai";
 import taikaiWeb from "@/assets/sponsors/taikai-web.webp";
 import Rise from "@/assets/sponsors/rise";
@@ -96,15 +96,15 @@ const sponsors: Sponsor[] = [
     category: "hackathon",
     size: "medium",
   },
-  {
-    name: "Olas",
-    logo: Olas,
-    hoverImage: olasWeb,
-    website: "https://olas.network",
-    tier: "gold",
-    category: "hackathon",
-    size: "medium",
-  },
+  // {
+  //   name: "Olas",
+  //   logo: Olas,
+  //   hoverImage: olasWeb,
+  //   website: "https://olas.network",
+  //   tier: "gold",
+  //   category: "hackathon",
+  //   size: "medium",
+  // },
   {
     name: "Taikai",
     logo: Taikai,
