@@ -9,6 +9,8 @@ import Metahub from "@/assets/partners/metahub";
 import Zukas from "@/assets/partners/zukas";
 import CrpytoDataSpace from "@/assets/partners/cryptodata";
 import Coinzonia from "@/assets/partners/coinzonia";
+import EthBelgrade from "@/assets/partners/ethbelgrade";
+import EthCluj from "@/assets/partners/ethcluj";
 
 interface Partner {
   name: string;
@@ -63,6 +65,16 @@ const communityPartners: Partner[] = [
     logo: Zukas,
     website: "",
   },
+  {
+    name: "ETH Belgrade",
+    logo: EthBelgrade,
+    website: "https://ethbelgrade.rs/",
+  },
+  {
+    name: "ETHCluj",
+    logo: EthCluj,
+    website: "https://www.ethcluj.org/",
+  }
 ];
 
 const mediaPartners: Partner[] = [

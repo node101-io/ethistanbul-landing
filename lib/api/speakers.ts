@@ -17,6 +17,9 @@ import Sami from "@/assets/contributors/speakers/sami.jpg";
 import DefiDave from "@/assets/contributors/speakers/defi_dave.jpg";
 import FurkanDogan from "@/assets/contributors/speakers/furkan_dogan.jpg";
 import DavidTSE from "@/assets/contributors/speakers/david_tse.jpg";
+import BurakOz from "@/assets/contributors/speakers/burak_oz.jpg";
+import BerkaySecil from "@/assets/contributors/speakers/berkay_secil.jpg";
+import ToghrulMaharramov from "@/assets/contributors/speakers/toghrul_maharramov.jpg";
 
 export interface Speaker {
   name: string;
@@ -51,6 +54,9 @@ const speakerImageMap: Record<string, StaticImageData> = {
   "Defi Dave": DefiDave,
   "Furkan Doğan": FurkanDogan,
   "David TSE": DavidTSE,
+  "Burak Öz": BurakOz,
+  "Berkay Seçil": BerkaySecil,
+  "Toghrul Maharramov": ToghrulMaharramov,
 };
 
 export async function fetchSpeakersData(): Promise<SpeakersApiResponse> {
@@ -78,7 +84,7 @@ export async function fetchSpeakersData(): Promise<SpeakersApiResponse> {
       twitter: row['TWITTER URL'] || undefined,
       linkedin: row['LINKEDIN URL'] || undefined,
     };
-  });
+  }).sort((a, b) => a.name.localeCompare(b.name));
 
   return {
     speakers,
