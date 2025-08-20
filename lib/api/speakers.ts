@@ -6,7 +6,7 @@ import AkakiMamageishvili from "@/assets/contributors/speakers/akaki_mamageishvi
 import DanMills from "@/assets/contributors/speakers/dan_mills.png";
 import FilipPajic from "@/assets/contributors/speakers/filip_pajic.png";
 import MartinetLee from "@/assets/contributors/speakers/martinet_lee.png";
-import MelikeKececioglu from "@/assets/contributors/speakers/melike_kececioglu.png";
+import MelikeKecelioglu from "@/assets/contributors/speakers/melike_kecelioglu.png";
 import Miszke from "@/assets/contributors/speakers/miszke.png";
 import IstvanAndreasSeres from "@/assets/contributors/speakers/istvan_andreas_seres.png";
 import AhmadBitar from "@/assets/contributors/speakers/ahmad_bitar.jpg";
@@ -43,7 +43,7 @@ const speakerImageMap: Record<string, StaticImageData> = {
   "Dan Mills": DanMills,
   "Filip Pajić": FilipPajic,
   "Martinet Lee": MartinetLee,
-  "Melike Keçecioğlu": MelikeKececioglu,
+  "Melike Keçelioğlu": MelikeKecelioglu,
   "Miszke": Miszke,
   "Istvan Andreas Seres": IstvanAndreasSeres,
   "Ahmad Bitar": AhmadBitar,
