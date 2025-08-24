@@ -14,7 +14,6 @@ interface FAQItem {
 const FAQ = () => {
     const [activeCategory, setActiveCategory] = useState<Category>(qa[0].title);
 
-    // Her kategorinin ilk sorusunu açık olarak ayarla
     const initialActiveQuestions = qa.reduce((acc, section) => {
         if (section.items.length > 0) {
             acc[section.items[0].question] = true;
@@ -33,27 +32,45 @@ const FAQ = () => {
         }));
     };
 
-    // URL'leri tespit edip link haline getiren fonksiyon
     const renderTextWithLinks = (text: string) => {
-        const urlRegex = /(https?:\/\/[^\s]+)/g;
-        const parts = text.split(urlRegex);
+        const markdownLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+        const parts = [];
+        let lastIndex = 0;
+        let match;
 
-        return parts.map((part, index) => {
-            if (part.match(urlRegex)) {
-                return (
+        while ((match = markdownLinkRegex.exec(text)) !== null) {
+            // Add text before the link
+            if (match.index > lastIndex) {
+                parts.push(text.substring(lastIndex, match.index));
+            }
+
+            // Add the link component
+            const linkText = match[1];
+            const url = match[2];
+
+            if (url.startsWith("http")) {
+                parts.push(
                     <a
-                        key={index}
-                        href={part}
+                        key={parts.length}
+                        href={url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-black hover:text-gray-600 transition-colors duration-300"
+                        className="text-black hover:text-gray-600 transition-colors duration-300 underline"
                     >
-                        {part}
+                        {linkText}
                     </a>
                 );
             }
-            return part;
-        });
+
+            lastIndex = markdownLinkRegex.lastIndex;
+        }
+
+        // Add remaining text after the last link
+        if (lastIndex < text.length) {
+            parts.push(text.substring(lastIndex));
+        }
+
+        return parts.length > 0 ? parts : text;
     };
 
     const categories: Category[] = qa.map((section) => section.title);
