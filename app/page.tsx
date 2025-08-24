@@ -8,22 +8,22 @@ import FooterImage from "@/components/FooterImage";
 import ClientPageWrapper from "@/components/ClientPageWrapper";
 
 export default function Home() {
-  return (
-    <ClientPageWrapper>
-      <main className="relative">
-        <HeroSection />
-        <ContributorsWrapper />
-        <Sponsors />
-        <Partners />
-        <FAQ />
+    return (
+        <ClientPageWrapper>
+            <main className="relative">
+                <HeroSection />
+                <ContributorsWrapper />
+                <Sponsors />
+                <Partners />
+                <FAQ />
 
-        <div className="relative bg-[#D5FFCA]">
-          <FooterImage />
-          <div className="relative">
-            <Footer />
-          </div>
-        </div>
-      </main>
-    </ClientPageWrapper>
-  );
+                <div className="relative bg-[#D5FFCA]">
+                    <FooterImage />
+                    <div className="relative">
+                        <Footer />
+                    </div>
+                </div>
+            </main>
+        </ClientPageWrapper>
+    );
 }

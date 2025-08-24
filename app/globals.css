@@ -1,203 +1,210 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #ffffff;
+    --foreground: #171717;
 
-  /* Brand color palette */
-  --brand-purple: #d1baff; /* DEX D1BAFF */
-  --brand-green: #c0fab2; /* DEX C0FAB2 */
-  --brand-orange: #ffa988; /* DEX FFA988 */
-  --brand-blue: #82c3ff; /* DEX 82C3FF */
-  --brand-pink: #f7a7e1; /* DEX F7A7E1 */
+    /* Brand color palette */
+    --brand-purple: #d1baff; /* DEX D1BAFF */
+    --brand-green: #c0fab2; /* DEX C0FAB2 */
+    --brand-orange: #ffa988; /* DEX FFA988 */
+    --brand-blue: #82c3ff; /* DEX 82C3FF */
+    --brand-pink: #f7a7e1; /* DEX F7A7E1 */
 }
 
 body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    to bottom,
-    var(--brand-purple),
-    var(--brand-purple)
-  );
-  z-index: -1;
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to bottom,
+        var(--brand-purple),
+        var(--brand-purple)
+    );
+    z-index: -1;
 }
 
 @font-face {
-  font-family: "Darker_Grotesque";
-  src: url("/fonts/DarkerGrotesque.ttf") format("truetype");
+    font-family: "Darker_Grotesque";
+    src: url("/fonts/DarkerGrotesque.ttf") format("truetype");
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  cursor: url("/ui/cursour.svg") 8 8, auto;
-  font-family: "Darker_Grotesque", Arial, Helvetica, sans-serif;
-  overscroll-behavior-y: none;
+    background: var(--background);
+    color: var(--foreground);
+    cursor: url("/ui/cursour.svg") 8 8, auto;
+    font-family: "Darker_Grotesque", Arial, Helvetica, sans-serif;
+    overscroll-behavior-y: none;
 }
 
 #scrollable {
-  overscroll-behavior-y: none;
+    overscroll-behavior-y: none;
 }
 
 a,
 button,
 input,
 .pointer-cursor {
-  cursor: url("/ui/cursour.svg") 8 8, auto !important;
+    cursor: url("/ui/cursour.svg") 8 8, auto !important;
 }
 
 section {
-  scroll-margin-top: 100px;
+    scroll-margin-top: 100px;
 }
 
 .ticker-container {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
 }
 
 .ticker-track {
-  display: flex;
-  width: fit-content;
-  animation: ticker 30s linear infinite;
+    display: flex;
+    width: fit-content;
+    animation: ticker 30s linear infinite;
 }
 
 .ticker-track:hover {
-  animation-play-state: paused;
+    animation-play-state: paused;
 }
 
 .ticker-content {
-  display: flex;
-  white-space: nowrap;
+    display: flex;
+    white-space: nowrap;
 }
 
 .ticker-item {
-  display: inline-block;
-  padding: 0 1rem;
-  text-align: center;
-  font-size: 1rem;
-  color: rgb(55, 65, 81);
+    display: inline-block;
+    padding: 0 1rem;
+    text-align: center;
+    font-size: 1rem;
+    color: rgb(55, 65, 81);
 }
 
 @media (min-width: 640px) {
-  .ticker-item {
-    font-size: 1.25rem;
-  }
+    .ticker-item {
+        font-size: 1.25rem;
+    }
 }
 
 @media (min-width: 768px) {
-  .ticker-item {
-    font-size: 1rem;
-  }
+    .ticker-item {
+        font-size: 1rem;
+    }
 }
 
 @keyframes ticker {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 .noscrollbar {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 .noscrollbar::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 @layer utilities {
-  .no-scroll {
+    .no-scroll {
+        overflow: hidden;
+        height: 100vh;
+        touch-action: none;
+        -ms-touch-action: none;
+    }
+
+    .line-clamp-2 {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
+}
+
+.intro-introduction {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 99;
+    background-color: #d1baff;
+}
+
+.intro-svg {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: calc(100% + 300px);
+}
+
+.intro-path {
+    fill: #d1baff;
+}
+
+body.no-scroll {
     overflow: hidden;
     height: 100vh;
     touch-action: none;
     -ms-touch-action: none;
-  }
-}
-
-.intro-introduction {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  z-index: 99;
-  background-color: #d1baff;
-}
-
-.intro-svg {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: calc(100% + 300px);
-}
-
-.intro-path {
-  fill: #d1baff;
-}
-
-body.no-scroll {
-  overflow: hidden;
-  height: 100vh;
-  touch-action: none;
-  -ms-touch-action: none;
-  position: fixed;
-  width: 100%;
+    position: fixed;
+    width: 100%;
 }
 
 /* pull to reveal cat */
 :root {
-  --pull-max-distance: 120px;
-  --pull-indicator-size: 140px;
-  --pull-damping: 0.5;
-  --transition-duration: 0.3s;
-  --transition-timing: ease-out;
-  --indicator-color: #ff4444;
+    --pull-max-distance: 120px;
+    --pull-indicator-size: 140px;
+    --pull-damping: 0.5;
+    --transition-duration: 0.3s;
+    --transition-timing: ease-out;
+    --indicator-color: #ff4444;
 }
 
 .pull-container {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .pullable {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  will-change: transform;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    will-change: transform;
 }
 
 .pull-indicator {
-  position: fixed;
-  top: calc(-1 * var(--pull-indicator-size) / 2);
-  left: 10%;
-  transform: translateX(-50%);
-  z-index: 9999;
-  opacity: 0;
-  transition: opacity var(--transition-duration) var(--transition-timing);
-  pointer-events: none;
+    position: fixed;
+    top: calc(-1 * var(--pull-indicator-size) / 2);
+    left: 10%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity var(--transition-duration) var(--transition-timing);
+    pointer-events: none;
 }
 
 .pullable.pulling .pull-indicator {
-  opacity: 1;
+    opacity: 1;
 }
 
 .pull-container nav[class*="fixed"] {
-  position: fixed !important;
-  z-index: 9998 !important;
+    position: fixed !important;
+    z-index: 9998 !important;
 }
 /*
 #scrollable::-webkit-scrollbar {
@@ -211,7 +218,7 @@ body.no-scroll {
 } */
 
 @media (max-width: 768px) {
-  :root {
-    --pull-max-distance: 80px;
-  }
+    :root {
+        --pull-max-distance: 80px;
+    }
 }
