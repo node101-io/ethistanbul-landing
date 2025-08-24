@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -133,7 +132,7 @@ const Schedule = () => {
                                                     ) : (
                                                         <div className="flex items-center gap-3 h-full">
                                                             <div className="flex-1 min-w-0">
-                                                                <h4 className="text-sm font-semibold text-gray-900 mb-1">
+                                                                <h4 className="text-sm font-semibold text-black mb-1">
                                                                     {
                                                                         event.title
                                                                     }
@@ -274,7 +273,7 @@ const Schedule = () => {
                                                     ) : (
                                                         <div className="flex items-center gap-3 h-full">
                                                             <div className="flex-1 min-w-0">
-                                                                <h4 className="text-sm font-semibold text-gray-900 mb-1">
+                                                                <h4 className="text-sm font-semibold text-black mb-1">
                                                                     {
                                                                         event.title
                                                                     }
