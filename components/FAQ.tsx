@@ -33,6 +33,29 @@ const FAQ = () => {
         }));
     };
 
+    // URL'leri tespit edip link haline getiren fonksiyon
+    const renderTextWithLinks = (text: string) => {
+        const urlRegex = /(https?:\/\/[^\s]+)/g;
+        const parts = text.split(urlRegex);
+
+        return parts.map((part, index) => {
+            if (part.match(urlRegex)) {
+                return (
+                    <a
+                        key={index}
+                        href={part}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-black hover:text-gray-600 transition-colors duration-300"
+                    >
+                        {part}
+                    </a>
+                );
+            }
+            return part;
+        });
+    };
+
     const categories: Category[] = qa.map((section) => section.title);
 
     const questionsData: Record<Category, FAQItem[]> = qa.reduce(
@@ -129,7 +152,32 @@ const FAQ = () => {
                                                         className="overflow-hidden"
                                                     >
                                                         <p className="pb-6 text-gray-700">
-                                                            {item.answer}
+                                                            {item.answer
+                                                                .split("\n")
+                                                                .map(
+                                                                    (
+                                                                        line,
+                                                                        i
+                                                                    ) => (
+                                                                        <React.Fragment
+                                                                            key={
+                                                                                i
+                                                                            }
+                                                                        >
+                                                                            {renderTextWithLinks(
+                                                                                line
+                                                                            )}
+                                                                            {i <
+                                                                                item.answer.split(
+                                                                                    "\n"
+                                                                                )
+                                                                                    .length -
+                                                                                    1 && (
+                                                                                <br />
+                                                                            )}
+                                                                        </React.Fragment>
+                                                                    )
+                                                                )}
                                                         </p>
                                                     </motion.div>
                                                 )}
