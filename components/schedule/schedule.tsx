@@ -11,36 +11,6 @@ import scheduleData, {
 const Schedule = () => {
     const [selectedDay, setSelectedDay] = useState<number>(0);
 
-    const getEventTypeColor = (type: string) => {
-        switch (type) {
-            case "break":
-                return "bg-gray-200 text-gray-700";
-            case "panel":
-                return "bg-blue-100 text-blue-800";
-            case "opening":
-                return "bg-green-100 text-green-800";
-            case "closing":
-                return "bg-red-100 text-red-800";
-            default:
-                return "bg-purple-100 text-purple-800";
-        }
-    };
-
-    const getEventTypeLabel = (type: string) => {
-        switch (type) {
-            case "break":
-                return "BREAK";
-            case "panel":
-                return "PANEL";
-            case "opening":
-                return "OPENING";
-            case "closing":
-                return "CLOSING";
-            default:
-                return "TALK";
-        }
-    };
-
     return (
         <section className="pt-16 pb-20 md:pt-24 md:pb-32 bg-white overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
