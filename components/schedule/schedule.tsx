@@ -65,7 +65,7 @@ const Schedule = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.2 }}
-                    className="bg-white border border-black overflow-hidden rounded-2xl"
+                    className="bg-white border border-black border-b-0 border-t-0 overflow-hidden rounded-2xl"
                 >
                     {/* Day Selector - Top part with rounded top corners */}
                     <div className="bg-gray-100 rounded-t-2xl border-none">
@@ -74,11 +74,13 @@ const Schedule = () => {
                                 <div key={day.day} className="relative">
                                     <button
                                         onClick={() => setSelectedDay(index)}
-                                        className={`w-full h-full transition-all duration-300 flex flex-col items-start justify-center pl-5 py-3 border-1 border-black ${
+                                        className={`w-full h-full transition-all duration-300 flex flex-col items-start justify-center pl-5 py-3 border border-black ${
                                             selectedDay === index
-                                                ? "bg-[#D1BAFF] text-blac z-10"
+                                                ? "bg-[#D1BAFF] text-black z-10"
                                                 : "bg-white text-gray-700 hover:bg-gray-100"
-                                        } ${index > 0 ? "border-l-0" : ""}`}
+                                        } ${index === 0 ? "border-l-0" : ""} ${
+                                            index === 2 ? "border-r-0" : ""
+                                        } ${index === 1 ? "border-x-0" : ""}`}
                                     >
                                         <span className="text-md">
                                             {index === 0
