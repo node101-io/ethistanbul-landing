@@ -5,7 +5,7 @@ import Image from "next/image";
 import scheduleData, {
     DaySchedule,
     ScheduleEvent,
-} from "@/lib/contributors/schedule";
+} from "@/lib/schedule/schedule";
 
 const Schedule = () => {
     const [selectedDay, setSelectedDay] = useState<number>(0);
