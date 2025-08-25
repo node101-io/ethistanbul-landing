@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import SponsorLogo from "@/components/schedule/SponsorLogo";
 import { DaySchedule, ScheduleEvent } from "@/lib/schedule/schedule";
 
 interface DesktopScheduleTableProps {
@@ -110,30 +111,26 @@ const DesktopScheduleTable = ({
                                                     {event.logo &&
                                                         !event.speaker
                                                             ?.logo && (
-                                                            <div className="w-20 h-16 relative">
-                                                                <Image
-                                                                    src={
+                                                            <div className="w-20 h-16 flex items-center justify-center">
+                                                                <SponsorLogo
+                                                                    logo={
                                                                         event.logo
                                                                     }
-                                                                    alt="Logo"
-                                                                    fill
-                                                                    className="object-contain"
+                                                                    className="w-full h-full"
                                                                 />
                                                             </div>
                                                         )}
                                                     <div className="flex-shrink-0">
                                                         {event.speaker
                                                             ?.logo && (
-                                                            <div className="w-20 h-16 relative">
-                                                                <Image
-                                                                    src={
+                                                            <div className="w-20 h-16 flex items-center justify-center">
+                                                                <SponsorLogo
+                                                                    logo={
                                                                         event
                                                                             .speaker
                                                                             .logo
                                                                     }
-                                                                    alt="Logo"
-                                                                    fill
-                                                                    className="object-contain"
+                                                                    className="w-full h-full"
                                                                 />
                                                             </div>
                                                         )}
@@ -269,30 +266,26 @@ const DesktopScheduleTable = ({
                                                         {event.logo &&
                                                             !event.speaker
                                                                 ?.logo && (
-                                                                <div className="w-20 h-16 relative">
-                                                                    <Image
-                                                                        src={
+                                                                <div className="w-20 h-16 flex items-center justify-center">
+                                                                    <SponsorLogo
+                                                                        logo={
                                                                             event.logo
                                                                         }
-                                                                        alt="Logo"
-                                                                        fill
-                                                                        className="object-contain"
+                                                                        className="w-full h-full"
                                                                     />
                                                                 </div>
                                                             )}
                                                         <div className="flex-shrink-0">
                                                             {event.speaker
                                                                 ?.logo && (
-                                                                <div className="w-20 h-16 relative">
-                                                                    <Image
-                                                                        src={
+                                                                <div className="w-20 h-16 flex items-center justify-center">
+                                                                    <SponsorLogo
+                                                                        logo={
                                                                             event
                                                                                 .speaker
                                                                                 .logo
                                                                         }
-                                                                        alt="Logo"
-                                                                        fill
-                                                                        className="object-contain"
+                                                                        className="w-full h-full"
                                                                     />
                                                                 </div>
                                                             )}

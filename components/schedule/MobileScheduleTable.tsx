@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import SponsorLogo from "@/components/schedule/SponsorLogo";
 import { DaySchedule, ScheduleEvent } from "@/lib/schedule/schedule";
 
 interface MobileScheduleTableProps {
@@ -92,22 +93,18 @@ const MobileScheduleTable = ({
                                             </div>
                                         )}
                                         {event.speaker?.logo && (
-                                            <div className="w-16 h-12 relative">
-                                                <Image
-                                                    src={event.speaker.logo}
-                                                    alt="Logo"
-                                                    fill
-                                                    className="object-contain"
+                                            <div className="w-16 h-12 flex items-center justify-center">
+                                                <SponsorLogo
+                                                    logo={event.speaker.logo}
+                                                    className="w-full h-full"
                                                 />
                                             </div>
                                         )}
                                         {event.logo && !event.speaker?.logo && (
-                                            <div className="w-16 h-12 relative">
-                                                <Image
-                                                    src={event.logo}
-                                                    alt="Logo"
-                                                    fill
-                                                    className="object-contain"
+                                            <div className="w-16 h-12 flex items-center justify-center">
+                                                <SponsorLogo
+                                                    logo={event.logo}
+                                                    className="w-full h-full"
                                                 />
                                             </div>
                                         )}
@@ -220,15 +217,13 @@ const MobileScheduleTable = ({
                                                     </div>
                                                 )}
                                                 {event.speaker?.logo && (
-                                                    <div className="w-16 h-12 relative">
-                                                        <Image
-                                                            src={
+                                                    <div className="w-16 h-12 flex items-center justify-center">
+                                                        <SponsorLogo
+                                                            logo={
                                                                 event.speaker
                                                                     .logo
                                                             }
-                                                            alt="Logo"
-                                                            fill
-                                                            className="object-contain"
+                                                            className="w-full h-full"
                                                         />
                                                     </div>
                                                 )}
@@ -343,15 +338,13 @@ const MobileScheduleTable = ({
                                                     </div>
                                                 )}
                                                 {event.speaker?.logo && (
-                                                    <div className="w-12 h-8 relative">
-                                                        <Image
-                                                            src={
+                                                    <div className="w-12 h-8 flex items-center justify-center">
+                                                        <SponsorLogo
+                                                            logo={
                                                                 event.speaker
                                                                     .logo
                                                             }
-                                                            alt="Logo"
-                                                            fill
-                                                            className="object-contain"
+                                                            className="w-full h-full"
                                                         />
                                                     </div>
                                                 )}
