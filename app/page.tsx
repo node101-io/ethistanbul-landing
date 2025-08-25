@@ -1,6 +1,7 @@
 import ContributorsWrapper from "@/components/contributors/ContributorsWrapper";
 import FAQ from "@/components/FAQ";
 import HeroSection from "@/components/hero-section";
+import Schedule from "@/components/schedule/schedule";
 import Footer from "@/components/footer";
 import Partners from "@/components/partners/partners";
 import Sponsors from "@/components/sponsors/sponsors";
@@ -12,6 +13,7 @@ export default function Home() {
         <ClientPageWrapper>
             <main className="relative">
                 <HeroSection />
+                <Schedule />
                 <ContributorsWrapper />
                 <Sponsors />
                 <Partners />

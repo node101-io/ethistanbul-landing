@@ -82,7 +82,7 @@ const Navbar = ({ position }: { position?: string }) => {
         },
         {
             label: "Schedule",
-            href: "/schedule",
+            href: "#schedule",
         },
         {
             label: "Speakers",
