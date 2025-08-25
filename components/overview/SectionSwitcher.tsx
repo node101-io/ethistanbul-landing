@@ -143,8 +143,12 @@ const SectionSwitcher: React.FC<SectionSwitcherProps> = ({
                 ) : (
                   <div>
                     <p className="text-base sm:text-lg">Available in prizes</p>
-                    <p className="text-xl sm:text-2xl md:text-3xl text-purple-600 font-bold">
-                      TBA
+                    <p className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-purple-600 font-bold">
+                      $
+                      <CountUp end={25000} duration={1.2} separator="." />
+                    </p>
+                    <p className="text-sm sm:text-base md:text-lg text-purple-600">
+                      in Prizes and more to come
                     </p>
                   </div>
                 )}
