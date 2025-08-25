@@ -110,7 +110,7 @@ const DesktopScheduleTable = ({
                                                     {event.logo &&
                                                         !event.speaker
                                                             ?.logo && (
-                                                            <div className="w-20 h-16 flex items-center justify-center">
+                                                            <div className="w-16 h-12 flex items-center justify-center">
                                                                 <SponsorLogo
                                                                     logo={
                                                                         event.logo
@@ -122,7 +122,7 @@ const DesktopScheduleTable = ({
                                                     <div className="flex-shrink-0">
                                                         {event.speaker
                                                             ?.logo && (
-                                                            <div className="w-20 h-16 flex items-center justify-center">
+                                                            <div className="w-16 h-12 flex items-center justify-center">
                                                                 <SponsorLogo
                                                                     logo={
                                                                         event
@@ -281,7 +281,7 @@ const DesktopScheduleTable = ({
                                                         {row.stageA.logo &&
                                                             !row.stageA.speaker
                                                                 ?.logo && (
-                                                                <div className="w-20 h-16 flex items-center justify-center">
+                                                                <div className="w-16 h-12 flex items-center justify-center">
                                                                     <SponsorLogo
                                                                         logo={
                                                                             row
@@ -295,7 +295,7 @@ const DesktopScheduleTable = ({
                                                         <div className="flex-shrink-0">
                                                             {row.stageA.speaker
                                                                 ?.logo && (
-                                                                <div className="w-20 h-16 flex items-center justify-center">
+                                                                <div className="w-16 h-12 flex items-center justify-center">
                                                                     <SponsorLogo
                                                                         logo={
                                                                             row
@@ -360,7 +360,7 @@ const DesktopScheduleTable = ({
                                                                     {row.stageB
                                                                         .speaker
                                                                         ?.image && (
-                                                                        <div className="w-6 h-6 rounded-full overflow-hidden flex-shrink-0">
+                                                                        <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
                                                                             <Image
                                                                                 src={
                                                                                     row

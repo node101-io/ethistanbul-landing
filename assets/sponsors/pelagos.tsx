@@ -6,6 +6,8 @@ const SVGComponent = ({
     ...props
 }: { fill?: string; isHovered?: boolean } & React.SVGProps<SVGSVGElement>) => (
     <svg
+        width="48"
+        height="36"
         viewBox="0 0 55 50"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
