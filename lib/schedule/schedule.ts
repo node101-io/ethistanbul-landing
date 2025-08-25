@@ -8,19 +8,40 @@ import DavidTSE from "@/assets/contributors/speakers/david_tse.jpg";
 import BurakOz from "@/assets/contributors/speakers/burak_oz.jpg";
 import ToghrulMaharramov from "@/assets/contributors/speakers/toghrul_maharramov.jpg";
 import Junger from "@/assets/contributors/mentors/junger.webp";
+import MelikeKecelioglu from "@/assets/contributors/speakers/melike_kecelioglu.png";
+import DonMills from "@/assets/contributors/speakers/dan_mills.png";
+import FilipPajic from "@/assets/contributors/speakers/filip_pajic.png";
+import NickyChalabi from "@/assets/contributors/speakers/nicky_chalabi.jpg";
+import Kassandra from "@/assets/contributors/speakers/kassandra.jpg";
+import DefiDave from "@/assets/contributors/speakers/defi_dave.jpg";
+import FurkanDogan from "@/assets/contributors/speakers/furkan_dogan.jpg";
 
 // Sponsor SVG logos are rendered via components; no direct image imports needed here
 
 export type SponsorLogoKey =
+    | "avail"
+    | "cap"
+    | "lighter"
+    | "pelagos"
+    | "status"
     | "aptos"
+    | "aztec"
     | "babylon"
+    | "bme"
     | "bybit"
     | "citrea"
+    | "flashbots"
+    | "fluent"
     | "ledger"
+    | "megaeth"
     | "olas"
+    | "offchain"
+    | "piku"
     | "rise"
+    | "spire"
     | "taikai"
     | "yellow"
+    | "zircuit"
     | "";
 
 export interface ScheduleEvent {
@@ -35,7 +56,7 @@ export interface ScheduleEvent {
         image: string;
     };
     logo?: SponsorLogoKey;
-    type: "talk" | "break" | "panel" | "opening" | "closing" | "hackathon";
+    type: "talk" | "break" | "panel" | "opening" | "closing" | "hackathon" | "";
     stage?: "A" | "B"; // Made optional since hackathon days won't have stages
 }
 
@@ -57,7 +78,7 @@ export const scheduleData: DaySchedule[] = [
                 duration: "20 mins",
                 title: "OPENING",
                 speaker: {
-                    name: "Jonger",
+                    name: "Jünger",
                     title: "",
                     logo: "rise",
                     image: Junger.src,
@@ -71,9 +92,9 @@ export const scheduleData: DaySchedule[] = [
                 duration: "20 mins",
                 title: "PRACTICAL PRIVACY",
                 speaker: {
-                    name: "Arnoud Schenk",
+                    name: "Arnaud Schenk",
                     title: "Co-Founder",
-                    logo: "aptos",
+                    logo: "aztec",
                     image: ArnaudSchenk.src,
                 },
                 type: "talk",
@@ -87,7 +108,7 @@ export const scheduleData: DaySchedule[] = [
                 speaker: {
                     name: "Miszke",
                     title: "",
-                    logo: "taikai",
+                    logo: "spire",
                     image: Miszke.src,
                 },
                 type: "talk",
@@ -101,7 +122,7 @@ export const scheduleData: DaySchedule[] = [
                 speaker: {
                     name: "Akaki Mamageishvili",
                     title: "Researcher",
-                    logo: "aptos",
+                    logo: "offchain",
                     image: AkakiMamageishvili.src,
                 },
                 type: "talk",
@@ -115,7 +136,7 @@ export const scheduleData: DaySchedule[] = [
                 speaker: {
                     name: "Toghrul Maharramov",
                     title: "Researcher",
-                    logo: "taikai",
+                    logo: "fluent",
                     image: ToghrulMaharramov.src,
                 },
                 type: "talk",
@@ -137,7 +158,7 @@ export const scheduleData: DaySchedule[] = [
                 speaker: {
                     name: "Sami",
                     title: "DevRel",
-                    logo: "aptos",
+                    logo: "megaeth",
                     image: Sami.src,
                 },
                 type: "talk",
@@ -151,7 +172,7 @@ export const scheduleData: DaySchedule[] = [
                 speaker: {
                     name: "Burak Öz",
                     title: "Researcher",
-                    logo: "taikai",
+                    logo: "flashbots",
                     image: BurakOz.src,
                 },
                 type: "talk",
@@ -165,7 +186,7 @@ export const scheduleData: DaySchedule[] = [
                 speaker: {
                     name: "Istvan Andreas Seres",
                     title: "PhD",
-                    logo: "aptos",
+                    logo: "bme",
                     image: IstvanAndreasSeres.src,
                 },
                 type: "talk",
@@ -179,7 +200,7 @@ export const scheduleData: DaySchedule[] = [
                 speaker: {
                     name: "Martinet Lee",
                     title: "Head of DevRel",
-                    logo: "taikai",
+                    logo: "zircuit",
                     image: MartinetLee.src,
                 },
                 type: "talk",
@@ -196,7 +217,7 @@ export const scheduleData: DaySchedule[] = [
             {
                 id: "12",
                 time: "03:00 pm",
-                duration: "40 mins",
+                duration: "20 mins",
                 title: "TBA",
                 speaker: {
                     name: "David TSE",
@@ -222,7 +243,7 @@ export const scheduleData: DaySchedule[] = [
                 duration: "40 mins",
                 title: "BITCOIN DEFI",
                 speaker: {
-                    name: "Mara, Best in Slot, Oyl",
+                    name: "Mora, Best in Slot, Oyl",
                     title: "Panel",
                     logo: "",
                     image: "",
@@ -238,6 +259,177 @@ export const scheduleData: DaySchedule[] = [
                 type: "closing",
                 stage: "A",
             },
+            // Stage B Events - Updated with new events from the image
+            {
+                id: "1",
+                time: "10:00 am",
+                duration: "20 mins",
+                title: "",
+                type: "",
+                stage: "B",
+            },
+            {
+                id: "2",
+                time: "10:20 am",
+                duration: "20 mins",
+                title: "",
+                type: "",
+                stage: "B",
+            },
+            {
+                id: "3",
+                time: "10:40 am",
+                duration: "20 mins",
+                title: "AI X STABLECOINS",
+                speaker: {
+                    name: "Melike Keçelioglu",
+                    title: "Technical Lead",
+                    logo: "piku",
+                    image: MelikeKecelioglu.src,
+                },
+                type: "talk",
+                stage: "B",
+            },
+            {
+                id: "4",
+                time: "11:00 am",
+                duration: "20 mins",
+                title: "UNLOCKING MULTICHAIN LIQUIDITY WITH AVAIL NEXUS",
+                speaker: {
+                    name: "Don Mills",
+                    title: "Product Lead",
+                    logo: "avail",
+                    image: DonMills.src,
+                },
+                type: "talk",
+                stage: "B",
+            },
+            {
+                id: "5",
+                time: "11:20 am",
+                duration: "20 mins",
+                title: "GAS TO ZERO",
+                speaker: {
+                    name: "Filip Pajló",
+                    title: "Engineer",
+                    logo: "status",
+                    image: FilipPajic.src,
+                },
+                type: "talk",
+                stage: "B",
+            },
+            {
+                id: "6",
+                time: "11:40 am",
+                duration: "1 hr",
+                title: "BREAK",
+                type: "break",
+                stage: "B",
+            },
+            {
+                id: "7",
+                time: "12:40 pm",
+                duration: "20 mins",
+                title: "PERMISSIONED SHARDS MEET PUBLIC DEFI: ATOMIC SETTLEMENT IN <1S",
+                speaker: {
+                    name: "Nicky Chelebi",
+                    title: "CBO",
+                    logo: "pelagos",
+                    image: NickyChalabi.src,
+                },
+                type: "talk",
+                stage: "B",
+            },
+            {
+                id: "8",
+                time: "01:00 pm",
+                duration: "20 mins",
+                title: "WALLETS 2.0: THE NEXT GENERATION OF ETHEREUM USER EXPERIENCE",
+                speaker: {
+                    name: "Kassandra",
+                    title: "Engineer",
+                    logo: "",
+                    image: Kassandra.src,
+                },
+                type: "talk",
+                stage: "B",
+            },
+            {
+                id: "9",
+                time: "01:20 pm",
+                duration: "20 mins",
+                title: "THE DAWN OF TYPE III STABLECOINS",
+                speaker: {
+                    name: "Defi Dave",
+                    title: "Head of Growth",
+                    logo: "cap",
+                    image: DefiDave.src,
+                },
+                type: "talk",
+                stage: "B",
+            },
+            {
+                id: "10",
+                time: "01:40 pm",
+                duration: "20 mins",
+                title: "SCALING PERPETUAL TRADING WITH ZK PROOFS",
+                speaker: {
+                    name: "Furkan Doğan",
+                    title: "Product Lead",
+                    logo: "lighter",
+                    image: FurkanDogan.src,
+                },
+                type: "talk",
+                stage: "B",
+            },
+            {
+                id: "11",
+                time: "02:00 pm",
+                duration: "1 hr",
+                title: "BREAK",
+                type: "break",
+                stage: "B",
+            },
+            {
+                id: "12",
+                time: "03:00 pm",
+                duration: "40 mins",
+                title: "CRYPTO&FINTECH IN TÜRKIYE",
+                speaker: {
+                    name: "Tether, Inverter, Poribu, Fintables",
+                    title: "Panel",
+                    logo: "",
+                    image: "",
+                },
+                type: "panel",
+                stage: "B",
+            },
+            {
+                id: "13",
+                time: "03:40 pm",
+                duration: "20 mins",
+                title: "TBA",
+                logo: "",
+                type: "talk",
+                stage: "B",
+            },
+            {
+                id: "14",
+                time: "04:00 pm",
+                duration: "20 mins",
+                title: "TBA",
+                logo: "ledger",
+                type: "talk",
+                stage: "B",
+            },
+            {
+                id: "15",
+                time: "04:20 pm",
+                duration: "",
+                title: "CLOSING",
+                type: "closing",
+                stage: "B",
+            },
         ],
     },
     {
@@ -246,56 +438,56 @@ export const scheduleData: DaySchedule[] = [
         isHackathon: true,
         events: [
             {
-                id: "16",
+                id: "31",
                 time: "08:00",
                 duration: "",
                 title: "Hackathon registration continues",
                 type: "hackathon",
             },
             {
-                id: "17",
+                id: "32",
                 time: "09:00-11:00",
                 duration: "",
                 title: "Breakfast",
                 type: "hackathon",
             },
             {
-                id: "18",
+                id: "33",
                 time: "10:00-10:30",
                 duration: "",
                 title: "Hackathon Kickoff & Intros",
                 type: "hackathon",
             },
             {
-                id: "19",
+                id: "34",
                 time: "10:30-11:30",
                 duration: "",
                 title: "Brainstorming & Ideation",
                 type: "hackathon",
             },
             {
-                id: "20",
+                id: "35",
                 time: "11:30-20:00",
                 duration: "",
                 title: "Hacking Time",
                 type: "hackathon",
             },
             {
-                id: "21",
+                id: "36",
                 time: "13:00-14:00",
                 duration: "",
                 title: "Lunch",
                 type: "hackathon",
             },
             {
-                id: "22",
+                id: "37",
                 time: "18:00-19:00",
                 duration: "",
                 title: "Dinner",
                 type: "hackathon",
             },
             {
-                id: "23",
+                id: "38",
                 time: "23:00-00:00",
                 duration: "",
                 title: "Late-night snacks",
@@ -309,49 +501,49 @@ export const scheduleData: DaySchedule[] = [
         isHackathon: true,
         events: [
             {
-                id: "24",
+                id: "39",
                 time: "08:00-11:00",
                 duration: "",
                 title: "Breakfast",
                 type: "hackathon",
             },
             {
-                id: "25",
+                id: "40",
                 time: "12:00",
                 duration: "",
                 title: "Project Submissions Due",
                 type: "hackathon",
             },
             {
-                id: "26",
+                id: "41",
                 time: "12:00-14:00",
                 duration: "",
                 title: "Presentations",
                 type: "hackathon",
             },
             {
-                id: "27",
+                id: "42",
                 time: "13:00-15:00",
                 duration: "",
                 title: "Lunch",
                 type: "hackathon",
             },
             {
-                id: "28",
+                id: "43",
                 time: "14:00-16:00",
                 duration: "",
                 title: "Judging",
                 type: "hackathon",
             },
             {
-                id: "29",
+                id: "44",
                 time: "16:00",
                 duration: "",
                 title: "Closing Ceremonies, Winners Announced, Prizes",
                 type: "hackathon",
             },
             {
-                id: "30",
+                id: "45",
                 time: "16:00-18:00",
                 duration: "",
                 title: "Hackathon Ends",

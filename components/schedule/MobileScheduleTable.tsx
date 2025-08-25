@@ -46,7 +46,6 @@ const MobileScheduleTable = ({
                             {/* Event Content - Same structure as conference days */}
                             <div className="col-span-9">
                                 {event.type === "break" ||
-                                event.type === "opening" ||
                                 event.type === "closing" ? (
                                     <div className="text-center py-4">
                                         <span className="text-xl text-black font-semibold">
@@ -162,12 +161,6 @@ const MobileScheduleTable = ({
                                                     CLOSING
                                                 </span>
                                             </div>
-                                        ) : event.type === "opening" ? (
-                                            <div className="text-center py-4">
-                                                <span className="text-xl text-black font-semibold">
-                                                    OPENING
-                                                </span>
-                                            </div>
                                         ) : (
                                             <>
                                                 <h4 className="text-base font-semibold text-black mb-2">
@@ -281,12 +274,6 @@ const MobileScheduleTable = ({
                                             <div className="text-center py-4">
                                                 <span className="text-xl text-black font-semibold">
                                                     CLOSING
-                                                </span>
-                                            </div>
-                                        ) : event.type === "opening" ? (
-                                            <div className="text-center py-4">
-                                                <span className="text-xl text-black font-semibold">
-                                                    OPENING
                                                 </span>
                                             </div>
                                         ) : (
