@@ -35,7 +35,9 @@ const Schedule = () => {
                     className="bg-white border border-black border-b-0 border-t-0 overflow-hidden rounded-2xl"
                 >
                     {/* Day Selector - Top part with rounded top corners */}
-                    <div className="bg-gray-100 rounded-t-2xl border-none">
+                    <div
+                        className="bg-gray-100 rounded-t-2xl border-none"
+                    >
                         {/* Desktop Day Selector */}
                         <div className="hidden md:grid grid-cols-3">
                             {scheduleData.map((day, index) => (
@@ -64,7 +66,7 @@ const Schedule = () => {
                         </div>
 
                         {/* Mobile Day Selector - Scrollable */}
-                        <div className="md:hidden overflow-x-auto border-t-1">
+                        <div className="md:hidden overflow-x-auto border-t-1 noscrollbar">
                             <div className="flex min-w-max px-4 py-3">
                                 {scheduleData.map((day, index) => (
                                     <div

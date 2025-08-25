@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import SponsorLogo from "@/components/schedule/SponsorLogo";
 import { DaySchedule, ScheduleEvent } from "@/lib/schedule/schedule";
@@ -14,6 +14,7 @@ const MobileScheduleTable = ({
 }: MobileScheduleTableProps) => {
     const currentDay = scheduleData[selectedDay];
     const isHackathon = currentDay.isHackathon;
+    const [selectedStage, setSelectedStage] = useState<"A" | "B">("A");
 
     if (isHackathon) {
         // Hackathon days - same layout as conference days but single stage
@@ -117,20 +118,41 @@ const MobileScheduleTable = ({
         );
     }
 
-    // Conference days - dual stage layout
+    // Conference days - stage selector layout
     return (
         <div className="md:hidden">
-            {/* Stage A Events */}
-            <div className="mb-8">
-                <div className="bg-white border-b border-black p-4">
-                    <h3 className="text-xl font-bold text-black text-center">
-                        STAGE A
-                    </h3>
+            {/* Stage Selector */}
+            <div className="bg-gray-100 border-t border-b border-black">
+                <div className="grid grid-cols-2">
+                    <button
+                        onClick={() => setSelectedStage("A")}
+                        className={`w-full transition-all duration-300 flex items-center justify-center py-4 border-r border-black ${
+                            selectedStage === "A"
+                                ? "bg-[#D1BAFF] text-black"
+                                : "bg-white text-gray-700 hover:bg-gray-100"
+                        }`}
+                    >
+                        <span className="text-lg font-semibold">STAGE A</span>
+                    </button>
+                    <button
+                        onClick={() => setSelectedStage("B")}
+                        className={`w-full transition-all duration-300 flex items-center justify-center py-4 ${
+                            selectedStage === "B"
+                                ? "bg-[#D1BAFF] text-black"
+                                : "bg-white text-gray-700 hover:bg-gray-100"
+                        }`}
+                    >
+                        <span className="text-lg font-semibold">STAGE B</span>
+                    </button>
                 </div>
-                {currentDay.events.filter((event) => event.stage === "A")
+            </div>
+
+            {/* Selected Stage Events */}
+            <div>
+                {currentDay.events.filter((event) => event.stage === selectedStage)
                     .length > 0 ? (
                     currentDay.events
-                        .filter((event) => event.stage === "A")
+                        .filter((event) => event.stage === selectedStage)
                         .map((event) => (
                             <div
                                 key={event.id}
@@ -211,121 +233,6 @@ const MobileScheduleTable = ({
                                                 )}
                                                 {event.speaker?.logo && (
                                                     <div className="w-16 h-12 flex items-center justify-center">
-                                                        <SponsorLogo
-                                                            logo={
-                                                                event.speaker
-                                                                    .logo
-                                                            }
-                                                            className="w-full h-full"
-                                                        />
-                                                    </div>
-                                                )}
-                                            </>
-                                        )}
-                                    </div>
-                                </div>
-                            </div>
-                        ))
-                ) : (
-                    <div className="text-center py-4">
-                        <span className="text-xl text-black">
-                            No events scheduled
-                        </span>
-                    </div>
-                )}
-            </div>
-
-            {/* Stage B Events */}
-            <div className="border-y-1">
-                <div className="bg-white border-b border-black p-4">
-                    <h3 className="text-xl font-bold text-black text-center">
-                        STAGE B
-                    </h3>
-                </div>
-                {currentDay.events.filter((event) => event.stage === "B")
-                    .length > 0 ? (
-                    currentDay.events
-                        .filter((event) => event.stage === "B")
-                        .map((event) => (
-                            <div
-                                key={event.id}
-                                className="bg-white border-b border-gray-200 p-4"
-                            >
-                                <div className="grid grid-cols-12 gap-4">
-                                    {/* Time Column */}
-                                    <div className="col-span-3 text-center">
-                                        <div className="text-lg font-semibold text-gray-900">
-                                            {event.time}
-                                        </div>
-                                        <div className="text-sm text-gray-500">
-                                            {event.duration}
-                                        </div>
-                                    </div>
-
-                                    {/* Event Content */}
-                                    <div className="col-span-9">
-                                        {event.type === "break" ? (
-                                            <div className="text-center py-4">
-                                                <span className="text-xl text-black font-semibold">
-                                                    BREAK
-                                                </span>
-                                            </div>
-                                        ) : event.type === "closing" ? (
-                                            <div className="text-center py-4">
-                                                <span className="text-xl text-black font-semibold">
-                                                    CLOSING
-                                                </span>
-                                            </div>
-                                        ) : (
-                                            <>
-                                                <h4 className="text-sm font-semibold text-black mb-2">
-                                                    {event.title}
-                                                </h4>
-                                                {event.speaker && (
-                                                    <div className="flex items-center gap-2 mb-2">
-                                                        {event.speaker
-                                                            ?.image && (
-                                                            <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
-                                                                <Image
-                                                                    src={
-                                                                        event
-                                                                            .speaker
-                                                                            .image
-                                                                    }
-                                                                    alt={
-                                                                        event
-                                                                            .speaker
-                                                                            .name
-                                                                    }
-                                                                    width={32}
-                                                                    height={32}
-                                                                    className="w-full h-full object-cover"
-                                                                />
-                                                            </div>
-                                                        )}
-                                                        <div>
-                                                            <div className="text-xs font-medium text-gray-700">
-                                                                {
-                                                                    event
-                                                                        .speaker
-                                                                        .name
-                                                                }
-                                                            </div>
-                                                            {event.speaker
-                                                                .title && (
-                                                                <div className="text-xs text-gray-500">
-                                                                    {
-                                                                        event
-                                                                            .speaker
-                                                                            .title
-                                                                    }
-                                                                </div>
-                                                            )}
-                                                        </div>
-                                                    </div>
-                                                )}
-                                                {event.speaker?.logo && (
-                                                    <div className="w-12 h-8 flex items-center justify-center">
                                                         <SponsorLogo
                                                             logo={
                                                                 event.speaker
