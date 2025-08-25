@@ -1,3 +1,28 @@
+import AkakiMamageishvili from "@/assets/contributors/speakers/akaki_mamageishvili.png";
+import DanMills from "@/assets/contributors/speakers/dan_mills.png";
+import FilipPajic from "@/assets/contributors/speakers/filip_pajic.png";
+import MartinetLee from "@/assets/contributors/speakers/martinet_lee.png";
+import MelikeKecelioglu from "@/assets/contributors/speakers/melike_kecelioglu.png";
+import Miszke from "@/assets/contributors/speakers/miszke.png";
+import IstvanAndreasSeres from "@/assets/contributors/speakers/istvan_andreas_seres.png";
+import ArnaudSchenk from "@/assets/contributors/speakers/arnaud_schenk.png";
+import NickyChalabi from "@/assets/contributors/speakers/nicky_chalabi.jpg";
+import Kassandra from "@/assets/contributors/speakers/kassandra.jpg";
+import Sami from "@/assets/contributors/speakers/sami.jpg";
+import DefiDave from "@/assets/contributors/speakers/defi_dave.jpg";
+import FurkanDogan from "@/assets/contributors/speakers/furkan_dogan.jpg";
+import DavidTSE from "@/assets/contributors/speakers/david_tse.jpg";
+import BurakOz from "@/assets/contributors/speakers/burak_oz.jpg";
+import ToghrulMaharramov from "@/assets/contributors/speakers/toghrul_maharramov.jpg";
+import Junger from "@/assets/contributors/mentors/junger.webp";
+
+import RiseWeb from "@/assets/sponsors/rise-web.webp";
+import AptosWeb from "@/assets/sponsors/aptos-web.webp";
+import TaikaiWeb from "@/assets/sponsors/taikai-web.webp";
+import BabylonWeb from "@/assets/sponsors/babylon-web.webp";
+import CitreaWeb from "@/assets/sponsors/citrea-web.webp";
+import LedgerWeb from "@/assets/sponsors/ledger-web.webp";
+
 export interface ScheduleEvent {
     id: string;
     time: string;
@@ -33,8 +58,8 @@ export const scheduleData: DaySchedule[] = [
                 speaker: {
                     name: "Jonger",
                     title: "",
-                    logo: "/assets/sponsors/rise-web.webp",
-                    image: "/assets/contributors/speakers/junger.webp",
+                    logo: RiseWeb.src,
+                    image: Junger.src,
                 },
                 type: "opening",
                 stage: "A",
@@ -47,8 +72,8 @@ export const scheduleData: DaySchedule[] = [
                 speaker: {
                     name: "Arnoud Schenk",
                     title: "Co-Founder",
-                    logo: "/assets/sponsors/aptos-web.webp",
-                    image: "/assets/contributors/speakers/arnaud_schenk.png",
+                    logo: AptosWeb.src,
+                    image: ArnaudSchenk.src,
                 },
                 type: "talk",
                 stage: "A",
@@ -61,8 +86,8 @@ export const scheduleData: DaySchedule[] = [
                 speaker: {
                     name: "Miszke",
                     title: "",
-                    logo: "/assets/sponsors/taikai-web.webp",
-                    image: "/assets/contributors/speakers/miszke.png",
+                    logo: TaikaiWeb.src,
+                    image: Miszke.src,
                 },
                 type: "talk",
                 stage: "A",
@@ -75,8 +100,8 @@ export const scheduleData: DaySchedule[] = [
                 speaker: {
                     name: "Akaki Mamageishvili",
                     title: "Researcher",
-                    logo: "/assets/sponsors/aptos-web.webp",
-                    image: "/assets/contributors/speakers/akaki_mamageishvili.png",
+                    logo: AptosWeb.src,
+                    image: AkakiMamageishvili.src,
                 },
                 type: "talk",
                 stage: "A",
@@ -89,8 +114,8 @@ export const scheduleData: DaySchedule[] = [
                 speaker: {
                     name: "Toghrul Maharramov",
                     title: "Researcher",
-                    logo: "/assets/sponsors/taikai-web.webp",
-                    image: "/assets/contributors/speakers/toghrul_maharramov.jpg",
+                    logo: TaikaiWeb.src,
+                    image: ToghrulMaharramov.src,
                 },
                 type: "talk",
                 stage: "A",
@@ -111,8 +136,8 @@ export const scheduleData: DaySchedule[] = [
                 speaker: {
                     name: "Sami",
                     title: "DevRel",
-                    logo: "/assets/sponsors/aptos-web.webp",
-                    image: "/assets/contributors/speakers/sami.jpg",
+                    logo: AptosWeb.src,
+                    image: Sami.src,
                 },
                 type: "talk",
                 stage: "A",
@@ -125,8 +150,8 @@ export const scheduleData: DaySchedule[] = [
                 speaker: {
                     name: "Burak Öz",
                     title: "Researcher",
-                    logo: "/assets/sponsors/taikai-web.webp",
-                    image: "/assets/contributors/speakers/burak_oz.jpg",
+                    logo: TaikaiWeb.src,
+                    image: BurakOz.src,
                 },
                 type: "talk",
                 stage: "A",
@@ -139,8 +164,8 @@ export const scheduleData: DaySchedule[] = [
                 speaker: {
                     name: "Istvan Andreas Seres",
                     title: "PhD",
-                    logo: "/assets/sponsors/aptos-web.webp",
-                    image: "/assets/contributors/speakers/istvanandreas_seres.png",
+                    logo: AptosWeb.src,
+                    image: IstvanAndreasSeres.src,
                 },
                 type: "talk",
                 stage: "A",
@@ -153,8 +178,8 @@ export const scheduleData: DaySchedule[] = [
                 speaker: {
                     name: "Martinet Lee",
                     title: "Head of DevRel",
-                    logo: "/assets/sponsors/taikai-web.webp",
-                    image: "/assets/contributors/speakers/martinet_lee.png",
+                    logo: TaikaiWeb.src,
+                    image: MartinetLee.src,
                 },
                 type: "talk",
                 stage: "A",
@@ -175,8 +200,8 @@ export const scheduleData: DaySchedule[] = [
                 speaker: {
                     name: "David TSE",
                     title: "Co-founder",
-                    logo: "/assets/sponsors/babylon-web.webp",
-                    image: "/assets/contributors/speakers/david_tse.jpg",
+                    logo: BabylonWeb.src,
+                    image: DavidTSE.src,
                 },
                 type: "talk",
                 stage: "A",
@@ -186,7 +211,7 @@ export const scheduleData: DaySchedule[] = [
                 time: "03:20 pm",
                 duration: "20 mins",
                 title: "TBA",
-                logo: "/assets/sponsors/citrea-web.webp",
+                logo: CitreaWeb.src,
                 type: "talk",
                 stage: "A",
             },
@@ -226,8 +251,8 @@ export const scheduleData: DaySchedule[] = [
                 speaker: {
                     name: "Melike Keçelioğlu",
                     title: "Technical Lead",
-                    logo: "/assets/sponsors/aptos-web.webp",
-                    image: "/assets/contributors/speakers/melike_kecelioglu.png",
+                    logo: AptosWeb.src,
+                    image: MelikeKecelioglu.src,
                 },
                 type: "talk",
                 stage: "B",
@@ -240,8 +265,8 @@ export const scheduleData: DaySchedule[] = [
                 speaker: {
                     name: "Don Mills",
                     title: "Product Lead",
-                    logo: "/assets/sponsors/taikai-web.webp",
-                    image: "/assets/contributors/speakers/don_mills.png",
+                    logo: TaikaiWeb.src,
+                    image: DanMills.src,
                 },
                 type: "talk",
                 stage: "B",
@@ -254,8 +279,8 @@ export const scheduleData: DaySchedule[] = [
                 speaker: {
                     name: "Filip Pajić",
                     title: "Engineer",
-                    logo: "/assets/sponsors/aptos-web.webp",
-                    image: "/assets/contributors/speakers/filip_pajic.png",
+                    logo: AptosWeb.src,
+                    image: FilipPajic.src,
                 },
                 type: "talk",
                 stage: "B",
@@ -276,8 +301,8 @@ export const scheduleData: DaySchedule[] = [
                 speaker: {
                     name: "Nicky Chelebi",
                     title: "CBO",
-                    logo: "/assets/sponsors/taikai-web.webp",
-                    image: "/assets/contributors/speakers/nicky_chalabi.jpg",
+                    logo: TaikaiWeb.src,
+                    image: NickyChalabi.src,
                 },
                 type: "talk",
                 stage: "B",
@@ -291,7 +316,7 @@ export const scheduleData: DaySchedule[] = [
                     name: "Kassandra",
                     title: "Engineer",
                     logo: "",
-                    image: "/assets/contributors/speakers/kassandra.jpg",
+                    image: Kassandra.src,
                 },
                 type: "talk",
                 stage: "B",
@@ -304,8 +329,8 @@ export const scheduleData: DaySchedule[] = [
                 speaker: {
                     name: "Defi Dave",
                     title: "Head of Growth",
-                    logo: "/assets/sponsors/aptos-web.webp",
-                    image: "/assets/contributors/speakers/defi_dave.jpg",
+                    logo: AptosWeb.src,
+                    image: DefiDave.src,
                 },
                 type: "talk",
                 stage: "B",
@@ -318,8 +343,8 @@ export const scheduleData: DaySchedule[] = [
                 speaker: {
                     name: "Furkan Doğan",
                     title: "Product Lead",
-                    logo: "/assets/sponsors/taikai-web.webp",
-                    image: "/assets/contributors/speakers/furkan_dogan.jpg",
+                    logo: TaikaiWeb.src,
+                    image: FurkanDogan.src,
                 },
                 type: "talk",
                 stage: "B",
@@ -351,7 +376,7 @@ export const scheduleData: DaySchedule[] = [
                 time: "03:40 pm",
                 duration: "20 mins",
                 title: "TBA",
-                logo: "/assets/sponsors/ledger-web.webp",
+                logo: LedgerWeb.src,
                 type: "talk",
                 stage: "B",
             },
