@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import scheduleData from "@/lib/schedule/schedule";
 import DesktopScheduleTable from "./DesktopScheduleTable";
@@ -8,8 +8,52 @@ import MobileScheduleTable from "./MobileScheduleTable";
 const Schedule = () => {
     const [selectedDay, setSelectedDay] = useState<number>(0);
 
+    // Sync selected day with URL hash for hackathon/conference anchors
+    useEffect(() => {
+        if (typeof window === "undefined") return;
+
+        const hashToDayIndex: Record<string, number> = {
+            "#schedule-conference": 0,
+            "#schedule-hack1stday": 1,
+            "#schedule-hack2ndday": 2,
+        };
+
+        const applyHash = () => {
+            const { hash } = window.location;
+            if (!hash) return;
+            const index = hashToDayIndex[hash];
+            if (typeof index === "number") {
+                setSelectedDay(index);
+                const section = document.getElementById("schedule-conference");
+                if (section) {
+                    section.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
+            }
+        };
+
+        // Apply on mount (e.g., direct link) and on hash changes
+        applyHash();
+        window.addEventListener("hashchange", applyHash);
+        return () => window.removeEventListener("hashchange", applyHash);
+    }, []);
+
+    const handleDaySelect = (index: number) => {
+        setSelectedDay(index);
+        if (typeof window !== "undefined") {
+            const hashes = [
+                "#schedule-conference",
+                "#schedule-hack1stday",
+                "#schedule-hack2ndday",
+            ];
+            const newHash = hashes[index] ?? "#schedule-conference";
+            if (window.location.hash !== newHash) {
+                window.history.replaceState(null, "", newHash);
+            }
+        }
+    };
+
     return (
-        <section id="schedule" className="pt-16 pb-20 md:pt-24 md:pb-32 bg-white overflow-hidden">
+        <section id="schedule-conference" className="pt-16 pb-20 md:pt-24 md:pb-32 bg-white overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
@@ -43,7 +87,7 @@ const Schedule = () => {
                             {scheduleData.map((day, index) => (
                                 <div key={day.day} className="relative">
                                     <button
-                                        onClick={() => setSelectedDay(index)}
+                                        onClick={() => handleDaySelect(index)}
                                         className={`w-full h-full transition-all duration-300 flex flex-col items-start justify-center pl-5 py-3 border border-black ${
                                             selectedDay === index
                                                 ? "bg-[#D1BAFF] text-black z-10"
@@ -75,7 +119,7 @@ const Schedule = () => {
                                     >
                                         <button
                                             onClick={() =>
-                                                setSelectedDay(index)
+                                                handleDaySelect(index)
                                             }
                                             className={`min-w-[200px] h-20 transition-all duration-300 flex flex-col items-start justify-center pl-4 py-3 border border-black rounded-lg ${
                                                 selectedDay === index

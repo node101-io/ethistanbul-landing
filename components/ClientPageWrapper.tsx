@@ -11,6 +11,12 @@ const ClientPageWrapper = ({ children }: ClientPageWrapperProps) => {
     if (typeof window !== "undefined") {
       const scrollTo = sessionStorage.getItem("scrollToSection");
       if (scrollTo) {
+        // Ensure URL reflects the target so listeners (e.g., Schedule) can react
+        try {
+          if (window.location.hash !== scrollTo) {
+            window.location.hash = scrollTo as string;
+          }
+        } catch {}
         const section = document.querySelector(scrollTo);
         if (section) {
           setTimeout(() => {
