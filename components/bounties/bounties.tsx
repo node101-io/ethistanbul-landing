@@ -38,9 +38,9 @@ const formatUsdShort = (value: number) => {
 const BountyCard = ({ data, pattern }: { data: BountyCardData, pattern: 'flower' | 'plus' }) => {
   return (
     <div
-      className="w-[300px] sm:w-[340px] md:w-[440px] flex-shrink-0 bg-white rounded-3xl border border-black overflow-hidden shadow-sm"
+      className="w-[300px] sm:w-[340px] md:w-[440px] h-[420px] sm:h-[520px] md:h-[520px] flex-shrink-0 flex flex-col bg-white rounded-3xl border border-black overflow-hidden shadow-sm"
     >
-      <div className="h-40 sm:h-44 md:h-54 relative border-b border-black/50 flex items-center justify-center overflow-hidden gap-2">
+      <div className="h-32 sm:h-36 md:h-48 relative border-b border-black/50 flex items-center justify-center overflow-hidden gap-2">
         {pattern === 'flower' ? <>
           <Image src={FlowerPattern} alt="Flower Pattern" width={200} height={200} className="" />
           <Image src={FlowerPattern} alt="Flower Pattern" width={200} height={200} className="" />
@@ -52,7 +52,7 @@ const BountyCard = ({ data, pattern }: { data: BountyCardData, pattern: 'flower'
         </>}
       </div>
       <div
-        className="p-5 sm:p-6 md:p-7 h-full"
+        className="p-5 sm:p-6 md:p-7 flex-1"
         style={{ backgroundColor: data.color }}
       >
         <h3 className="text-2xl sm:text-3xl font-semibold text-[#1a1a2e] mb-2">
@@ -73,9 +73,9 @@ const TrackCard = ({ data }: { data: TrackData }) => {
   const Logo = data.logo;
   return (
     <div
-      className="w-[300px] sm:w-[340px] md:w-[440px] flex-shrink-0 flex flex-col bg-[#FAF7FF] rounded-3xl border border-black overflow-hidden shadow-sm"
+      className="w-[300px] sm:w-[340px] md:w-[440px] h-[420px] sm:h-[520px] md:h-[520px] flex-shrink-0 flex flex-col bg-[#FAF7FF] rounded-3xl border border-black overflow-hidden shadow-sm"
     >
-      <div className="h-40 sm:h-44 md:h-48 relative border-b border-black/50 flex items-center justify-center overflow-hidden gap-4 bg-[#CABAFF]">
+      <div className="h-32 sm:h-36 md:h-48 relative border-b border-black/50 flex items-center justify-center overflow-hidden gap-4 bg-[#CABAFF]">
         <Image src={StarPattern} alt="Star Pattern" width={28} height={28} />
         <Image src={StarPattern} alt="Star Pattern" width={28} height={28} />
         <Logo className="max-w-[50%] w-auto max-h-[50%] h-auto" fill="#121212" />
@@ -83,11 +83,11 @@ const TrackCard = ({ data }: { data: TrackData }) => {
         <Image src={StarPattern} alt="Star Pattern" width={28} height={28} />
       </div>
       <div className="p-5 sm:p-6 md:p-7 text-[#121212] flex flex-col flex-1">
-        <div className="flex items-start justify-between gap-6">
+        <div className="flex items-start justify-between gap-4">
           <h3 className="text-xl sm:text-3xl font-semibold">{data.title}</h3>
           <div className="text-xl sm:text-3xl font-semibold shrink-0">${data.price}</div>
         </div>
-        <p className="mt-4 text-gray-800 text-base sm:text-lg leading-tight mb-4">
+        <p className="mt-4 text-gray-800 text-sm sm:text-base leading-tight mb-4">
           {data.description}
         </p>
         <div className="text-right text-sm sm:text-base opacity-70 font-medium mt-auto">
