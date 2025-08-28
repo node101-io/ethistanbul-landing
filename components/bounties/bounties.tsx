@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import FlowerPattern from "@/assets/patterns/flower.svg";
 import PlusPattern from "@/assets/patterns/plus.svg";
@@ -100,51 +100,44 @@ const TrackCard = ({ data }: { data: TrackData }) => {
 
 const Bounties = () => {
   const [activeTab, setActiveTab] = useState<TabKey>("main");
-  const [companyTab, setCompanyTab] = useState<number>(0);
 
-  const mainTrackCards: BountyCardData[] = useMemo(
-    () => [
-      {
-        title: "Real Blockchain Use Cases",
-        description: "Use any blockchain technology to make a difference in the real world. Put blockchain into anything, show the world the future.",
-        subdescription: "In order to qualify to this track, you should be solving an actual real world problem using decentralization. UI is not a must, but recommended.",
-        color: "#D7C3FF",
-        pattern: "flower",
-      },
-      {
-        title: "Blockchain + AI = ?",
-        description: "21th century is huge, not because of one reason, but two. Use blockchain and AI together to discover the new frontier.",
-        subdescription: "In this track, the only condition is to use AI and blockchain together in the same product. There is no other limits, but your imagination.",
-        color: "#FFB499",
-        pattern: "plus",
-      },
-    ],
-    []
-  );
+  const mainTrackCards: BountyCardData[] = [
+    {
+      title: "Real Blockchain Use Cases",
+      description: "Use any blockchain technology to make a difference in the real world. Put blockchain into anything, show the world the future.",
+      subdescription: "In order to qualify to this track, you should be solving an actual real world problem using decentralization. UI is not a must, but recommended.",
+      color: "#D7C3FF",
+      pattern: "flower",
+    },
+    {
+      title: "Blockchain + AI = ?",
+      description: "21th century is huge, not because of one reason, but two. Use blockchain and AI together to discover the new frontier.",
+      subdescription: "In this track, the only condition is to use AI and blockchain together in the same product. There is no other limits, but your imagination.",
+      color: "#FFB499",
+      pattern: "plus",
+    },
+  ];
 
-  const companyBountyPlaceholders: TrackData[] = useMemo(
-    () => [
-      {
-        title: "RISE Chain",
-        description: "RISE is a next-generation Ethereum Layer 2 blockchain redefining performance with infinite speed delivering instant transaction confirmation at unprecedented scale, while upholding Ethereum's core principle of decentralization. Its unique architecture enables 5 ms latency, making it the fastest blockchain. RISE is also on course to exceed 100,000 TPS throughput capacity, enabling it to support millions of users simultaneously.",
-        price: "6.000",
-        logo: RiseLogo,
-      },
-      {
-        title: "Yellow",
-        description: "Yellow Network solves the problem of genuinely decentralized trading by allowing participants to swap assets across different exchanges without having to rely on block creation. This brings all parties, exchanges, blockchains, and trading firms together, creating a network of brokerages and allowing for a more efficient trading infrastructure.",
-        price: "6.000",
-        logo: YellowLogo,
-      },
-      {
-        title: "Citrea",
-        description: "Bitcoin's First ZK Rollup. Citrea is the first rollup that enhances the capabilities of Bitcoin blockspace with zero-knowledge technology, making it possible to build everything on Bitcoin.",
-        price: "2.500",
-        logo: CitreaLogo,
-      },
-    ],
-    []
-  );
+  const companyBountyPlaceholders: TrackData[] = [
+    {
+      title: "RISE Chain",
+      description: "RISE is a next-generation Ethereum Layer 2 blockchain redefining performance with infinite speed delivering instant transaction confirmation at unprecedented scale, while upholding Ethereum's core principle of decentralization. Its unique architecture enables 5 ms latency, making it the fastest blockchain. RISE is also on course to exceed 100,000 TPS throughput capacity, enabling it to support millions of users simultaneously.",
+      price: "6.000",
+      logo: RiseLogo,
+    },
+    {
+      title: "Yellow",
+      description: "Yellow Network solves the problem of genuinely decentralized trading by allowing participants to swap assets across different exchanges without having to rely on block creation. This brings all parties, exchanges, blockchains, and trading firms together, creating a network of brokerages and allowing for a more efficient trading infrastructure.",
+      price: "6.000",
+      logo: YellowLogo,
+    },
+    {
+      title: "Citrea",
+      description: "Bitcoin's First ZK Rollup. Citrea is the first rollup that enhances the capabilities of Bitcoin blockspace with zero-knowledge technology, making it possible to build everything on Bitcoin.",
+      price: "2.500",
+      logo: CitreaLogo,
+    },
+  ]
 
   const short = formatUsdShort(TOTAL_BOUNTY_USD);
 
