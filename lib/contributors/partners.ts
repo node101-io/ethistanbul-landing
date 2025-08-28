@@ -11,12 +11,25 @@ import CrpytoDataSpace from "@/assets/partners/cryptodata";
 import Coinzonia from "@/assets/partners/coinzonia";
 import EthBelgrade from "@/assets/partners/ethbelgrade";
 import EthCluj from "@/assets/partners/ethcluj";
+import Coinkolik from "@/assets/partners/coinkolik";
+import Sero from "@/assets/partners/sero";
+import YTUBlockchain from "@/assets/partners/yildiz-blockchain.png";
+import ITUBlockchain from "@/assets/partners/itu-blockchain.png";
+import ODTUBlockchain from "@/assets/partners/odtu-blockchain.png";
+import ITUBlockchainHover from "@/assets/partners/itu-blockchain-hover.png";
+import ODTUBlockchainHover from "@/assets/partners/odtu-blockchain-hover.png";
+import YTUBlockchainHover from "@/assets/partners/yildiz-blockchain-hover.png";
+import IYTEBlockchain from "@/assets/partners/iyte-blockchain.png";
+import IYTEBlockchainHover from "@/assets/partners/iyte-blockchain-hover.png";
+import MEFBlockchain from "@/assets/partners/mef-blockchain.png";
+import MEFBlockchainHover from "@/assets/partners/mef-blockchain-hover.png";
 
 interface Partner {
   name: string;
   logo: React.ComponentType<any> | StaticImageData;
   website: string;
   color?: string;
+  hoverLogo?: React.ComponentType<any> | StaticImageData;
 }
 
 const communityPartners: Partner[] = [
@@ -74,6 +87,11 @@ const communityPartners: Partner[] = [
     name: "ETHCluj",
     logo: EthCluj,
     website: "https://www.ethcluj.org/",
+  },
+  {
+    name: "Sero",
+    logo: Sero,
+    website: "https://se.ro/events",
   }
 ];
 
@@ -88,11 +106,50 @@ const mediaPartners: Partner[] = [
     logo: Coinzonia,
     website: "",
   },
+  {
+    name: "Coinkolik",
+    logo: Coinkolik,
+    website: "",
+  }
+];
+
+const talentPartners: Partner[] = [
+  {
+    name: "ITÜ Blockchain",
+    logo: ITUBlockchain,
+    hoverLogo: ITUBlockchainHover,
+    website: "https://www.itublockchain.com/",
+  },
+  {
+    name: "ODTÜ Blockchain",
+    logo: ODTUBlockchain,
+    hoverLogo: ODTUBlockchainHover,
+    website: "https://x.com/DaysBlockchain",
+  },
+  {
+    name: "YTÜ Blockchain",
+    logo: YTUBlockchain,
+    hoverLogo: YTUBlockchainHover,
+    website: "https://linktr.ee/blockchainytu",
+  },
+  {
+    name: "Iztech Blockchain",
+    logo: IYTEBlockchain,
+    hoverLogo: IYTEBlockchainHover,
+    website: "https://iyteblockchain.com/#contact",
+  },
+  {
+    name: "MEF Blockhain",
+    logo: MEFBlockchain,
+    hoverLogo: MEFBlockchainHover,
+    website: "https://x.com/MEFblockchain",
+  }
 ];
 
 const partnersData = {
   communityPartners,
   mediaPartners,
+  talentPartners,
 };
 
 export default partnersData;

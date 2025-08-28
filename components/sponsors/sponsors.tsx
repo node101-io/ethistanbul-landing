@@ -15,7 +15,7 @@ const Sponsors = () => {
   );
   const hackathonSponsors = sponsors.filter((s) => s.category === "hackathon");
 
-  const conferenceTiers: ("premium" | "platinum" | "gold" | "silver" | "bronze")[] = ["premium"];
+  const conferenceTiers: ("deluxe" | "premium" | "platinum" | "gold" | "silver" | "bronze")[] = ["deluxe", "premium", "platinum"];
   const hackathonTiers: ("premium" | "platinum" | "gold" | "silver" | "bronze")[] = ["platinum", "gold", "silver", "bronze"];
 
   return (

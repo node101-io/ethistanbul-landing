@@ -6,10 +6,9 @@ import partnersData from "@/lib/contributors/partners";
 import PartnerCard from "./PartnerCard";
 
 const Partners = () => {
-  const FORM_URL =
-    "https://docs.google.com/forms/d/e/1FAIpQLSeLZDfo8L_zYj3PzqrYc7pPZk7_PYJjpruQGgzCscwNw8CG4g/viewform";
+  const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeLZDfo8L_zYj3PzqrYc7pPZk7_PYJjpruQGgzCscwNw8CG4g/viewform";
 
-  const { communityPartners, mediaPartners } = partnersData;
+  const { communityPartners, mediaPartners, talentPartners } = partnersData;
 
   return (
     <section
@@ -93,6 +92,7 @@ const Partners = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
+          className="mb-12"
         >
           <h3 className="text-xl sm:text-2xl md:text-3xl mb-6 text-[#1a1a2e] lg:px-12">
             Media Supporters
@@ -106,6 +106,32 @@ const Partners = () => {
                   name: partner.name,
                   logo: partner.logo,
                   website: partner.website,
+                }}
+                index={index}
+              />
+            ))}
+          </div>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="mb-12"
+        >
+          <h3 className="text-xl sm:text-2xl md:text-3xl mb-6 text-[#1a1a2e] lg:px-12">
+            Talent Partners
+          </h3>
+          <div className="flex flex-wrap justify-start gap-3 sm:gap-4 md:gap-6 w-full lg:px-12">
+            {talentPartners.map((partner, index) => (
+              <PartnerCard
+                key={partner.name}
+                partner={{
+                  color: partner.color ?? "",
+                  name: partner.name,
+                  logo: partner.logo,
+                  website: partner.website,
+                  hoverLogo: partner.hoverLogo,
                 }}
                 index={index}
               />

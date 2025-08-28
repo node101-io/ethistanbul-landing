@@ -17,6 +17,8 @@ import aptosWeb from "@/assets/sponsors/aptos-web.webp";
 import ledgerWeb from "@/assets/sponsors/ledger-web.webp";
 import bybitWeb from "@/assets/sponsors/bybit-web.webp";
 import yellowWeb from "@/assets/sponsors/yellow-web.webp";
+import ESP from "@/assets/sponsors/esp";
+import espWeb from "@/assets/sponsors/esp-web.webp";
 
 interface Sponsor {
   name: string;
@@ -24,13 +26,22 @@ interface Sponsor {
   hoverImage?: StaticImageData;
   website: string;
   color?: string;
-  tier?: "premium" | "platinum" | "gold" | "silver" | "bronze";
+  tier?: "deluxe" | "premium" | "platinum" | "gold" | "silver" | "bronze";
   category: "conference" | "hackathon";
   size?: "xlarge" | "large" | "medium" | "small" | "xsmall";
 }
 
 const sponsors: Sponsor[] = [
   // Conference
+  {
+    name: "Ecosystem Support Program",
+    logo: ESP,
+    hoverImage: espWeb,
+    website: "https://esp.ethereum.foundation/",
+    tier: "deluxe",
+    category: "conference",
+    size: "xlarge",
+  },
   {
     name: "RISE",
     logo: Rise,
@@ -40,15 +51,15 @@ const sponsors: Sponsor[] = [
     category: "conference",
     size: "large",
   },
-  {
-    name: "Citrea",
-    logo: Citrea,
-    hoverImage: citreaWeb,
-    website: "https://citrea.xyz",
-    tier: "premium",
-    category: "conference",
-    size: "large",
-  },
+  // {
+  //   name: "Citrea",
+  //   logo: Citrea,
+  //   hoverImage: citreaWeb,
+  //   website: "https://citrea.xyz",
+  //   tier: "premium",
+  //   category: "conference",
+  //   size: "large",
+  // },
   {
     name: "Babylon",
     logo: Babylon,

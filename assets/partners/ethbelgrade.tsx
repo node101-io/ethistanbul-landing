@@ -5,8 +5,14 @@ const SVGComponent = ({
   isHovered,
   ...props
 }: { fill?: string; isHovered?: boolean } & React.SVGProps<SVGSVGElement>) => (
-  <svg id="katman_2" data-name="katman 2" xmlns="http://www.w3.org/2000/svg" viewBox="-90 -40 600 200" {...props} fill={fill}>
-    <g id="katman_1" data-name="katman 1">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 420 125"
+    {...props}
+    fill={fill}
+    style={{ width: '100%', height: '100%' }}
+  >
+    <g id="katman_1" transform="translate(90, 40)">
       <g>
         <path d="M35.12,0v5.49h6.99V0h9.99v5.49h6.99V0h7.99v13.22l-4,3.99v22.2h3.5v6.98h11.49v-6.98l6.28-.47c.68-2.23-.22-4.96.34-7.14.48-1.87,3.71-3.97,4.62-5.85l4.73,5.74-.45,15.49-46.71,28.16L.61,47.18c-.43-.43-.41-.96-.48-1.51-.23-1.67-.17-13.75.28-14.73.14-.31,4.45-5.2,4.73-5,0,1.47,4.51,4.81,4.51,5.74v7.73h6.49v6.98h10.74c1.59-.87.28-6.52.75-6.99h3.5s0-22.2,0-22.2l-4-3.99V0h7.99Z" />
         <polygon points="93.06 57.37 47.35 124.72 .65 57.38 47.28 85.2 93.06 57.37" />

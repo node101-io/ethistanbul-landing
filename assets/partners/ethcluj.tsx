@@ -5,7 +5,7 @@ const SVGComponent = ({
   isHovered,
   ...props
 }: { fill?: string; isHovered?: boolean } & React.SVGProps<SVGSVGElement>) => (
-  <svg id="katman_2" data-name="katman 2" xmlns="http://www.w3.org/2000/svg" viewBox="-48 -20 250 100" {...props} fill={fill}>
+  <svg width={200} height={200} id="katman_2" data-name="katman 2" xmlns="http://www.w3.org/2000/svg" viewBox="-48 -20 250 100" {...props} fill={fill}>
     <g id="katman_1" data-name="katman 1">
       <g>
         <path d="M19.42,32.57l9.46-5.22C27.3,24.22,12.39,3.14,13.15,1.72c.34-.63,1.71-1.17,2.28-1.72l1.36.37,18.11,28.48-19.46,11.18v-15.43h3.99v7.96Z" />

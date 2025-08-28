@@ -26,7 +26,7 @@ const SponsorCard = ({
     website: string;
   };
   index: number;
-  tier: "premium" | "platinum" | "gold" | "silver" | "bronze";
+  tier: "deluxe" | "premium" | "platinum" | "gold" | "silver" | "bronze";
   size?: "xlarge" | "large" | "medium" | "small" | "xsmall";
 }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -88,7 +88,9 @@ const SponsorCard = ({
             className="absolute bottom-[5%] left-1/2 -translate-x-1/2 pb-0.5 px-4 rounded-full border border-black text-sm"
             style={{
               backgroundColor:
-                tier === "premium"
+                tier === "deluxe"
+                  ? "#FFB499"
+                  : tier === "premium"
                   ? "#C0FAB2"
                   : tier === "platinum"
                   ? "#CABAFF"

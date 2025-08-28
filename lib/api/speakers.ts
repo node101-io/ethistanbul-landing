@@ -20,6 +20,10 @@ import DavidTSE from "@/assets/contributors/speakers/david_tse.jpg";
 import BurakOz from "@/assets/contributors/speakers/burak_oz.jpg";
 import BerkaySecil from "@/assets/contributors/speakers/berkay_secil.jpg";
 import ToghrulMaharramov from "@/assets/contributors/speakers/toghrul_maharramov.jpg";
+import AlpErgin from "@/assets/contributors/speakers/alp_ergin.jpg";
+import BurakBudak from "@/assets/contributors/speakers/burak_budak.jpg";
+import YunusSahin from "@/assets/contributors/speakers/yunus_sahin.jpg";
+// import MaximMerkulov from "@/assets/contributors/speakers/maxim_merkulov.jpg";
 
 export interface Speaker {
   name: string;
@@ -57,6 +61,10 @@ const speakerImageMap: Record<string, StaticImageData> = {
   "Burak Öz": BurakOz,
   "Berkay Seçil": BerkaySecil,
   "Toghrul Maharramov": ToghrulMaharramov,
+  "Alp Ergin": AlpErgin,
+  "Burak Budak": BurakBudak,
+  "Yunus Şahin": YunusSahin,
+  // "Maxim Merkulov": MaximMerkulov,
 };
 
 export async function fetchSpeakersData(): Promise<SpeakersApiResponse> {

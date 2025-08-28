@@ -10,6 +10,7 @@ const PartnerCard = ({
 }: {
   partner: {
     logo: React.ComponentType<any> | StaticImageData;
+    hoverLogo?: React.ComponentType<any> | StaticImageData;
     color: string;
     name: string;
     website: string;
@@ -61,13 +62,23 @@ const PartnerCard = ({
               isHovered: isHovered,
             })
           ) : (
-            <Image
-              src={partner.logo}
-              alt={partner.name}
-              fill
-              className="object-contain"
-              priority={false}
-            />
+            isHovered ? (
+              typeof partner.hoverLogo === "object" ? (
+                <Image
+                  src={partner.hoverLogo}
+                  alt={partner.name}
+                  className="w-full h-full object-contain"
+                  priority={false}
+                />
+              ) : null
+            ) : (
+              <Image
+                src={partner.logo}
+                alt={partner.name}
+                className="w-full h-full object-contain"
+                priority={false}
+              />
+            )
           )}
         </div>
       </div>
