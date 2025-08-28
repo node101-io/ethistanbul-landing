@@ -85,6 +85,10 @@ const Navbar = ({ position }: { position?: string }) => {
             href: "#schedule-conference",
         },
         {
+            label: "Hackathon",
+            href: "#bounties",
+        },
+        {
             label: "Speakers",
             href: "#contributors",
         },
