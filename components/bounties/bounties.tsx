@@ -40,7 +40,7 @@ const BountyCard = ({ data, pattern }: { data: BountyCardData, pattern: 'flower'
     <div
       className="w-[300px] sm:w-[340px] md:w-[440px] flex-shrink-0 bg-white rounded-3xl border border-black overflow-hidden shadow-sm"
     >
-      <div className="h-40 sm:h-44 md:h-48 relative border-b border-black/50 flex items-center justify-center overflow-hidden gap-2">
+      <div className="h-40 sm:h-44 md:h-54 relative border-b border-black/50 flex items-center justify-center overflow-hidden gap-2">
         {pattern === 'flower' ? <>
           <Image src={FlowerPattern} alt="Flower Pattern" width={200} height={200} className="" />
           <Image src={FlowerPattern} alt="Flower Pattern" width={200} height={200} className="" />
@@ -58,10 +58,10 @@ const BountyCard = ({ data, pattern }: { data: BountyCardData, pattern: 'flower'
         <h3 className="text-2xl sm:text-3xl font-semibold text-[#1a1a2e] mb-2">
           {data.title}
         </h3>
-        <p className="text-gray-800 leading-relaxed font-semibold text-xl max-sm:text-base mb-2">
+        <p className="text-gray-800 leading-tight font-semibold text-xl max-sm:text-base mb-2">
           {data.description}
         </p>
-        <p className="text-gray-800 leading-relaxed font-normal text-base max-sm:text-sm">
+        <p className="text-gray-800 leading-tight font-normal text-base max-sm:text-sm">
           {data.subdescription}
         </p>
       </div>
@@ -73,24 +73,24 @@ const TrackCard = ({ data }: { data: TrackData }) => {
   const Logo = data.logo;
   return (
     <div
-      className="w-[300px] sm:w-[340px] md:w-[440px] flex-shrink-0 flex flex-col bg-white rounded-3xl border border-black overflow-hidden shadow-sm"
+      className="w-[300px] sm:w-[340px] md:w-[440px] flex-shrink-0 flex flex-col bg-[#FAF7FF] rounded-3xl border border-black overflow-hidden shadow-sm"
     >
       <div className="h-40 sm:h-44 md:h-48 relative border-b border-black/50 flex items-center justify-center overflow-hidden gap-4 bg-[#CABAFF]">
         <Image src={StarPattern} alt="Star Pattern" width={28} height={28} />
         <Image src={StarPattern} alt="Star Pattern" width={28} height={28} />
-        <Logo className="max-w-[50%] w-auto max-h-[50%] h-auto" fill="#2B0025" />
+        <Logo className="max-w-[50%] w-auto max-h-[50%] h-auto" fill="#121212" />
         <Image src={StarPattern} alt="Star Pattern" width={28} height={28} />
         <Image src={StarPattern} alt="Star Pattern" width={28} height={28} />
       </div>
-      <div className="p-5 sm:p-6 md:p-7 h-full text-[#2B0025] flex flex-col">
+      <div className="p-5 sm:p-6 md:p-7 text-[#121212] flex flex-col flex-1">
         <div className="flex items-start justify-between gap-6">
           <h3 className="text-xl sm:text-3xl font-semibold">{data.title}</h3>
           <div className="text-xl sm:text-3xl font-semibold shrink-0">${data.price}</div>
         </div>
-        <p className="mt-4 text-gray-800 leading-relaxed text-base sm:text-lg">
+        <p className="mt-4 text-gray-800 text-base sm:text-lg leading-tight mb-4">
           {data.description}
         </p>
-        <div className="mt-6 text-right text-sm sm:text-base opacity-70 font-medium mt-auto">
+        <div className="text-right text-sm sm:text-base opacity-70 font-medium mt-auto">
           Bounty Details TBA
         </div>
       </div>
@@ -150,8 +150,8 @@ const Bounties = () => {
 
   return (
     <section id="bounties" className="pt-16 pb-20 md:pt-24 md:pb-32 justify-center bg-white px-4 sm:px-6">
-      <div className="max-w-7xl py-6 mx-auto bg-[#EFEFEF] rounded-3xl w-full">
-        <div className="flex items-start justify-between gap-4 text-[#2B0025] px-4 sm:px-6 max-sm:flex-col">
+      <div className="max-w-7xl py-6 mx-auto bg-[#EFEFEF] rounded-3xl w-full border border-[#121212]">
+        <div className="flex items-start justify-between gap-4 text-[#121212] px-4 sm:px-6 max-sm:flex-col">
           <motion.div
             initial={{ opacity: 0, x: -10 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -171,7 +171,7 @@ const Bounties = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
-            className="text-right shrink-0 flex flex-col gap-4 sm:gap-10 text-[#2B0025] max-sm:text-left"
+            className="text-right shrink-0 flex flex-col gap-4 sm:gap-10 text-[#121212] max-sm:text-left"
             aria-label={`Total bounties ${TOTAL_BOUNTY_USD} US Dollars`}
           >
             <div className="text-8xl lg:text-[200px] font-bold leading-[0.5]">{short}</div>
@@ -186,9 +186,9 @@ const Bounties = () => {
         <div className="mt-30 flex items-center gap-4 px-4 sm:px-6 max-sm:mt-10">
           <button
             onClick={() => setActiveTab("main")}
-            className={`px-5 pt-1 pb-2 rounded-full border border-[#2B0025] transition-all duration-200 ${activeTab === "main"
-                ? "bg-[#2B0025] text-white"
-                : "bg-white text-[#2B0025] hover:scale-102 active:scale-97"
+            className={`px-5 pt-1 pb-2 rounded-full border border-[#121212] transition-all duration-200 ${activeTab === "main"
+                ? "bg-[#121212] text-white"
+                : "bg-white text-[#121212] hover:scale-102 active:scale-97"
               }`}
             aria-selected={activeTab === "main"}
             aria-controls="bounties-main"
@@ -198,9 +198,9 @@ const Bounties = () => {
           </button>
           <button
             onClick={() => setActiveTab("company")}
-            className={`px-5 pt-1 pb-2 rounded-full border border-[#2B0025] transition-all duration-200 ${activeTab === "company"
-              ? "bg-[#2B0025] text-white"
-              : "bg-white text-[#2B0025] hover:scale-102 active:scale-97"
+            className={`px-5 pt-1 pb-2 rounded-full border border-[#121212] transition-all duration-200 ${activeTab === "company"
+              ? "bg-[#121212] text-white"
+              : "bg-white text-[#121212] hover:scale-102 active:scale-97"
             }`}
             aria-selected={activeTab === "company"}
             aria-controls="bounties-company"
@@ -211,7 +211,7 @@ const Bounties = () => {
         </div>
 
         {/* Note */}
-        <p className="mt-6 text-right text-[#2B0025] text-xl font-semibold px-4 sm:px-6 max-sm:hidden">
+        <p className="mt-6 text-right text-[#121212] text-xl font-semibold px-4 sm:px-6 max-sm:hidden">
           You can apply every track and company bounties.
         </p>
 
@@ -241,7 +241,7 @@ const Bounties = () => {
           )}
         </div>
 
-        <p className="mt-6 text-center text-[#2B0025] text-sm px-4 sm:px-6 sm:hidden">
+        <p className="mt-6 text-center text-[#121212] text-sm px-4 sm:px-6 sm:hidden">
           You can apply every track and company bounties.
         </p>
       </div>
