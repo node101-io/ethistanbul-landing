@@ -38,7 +38,7 @@ const formatUsdShort = (value: number) => {
 const BountyCard = ({ data, pattern }: { data: BountyCardData, pattern: 'flower' | 'plus' }) => {
   return (
     <div
-      className="w-[300px] sm:w-[340px] md:w-[440px] h-[420px] sm:h-[520px] md:h-[520px] flex-shrink-0 flex flex-col bg-white rounded-3xl border border-black overflow-hidden shadow-sm"
+      className="w-[300px] sm:w-[340px] md:w-[440px] h-[420px] sm:h-[520px] md:h-[520px] flex-shrink-0 flex flex-col bg-[#F8F8F8] rounded-3xl border border-black overflow-hidden shadow-sm"
     >
       <div className="h-32 sm:h-36 md:h-48 relative border-b border-black/50 flex items-center justify-center overflow-hidden gap-2">
         {pattern === 'flower' ? <>
@@ -142,7 +142,7 @@ const Bounties = () => {
   const short = formatUsdShort(TOTAL_BOUNTY_USD);
 
   return (
-    <section id="bounties" className="pt-16 pb-20 md:pt-24 md:pb-32 justify-center bg-white px-4 sm:px-6">
+    <section id="bounties" className="pt-16 pb-20 md:pt-24 md:pb-32 justify-center bg-[#F8F8F8] px-4 sm:px-6">
       <div className="max-w-7xl py-6 mx-auto bg-[#EFEFEF] rounded-3xl w-full border border-[#121212]">
         <div className="flex items-start justify-between gap-4 text-[#121212] px-4 sm:px-6 max-sm:flex-col">
           <motion.div
@@ -180,8 +180,8 @@ const Bounties = () => {
           <button
             onClick={() => setActiveTab("main")}
             className={`px-5 pt-1 pb-2 rounded-full border border-[#121212] transition-all duration-200 ${activeTab === "main"
-                ? "bg-[#121212] text-white"
-                : "bg-white text-[#121212] hover:scale-102 active:scale-97"
+                ? "bg-[#121212] text-[#F8F8F8]"
+                : "bg-[#F8F8F8] text-[#121212] hover:scale-102 active:scale-97"
               }`}
             aria-selected={activeTab === "main"}
             aria-controls="bounties-main"
@@ -192,8 +192,8 @@ const Bounties = () => {
           <button
             onClick={() => setActiveTab("company")}
             className={`px-5 pt-1 pb-2 rounded-full border border-[#121212] transition-all duration-200 ${activeTab === "company"
-              ? "bg-[#121212] text-white"
-              : "bg-white text-[#121212] hover:scale-102 active:scale-97"
+              ? "bg-[#121212] text-[#F8F8F8]"
+              : "bg-[#F8F8F8] text-[#121212] hover:scale-102 active:scale-97"
             }`}
             aria-selected={activeTab === "company"}
             aria-controls="bounties-company"
