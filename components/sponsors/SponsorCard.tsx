@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 
 const sizeClasses = {
   xlarge: "w-72 h-48",
-  large: "w-68 h-48",
   medium: "w-56 h-42",
   small: "w-46 h-36",
   xsmall: "w-38 h-30",
@@ -27,7 +26,7 @@ const SponsorCard = ({
   };
   index: number;
   tier: "deluxe" | "premium" | "platinum" | "gold" | "silver" | "bronze";
-  size?: "xlarge" | "large" | "medium" | "small" | "xsmall";
+  size?: "xlarge" | "medium" | "small" | "xsmall";
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isMobile, setIsMobile] = useState(false);

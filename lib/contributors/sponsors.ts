@@ -28,7 +28,7 @@ interface Sponsor {
   color?: string;
   tier?: "deluxe" | "premium" | "platinum" | "gold" | "silver" | "bronze";
   category: "conference" | "hackathon";
-  size?: "xlarge" | "large" | "medium" | "small" | "xsmall";
+  size?: "xlarge" | "medium" | "small" | "xsmall";
 }
 
 const sponsors: Sponsor[] = [
@@ -49,7 +49,7 @@ const sponsors: Sponsor[] = [
     website: "https://risechain.com",
     tier: "premium",
     category: "conference",
-    size: "large",
+    size: "medium",
   },
   // {
   //   name: "Citrea",
@@ -58,7 +58,7 @@ const sponsors: Sponsor[] = [
   //   website: "https://citrea.xyz",
   //   tier: "premium",
   //   category: "conference",
-  //   size: "large",
+  //   size: "medium",
   // },
   {
     name: "Babylon",
@@ -67,7 +67,7 @@ const sponsors: Sponsor[] = [
     website: "https://babylonlabs.io",
     tier: "premium",
     category: "conference",
-    size: "large",
+    size: "medium",
   },
   {
     name: "Ledger",
@@ -76,7 +76,7 @@ const sponsors: Sponsor[] = [
     website: "https://ledger.com",
     tier: "premium",
     category: "conference",
-    size: "large",
+    size: "medium",
   },
   {
     name: "BYBIT",
@@ -85,7 +85,7 @@ const sponsors: Sponsor[] = [
     website: "https://bybit.com",
     tier: "premium",
     category: "conference",
-    size: "large",
+    size: "medium",
   },
   // Hackathon Platinum
   {
