@@ -7,6 +7,7 @@ import Partners from "@/components/partners/partners";
 import Sponsors from "@/components/sponsors/sponsors";
 import FooterImage from "@/components/FooterImage";
 import ClientPageWrapper from "@/components/ClientPageWrapper";
+import Bounties from "@/components/bounties/bounties";
 
 export default function Home() {
     return (
@@ -14,6 +15,7 @@ export default function Home() {
             <main className="relative">
                 <HeroSection />
                 <Schedule />
+                <Bounties />
                 <ContributorsWrapper />
                 <Sponsors />
                 <Partners />
