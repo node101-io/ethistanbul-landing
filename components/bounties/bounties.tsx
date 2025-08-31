@@ -142,8 +142,8 @@ const Bounties = () => {
   const short = formatUsdShort(TOTAL_BOUNTY_USD);
 
   return (
-    <section id="bounties" className="pt-16 pb-20 md:pt-24 md:pb-32 justify-center bg-[#F8F8F8] px-4 sm:px-6">
-      <div className="max-w-7xl py-6 mx-auto bg-[#EFEFEF] rounded-3xl w-full border border-[#121212]">
+    <section id="bounties" className="pt-16 pb-20 md:pt-24 md:pb-32 justify-center bg-white px-4 sm:px-6">
+      <div className="max-w-7xl py-6 mx-auto bg-[#FAFAFA] rounded-3xl w-full border border-[#121212]">
         <div className="flex items-start justify-between gap-4 text-[#121212] px-4 sm:px-6 max-sm:flex-col">
           <motion.div
             initial={{ opacity: 0, x: -10 }}
@@ -168,7 +168,7 @@ const Bounties = () => {
             aria-label={`Total bounties ${TOTAL_BOUNTY_USD} US Dollars`}
           >
             <div className="text-8xl lg:text-[200px] font-bold leading-[0.5]">{short}</div>
-            <div className="text-2xl md:text-3xl">USD</div>
+            <div className="text-2xl md:text-3xl">USD<a href="https://taikai.network/ethistanbul/hackathons/ethistanbul-2025" className="ml-2 text-base font-semibold hover:text-[#7C3AED]">details</a></div>
           </motion.div>
           <p className="text-base font-semibold uppercase block sm:hidden">
             in bounties across three different tracks

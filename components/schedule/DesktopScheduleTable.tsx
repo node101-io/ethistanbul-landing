@@ -14,8 +14,18 @@ const DesktopScheduleTable = ({
 }: DesktopScheduleTableProps) => {
     const currentDay = scheduleData[selectedDay];
     const isHackathon = currentDay.isHackathon;
+    const hasRooms = isHackathon && currentDay.events.some((e) => e.stage);
 
-    if (isHackathon) {
+    const isEmptyEvent = (event?: ScheduleEvent) => {
+        return (
+            !event ||
+            ((event.title === undefined || event.title === "") &&
+                !event.logo &&
+                !event.speaker)
+        );
+    };
+
+    if (isHackathon && !hasRooms) {
         // Hackathon days - same layout as conference days but single stage
         return (
             <div className="hidden md:block">
@@ -147,7 +157,7 @@ const DesktopScheduleTable = ({
         );
     }
 
-    // Conference days - dual stage layout
+    // Dual-track layout (Conference stages or Hackathon rooms)
     return (
         <div className="hidden md:block">
             {/* Table Header */}
@@ -155,12 +165,12 @@ const DesktopScheduleTable = ({
                 <div className="grid grid-cols-12">
                     <div className="flex justify-center items-center p-2 border-r border-black col-span-6">
                         <h3 className="text-2xl font-bold text-black">
-                            STAGE A
+                            {isHackathon ? "ROOM 1" : "STAGE A"}
                         </h3>
                     </div>
                     <div className="flex justify-center items-center p-2 col-span-6">
                         <h3 className="text-2xl font-bold text-black">
-                            STAGE B
+                            {isHackathon ? "ROOM 2" : "STAGE B"}
                         </h3>
                     </div>
                 </div>
@@ -169,154 +179,190 @@ const DesktopScheduleTable = ({
             {/* Table Body */}
             <div>
                 {(() => {
-                    // Get all events and sort by ID
-                    const allEvents = [...currentDay.events].sort(
-                        (a, b) => parseInt(a.id) - parseInt(b.id)
-                    );
+                    // Build rows differently for hackathon rooms vs conference stages
+                    type Row = { stageA?: ScheduleEvent; stageB?: ScheduleEvent; spanBoth?: boolean };
+                    const rows: Row[] = [];
 
-                    // Group events by their position in the schedule (every 2 events = 1 row)
-                    const rows = [];
-                    for (let i = 0; i < allEvents.length; i += 2) {
-                        const stageAEvent = allEvents[i];
-                        const stageBEvent = allEvents[i + 1];
+                    if (isHackathon && hasRooms) {
+                        const eventsA = currentDay.events.filter(
+                            (e) => e.stage === "A"
+                        );
+                        const eventsB = currentDay.events.filter(
+                            (e) => e.stage === "B"
+                        );
+                        // Handle spanBoth events by creating a full-width row and skipping corresponding B slot
+                        let indexA = 0;
+                        let indexB = 0;
+                        while (indexA < eventsA.length || indexB < eventsB.length) {
+                            const a = eventsA[indexA];
+                            const b = eventsB[indexB];
 
-                        if (stageAEvent) {
-                            rows.push({
-                                stageA: stageAEvent,
-                                stageB: stageBEvent,
-                            });
+                            if (a?.spanBoth) {
+                                rows.push({ stageA: a, spanBoth: true });
+                                indexA += 1;
+                                // Do not consume B here; registration doesn't exist in B list anymore
+                                continue;
+                            }
+
+                            rows.push({ stageA: a, stageB: b });
+                            if (a) indexA += 1;
+                            if (b) indexB += 1;
+                        }
+                    } else {
+                        // Conference days: support spanBoth and A/B pairing by id
+                        const sortedEvents = [...currentDay.events].sort(
+                            (a, b) => parseInt(a.id) - parseInt(b.id)
+                        );
+                        let i = 0;
+                        while (i < sortedEvents.length) {
+                            const current = sortedEvents[i];
+                            if (current?.spanBoth) {
+                                rows.push({ stageA: current, spanBoth: true });
+                                i += 1;
+                                continue;
+                            }
+                            const next = sortedEvents[i + 1];
+                            rows.push({ stageA: current, stageB: next });
+                            i += 2;
                         }
                     }
 
                     return rows.map((row, index) => (
                         <div
-                            key={row.stageA.id}
-                            className="grid grid-cols-12 border-b border-black h-32"
+                            key={(row.stageA?.id ?? "row") + "-" + index}
+                            className={`grid grid-cols-12 border-b border-black h-32`}
                         >
-                            {/* Stage A Column */}
-                            <div className="border-r border-black col-span-6">
-                                <div className="grid grid-cols-12 h-32">
+                            {/* Stage A Column or Full-width when spanBoth */}
+                            <div className={`${row.spanBoth ? "" : "border-r border-black"} ${row.spanBoth ? "col-span-12" : "col-span-6"}`}>
+                                <div className={`grid ${row.spanBoth ? "grid-cols-24" : "grid-cols-12"} h-32`}>
                                     {/* Time Column for Stage A */}
-                                    <div className="col-span-3 flex flex-col justify-center items-center border-r border-black p-4">
+                                    <div className={`${row.spanBoth ? "col-span-3" : "col-span-3"} flex flex-col justify-center items-center border-r border-black p-4`}>
                                         <div className="text-lg font-semibold text-gray-900">
-                                            {row.stageA.time}
+                                            {row.stageA ? row.stageA.time : ""}
                                         </div>
                                         <div className="text-sm text-gray-500">
-                                            {row.stageA.duration}
+                                            {row.stageA ? row.stageA.duration : ""}
                                         </div>
                                     </div>
 
                                     {/* Event content Column for Stage A */}
-                                    <div className="col-span-9 p-4">
-                                        {row.stageA.type === "break" ? (
-                                            <div className="h-full flex items-center justify-start">
-                                                <span className="text-2xl text-black font-semibold ml-1">
-                                                    BREAK
-                                                </span>
-                                            </div>
-                                        ) : row.stageA.type === "closing" ? (
-                                            <div className="h-full flex items-center justify-start">
-                                                <span className="text-2xl text-black font-semibold ml-1">
-                                                    CLOSING
-                                                </span>
-                                            </div>
-                                        ) : (
-                                            <div className="flex items-center gap-3 h-full">
-                                                <div className="flex-1 min-w-0">
-                                                    <h4 className="text-base font-semibold text-black mb-2">
-                                                        {row.stageA.title}
-                                                    </h4>
-                                                    <div className="flex justify-between">
-                                                        {row.stageA.speaker && (
-                                                            <div className="flex items-center gap-2">
-                                                                {row.stageA
-                                                                    .speaker
-                                                                    ?.image && (
-                                                                    <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
-                                                                        <Image
-                                                                            src={
-                                                                                row
-                                                                                    .stageA
-                                                                                    .speaker
-                                                                                    .image
-                                                                            }
-                                                                            alt={
-                                                                                row
-                                                                                    .stageA
-                                                                                    .speaker
-                                                                                    .name
-                                                                            }
-                                                                            width={
-                                                                                48
-                                                                            }
-                                                                            height={
-                                                                                48
-                                                                            }
-                                                                            className="w-full h-full object-cover"
-                                                                        />
-                                                                    </div>
-                                                                )}
-                                                                <span className="text-sm font-medium text-gray-700">
-                                                                    {
-                                                                        row
-                                                                            .stageA
-                                                                            .speaker
-                                                                            .name
-                                                                    }
-                                                                </span>
-                                                                {row.stageA
-                                                                    .speaker
-                                                                    .title && (
-                                                                    <span className="text-sm text-gray-500">
+                                    <div className={`${row.spanBoth ? "col-span-21" : "col-span-9"} p-4`}>
+                                        {row.stageA ? (
+                                            row.stageA.type === "break" ? (
+                                                <div className="h-full flex items-center justify-start">
+                                                    <span className="text-2xl text-black font-semibold ml-1">
+                                                        BREAK
+                                                    </span>
+                                                </div>
+                                            ) : row.stageA.type === "closing" ? (
+                                                <div className="h-full flex items-center justify-start">
+                                                    <span className="text-2xl text-black font-semibold ml-1">
+                                                        CLOSING
+                                                    </span>
+                                                </div>
+                                            ) : isEmptyEvent(row.stageA) ? (
+                                                <></>
+                                            ) : (
+                                                <div className="flex items-center gap-3 h-full">
+                                                    <div className="flex-1 min-w-0">
+                                                        <h4 className="text-base font-semibold text-black mb-2">
+                                                            {row.stageA.title}
+                                                        </h4>
+                                                        <div className="flex justify-between">
+                                                            {row.stageA.speaker && (
+                                                                <div className="flex items-center gap-2">
+                                                                    {row.stageA
+                                                                        .speaker
+                                                                        ?.image && (
+                                                                        <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
+                                                                            <Image
+                                                                                src={
+                                                                                    row
+                                                                                        .stageA
+                                                                                        .speaker
+                                                                                        .image
+                                                                                }
+                                                                                alt={
+                                                                                    row
+                                                                                        .stageA
+                                                                                        .speaker
+                                                                                        .name
+                                                                                }
+                                                                                width={
+                                                                                    48
+                                                                                }
+                                                                                height={
+                                                                                    48
+                                                                                }
+                                                                                className="w-full h-full object-cover"
+                                                                            />
+                                                                        </div>
+                                                                    )}
+                                                                    <span className="text-sm font-medium text-gray-700">
                                                                         {
                                                                             row
                                                                                 .stageA
                                                                                 .speaker
-                                                                                .title
+                                                                                .name
                                                                         }
                                                                     </span>
+                                                                    {row.stageA
+                                                                        .speaker
+                                                                        .title && (
+                                                                        <span className="text-sm text-gray-500">
+                                                                            {
+                                                                                row
+                                                                                    .stageA
+                                                                                    .speaker
+                                                                                    .title
+                                                                            }
+                                                                        </span>
+                                                                    )}
+                                                                </div>
+                                                            )}
+                                                            {row.stageA.logo &&
+                                                                !row.stageA.speaker
+                                                                    ?.logo && (
+                                                                    <div className="w-16 h-12 flex items-center justify-center">
+                                                                        <SponsorLogo
+                                                                            logo={
+                                                                                row
+                                                                                    .stageA
+                                                                                    .logo
+                                                                            }
+                                                                            className="w-full h-full"
+                                                                        />
+                                                                    </div>
+                                                                )}
+                                                            <div className="flex-shrink-0">
+                                                                {row.stageA.speaker
+                                                                    ?.logo && (
+                                                                    <div className="w-16 h-12 flex items-center justify-center">
+                                                                        <SponsorLogo
+                                                                            logo={
+                                                                                row
+                                                                                    .stageA
+                                                                                    .speaker
+                                                                                    .logo
+                                                                            }
+                                                                            className="w-full h-full"
+                                                                        />
+                                                                    </div>
                                                                 )}
                                                             </div>
-                                                        )}
-                                                        {row.stageA.logo &&
-                                                            !row.stageA.speaker
-                                                                ?.logo && (
-                                                                <div className="w-16 h-12 flex items-center justify-center">
-                                                                    <SponsorLogo
-                                                                        logo={
-                                                                            row
-                                                                                .stageA
-                                                                                .logo
-                                                                        }
-                                                                        className="w-full h-full"
-                                                                    />
-                                                                </div>
-                                                            )}
-                                                        <div className="flex-shrink-0">
-                                                            {row.stageA.speaker
-                                                                ?.logo && (
-                                                                <div className="w-16 h-12 flex items-center justify-center">
-                                                                    <SponsorLogo
-                                                                        logo={
-                                                                            row
-                                                                                .stageA
-                                                                                .speaker
-                                                                                .logo
-                                                                        }
-                                                                        className="w-full h-full"
-                                                                    />
-                                                                </div>
-                                                            )}
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            )
+                                        ) : (
+                                            <></>
                                         )}
                                     </div>
                                 </div>
                             </div>
 
-                            {/* Stage B Column */}
+                            {/* Stage B Column (hidden when spanBoth) */}
+                            {!row.spanBoth && (
                             <div className="col-span-6">
                                 <div className="grid grid-cols-12 h-32">
                                     {/* Time Column for Stage B */}
@@ -347,6 +393,8 @@ const DesktopScheduleTable = ({
                                                         CLOSING
                                                     </span>
                                                 </div>
+                                            ) : isEmptyEvent(row.stageB) ? (
+                                                <></>
                                             ) : (
                                                 <div className="flex items-center gap-3 h-full">
                                                     <div className="flex-1 min-w-0">
@@ -448,6 +496,7 @@ const DesktopScheduleTable = ({
                                     </div>
                                 </div>
                             </div>
+                            )}
                         </div>
                     ));
                 })()}

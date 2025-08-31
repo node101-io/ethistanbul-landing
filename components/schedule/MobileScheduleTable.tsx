@@ -14,9 +14,10 @@ const MobileScheduleTable = ({
 }: MobileScheduleTableProps) => {
     const currentDay = scheduleData[selectedDay];
     const isHackathon = currentDay.isHackathon;
+    const hasRooms = isHackathon && currentDay.events.some((e) => e.stage);
     const [selectedStage, setSelectedStage] = useState<"A" | "B">("A");
 
-    if (isHackathon) {
+    if (isHackathon && !hasRooms) {
         // Hackathon days - same layout as conference days but single stage
         return (
             <div className="md:hidden border-b">
@@ -132,7 +133,7 @@ const MobileScheduleTable = ({
                                 : "bg-white text-gray-700 hover:bg-gray-100"
                         }`}
                     >
-                        <span className="text-lg font-semibold">STAGE A</span>
+                        <span className="text-lg font-semibold">{isHackathon ? "ROOM 1" : "STAGE A"}</span>
                     </button>
                     <button
                         onClick={() => setSelectedStage("B")}
@@ -142,17 +143,17 @@ const MobileScheduleTable = ({
                                 : "bg-white text-gray-700 hover:bg-gray-100"
                         }`}
                     >
-                        <span className="text-lg font-semibold">STAGE B</span>
+                        <span className="text-lg font-semibold">{isHackathon ? "ROOM 2" : "STAGE B"}</span>
                     </button>
                 </div>
             </div>
 
             {/* Selected Stage Events */}
             <div>
-                {currentDay.events.filter((event) => event.stage === selectedStage)
+                {currentDay.events.filter((event) => event.stage === selectedStage || event.spanBoth)
                     .length > 0 ? (
                     currentDay.events
-                        .filter((event) => event.stage === selectedStage)
+                        .filter((event) => event.stage === selectedStage || event.spanBoth)
                         .map((event) => (
                             <div
                                 key={event.id}
