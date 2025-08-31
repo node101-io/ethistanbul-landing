@@ -19,6 +19,8 @@ import bybitWeb from "@/assets/sponsors/bybit-web.webp";
 import yellowWeb from "@/assets/sponsors/yellow-web.webp";
 import ESP from "@/assets/sponsors/esp";
 import espWeb from "@/assets/sponsors/esp-web.webp";
+import Sui from "@/assets/sponsors/sui";
+import suiWeb from "@/assets/sponsors/sui-web.webp";
 
 interface Sponsor {
   name: string;
@@ -89,6 +91,15 @@ const sponsors: Sponsor[] = [
   },
   // Hackathon Platinum
   {
+    name: "Ecosystem Support Program",
+    logo: ESP,
+    hoverImage: espWeb,
+    website: "https://esp.ethereum.foundation/",
+    tier: "platinum",
+    category: "hackathon",
+    size: "xlarge",
+  },
+  {
     name: "RISE",
     logo: Rise,
     hoverImage: riseWeb,
@@ -130,6 +141,15 @@ const sponsors: Sponsor[] = [
     logo: Yellow,
     hoverImage: yellowWeb,
     website: "https://yellow.org",
+    tier: "gold",
+    category: "hackathon",
+    size: "medium",
+  },
+  {
+    name: "Sui",
+    logo: Sui,
+    hoverImage: suiWeb,
+    website: "https://sui.io",
     tier: "gold",
     category: "hackathon",
     size: "medium",
