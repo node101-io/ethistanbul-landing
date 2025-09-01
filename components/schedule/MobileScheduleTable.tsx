@@ -243,6 +243,14 @@ const MobileScheduleTable = ({
                                                         />
                                                     </div>
                                                 )}
+                                                {event.logo && !event.speaker?.logo && (
+                                                    <div className="w-16 h-12 flex items-center justify-center">
+                                                        <SponsorLogo
+                                                            logo={event.logo}
+                                                            className="w-full h-full"
+                                                        />
+                                                    </div>
+                                                )}
                                             </>
                                         )}
                                     </div>

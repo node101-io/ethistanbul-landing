@@ -4,8 +4,10 @@ import Miszke from "@/assets/contributors/speakers/miszke.png";
 import IstvanAndreasSeres from "@/assets/contributors/speakers/istvan_andreas_seres.png";
 import ArnaudSchenk from "@/assets/contributors/speakers/arnaud_schenk.png";
 import Sami from "@/assets/contributors/speakers/sami.jpg";
-import DavidTSE from "@/assets/contributors/speakers/david_tse.jpg";
+import FisherYu from "@/assets/contributors/speakers/fisher_yu.jpeg";
+import JenksGuo from "@/assets/contributors/speakers/jenks_guo.webp";
 import BurakOz from "@/assets/contributors/speakers/burak_oz.jpg";
+import HasanMukhlis from "@/assets/contributors/speakers/hasan_mukhlis.jpeg";
 import ToghrulMaharramov from "@/assets/contributors/speakers/toghrul_maharramov.jpg";
 import Junger from "@/assets/contributors/mentors/junger.webp";
 import MelikeKecelioglu from "@/assets/contributors/speakers/melike_kecelioglu.png";
@@ -227,12 +229,12 @@ export const scheduleData: DaySchedule[] = [
                 id: "12",
                 time: "03:00 pm",
                 duration: "20 mins",
-                title: "TBA",
+                title: "Babylon's Bitcoin Trustless Vaults",
                 speaker: {
-                    name: "David TSE",
-                    title: "Co-founder",
+                    name: "Fisher Yu",
+                    title: "CTO of Babylon Labs",
                     logo: "babylon",
-                    image: DavidTSE.src,
+                    image: FisherYu.src,
                 },
                 type: "talk",
                 stage: "A",
@@ -524,7 +526,13 @@ export const scheduleData: DaySchedule[] = [
                 id: "6",
                 time: "12:30-13:00",
                 duration: "",
-                title: "Rise Workshop 2 — TBA",
+                title: "Unlocking seamless on chain UX with 7702",
+                speaker: {
+                    name: "Hasan Mukhlis",
+                    title: "Full Stack Dev",
+                    logo: "rise",
+                    image: HasanMukhlis.src,
+                },
                 logo: "rise",
                 type: "hackathon",
                 stage: "A",
@@ -551,7 +559,13 @@ export const scheduleData: DaySchedule[] = [
                 id: "9",
                 time: "15:00-16:00",
                 duration: "",
-                title: "Babylon Workshop — TBA",
+                title: "Build a Bitcoin Charged EVM dApp",
+                speaker: {
+                    name: "Jenks Guo",
+                    title: "Head of DevRel",
+                    logo: "babylon",
+                    image: JenksGuo.src,
+                },
                 logo: "babylon",
                 type: "hackathon",
                 stage: "A",
@@ -588,7 +602,13 @@ export const scheduleData: DaySchedule[] = [
                 id: "4",
                 time: "11:00-11:30",
                 duration: "",
-                title: "Rise Workshop 1 — TBA",
+                title: "Building High Performance apps on RISE",
+                speaker: {
+                    name: "Matt S",
+                    title: "Product Lead",
+                    logo: "rise",
+                    image: "",
+                },
                 logo: "rise",
                 type: "hackathon",
                 stage: "B",
