@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import mentors from "@/lib/contributors/mentors";
+import judges from "@/lib/contributors/judges";
 import { Speaker } from "@/lib/api/speakers";
 import LiquidButton from "../ui/liquid-button";
 import TwitterIcon from "./icons/TwitterIcon";
@@ -66,6 +67,8 @@ const Contributors = ({ speakers }: ContributorsProps) => {
       return speakers;
     } else if (type === "Mentors") {
       return mentors;
+    } else if (type === "Judges") {
+      return judges;
     } else {
       return [];
     }
@@ -218,6 +221,12 @@ const Contributors = ({ speakers }: ContributorsProps) => {
                     selectedContributor.presentationTitle && (
                       <p className="text-md text-purple-600 font-medium mt-2">
                         "{selectedContributor.presentationTitle}"
+                      </p>
+                    )}
+                  {selectedContributor.type === "Judges" &&
+                    selectedContributor.expertise && (
+                      <p className="text-md text-blue-600 font-medium mt-2">
+                        Expertise: {selectedContributor.expertise}
                       </p>
                     )}
                   <div className="flex space-x-3 mt-2">

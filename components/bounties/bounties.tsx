@@ -9,6 +9,7 @@ import RiseLogo from "@/assets/sponsors/rise";
 import YellowLogo from "@/assets/sponsors/yellow";
 import CitreaLogo from "@/assets/sponsors/citrea";
 import StarPattern from "@/assets/patterns/star.svg";
+import StarPatternColored from "@/assets/patterns/star_colored.svg";
 
 type TabKey = "main" | "company";
 
@@ -17,7 +18,7 @@ interface BountyCardData {
   description: string;
   color: string; // background color for the bottom area
   subdescription?: string;
-  pattern: 'flower' | 'plus';
+  pattern: 'flower' | 'plus' | 'star';
 }
 
 interface TrackData {
@@ -35,7 +36,7 @@ const formatUsdShort = (value: number) => {
   return `${value}`;
 };
 
-const BountyCard = ({ data, pattern }: { data: BountyCardData, pattern: 'flower' | 'plus' }) => {
+const BountyCard = ({ data, pattern }: { data: BountyCardData, pattern: 'flower' | 'plus' | 'star' }) => {
   return (
     <div
       className="w-[300px] sm:w-[340px] md:w-[440px] h-[420px] sm:h-[520px] md:h-[520px] flex-shrink-0 flex flex-col bg-[#F8F8F8] rounded-3xl border border-black overflow-hidden shadow-sm"
@@ -45,10 +46,14 @@ const BountyCard = ({ data, pattern }: { data: BountyCardData, pattern: 'flower'
           <Image src={FlowerPattern} alt="Flower Pattern" width={200} height={200} className="" />
           <Image src={FlowerPattern} alt="Flower Pattern" width={200} height={200} className="" />
           <Image src={FlowerPattern} alt="Flower Pattern" width={200} height={200} className="" />
+        </> : pattern === 'plus' ? <>
+          <Image src={PlusPattern} alt="Plus Pattern" width={200} height={200} className="" />
+          <Image src={PlusPattern} alt="Plus Pattern" width={200} height={200} className="" />
+          <Image src={PlusPattern} alt="Plus Pattern" width={200} height={200} className="" />
         </> : <>
-          <Image src={PlusPattern} alt="Plus Pattern" width={200} height={200} className="" />
-          <Image src={PlusPattern} alt="Plus Pattern" width={200} height={200} className="" />
-          <Image src={PlusPattern} alt="Plus Pattern" width={200} height={200} className="" />
+          <Image src={StarPatternColored} alt="Star Pattern" width={200} height={200} className="" />
+          <Image src={StarPatternColored} alt="Star Pattern" width={200} height={200} className="" />
+          <Image src={StarPatternColored} alt="Star Pattern" width={200} height={200} className="" />
         </>}
       </div>
       <div
@@ -116,6 +121,13 @@ const Bounties = () => {
       color: "#FFB499",
       pattern: "plus",
     },
+    {
+      title: "10 Years of Ethereum",
+      description: "2025 marks a decade of Ethereum, and the best way to celebrate is by supporting the builders shaping its next one.",
+      subdescription: "In this track, any Ethereum-related project can contribute a bounty or build towards strengthening the ecosystem. There are no limits, what matters is creating something meaningful that honors Ethereum’s journey and future.",
+      color: "#C0FAB2",
+      pattern: "star",
+    }
   ];
 
   const companyBountyPlaceholders: TrackData[] = [

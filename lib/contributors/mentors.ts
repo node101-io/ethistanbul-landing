@@ -10,7 +10,6 @@ import ErhanTezcan from "@/assets/contributors/mentors/erhan_tezcan.webp";
 import Errol from "@/assets/contributors/mentors/errol.webp";
 import FuraknAkal from "@/assets/contributors/mentors/furkan_akal.webp";
 import Junger from "@/assets/contributors/mentors/junger.webp";
-import KaanUzadogan from "@/assets/contributors/mentors/kaan_uzadogan.webp";
 import MehmetGonen from "@/assets/contributors/mentors/mehmet_gonen.webp";
 import MuahmmetTanrikulu from "@/assets/contributors/mentors/muhammet_tanikulu.webp";
 import MustafaKircali from "@/assets/contributors/mentors/mustafa_kircali.webp";
@@ -23,6 +22,12 @@ import YunusGurlek from "@/assets/contributors/mentors/yunus_gurlek.webp";
 import IsaSertkaya from "@/assets/contributors/mentors/isa_sertkaya.webp";
 import YamanCan from "@/assets/contributors/mentors/yaman_can.webp";
 import TalhaUnsal from "@/assets/contributors/mentors/talha_unsal.webp";
+import OmerAksu from "@/assets/contributors/mentors/omer_aksu.jpg";
+import HatunOzcan from "@/assets/contributors/mentors/hatun_ozcan.png";
+import GoktugOguzGungor from "@/assets/contributors/mentors/goktug_oguz_gungor.jpg";
+import KorayAkpinar from "@/assets/contributors/mentors/koray_akpinar.jpg";
+import BerkayGuven from "@/assets/contributors/mentors/berkay_guven.jpeg";
+import AliEkmekci from "@/assets/contributors/mentors/ali_ekmekci.jpg";
 
 interface Mentors {
   name: string;
@@ -110,13 +115,6 @@ const mentors: Mentors[] = [
     type: "Mentors",
     twitter: "https://x.com/junger0x?s=21&t=_622jfOfGQKD0pLPsXnjKg",
   },
-  // {
-  //   name: "Kaan Uzadoğan",
-  //   company: "Sourcify",
-  //   image: KaanUzadogan,
-  //   type: "Mentors",
-  //   twitter: "https://x.com/kaanuzdogan?s=21&t=_622jfOfGQKD0pLPsXnjKg",
-  // },
   {
     name: "Mehmet Gönen",
     company: "Cryptography Researcher",
@@ -201,5 +199,44 @@ const mentors: Mentors[] = [
     type: "Mentors",
     twitter: "https://x.com/talhab62",
   },
+  {
+    name: "Berkay Güven",
+    company: "Bitward",
+    type: "Mentors",
+    image: BerkayGuven,
+  },
+  {
+    name: "Ömer Aksu",
+    company: "",
+    type: "Mentors",
+    image: OmerAksu,
+    twitter: "https://x.com/aksuomeer"
+  },
+  {
+    name: "Hatun Özcan",
+    company: "",
+    type: "Mentors",
+    image: HatunOzcan,
+    twitter: "https://x.com/0xhatun"
+  },
+  {
+    name: "Göktuğ Oğuz Güngör",
+    company: "",
+    type: "Mentors",
+    image: GoktugOguzGungor,
+  },
+  {
+    name: "Koray Akpınar",
+    company: "",
+    type: "Mentors",
+    image: KorayAkpinar,
+  },
+  {
+    name: "Ali Ekmekçi",
+    company: "",
+    type: "Mentors",
+    image: AliEkmekci,
+    twitter: ""
+  }
 ];
 export default mentors;

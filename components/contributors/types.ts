@@ -10,4 +10,5 @@ export interface Contributor {
   presentationTitle?: string;
   twitter?: string;
   linkedin?: string;
+  expertise?: string;
 }
