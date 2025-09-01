@@ -12,6 +12,7 @@ import Coinzonia from "@/assets/partners/coinzonia";
 import EthBelgrade from "@/assets/partners/ethbelgrade";
 import EthCluj from "@/assets/partners/ethcluj";
 import Coinkolik from "@/assets/partners/coinkolik";
+import PrimeX from "@/assets/partners/primex";
 import Sero from "@/assets/partners/sero";
 import YTUBlockchain from "@/assets/partners/yildiz-blockchain.png";
 import ITUBlockchain from "@/assets/partners/itu-blockchain.png";
@@ -110,6 +111,11 @@ const mediaPartners: Partner[] = [
     name: "Coinkolik",
     logo: Coinkolik,
     website: "",
+  },
+  {
+    name: "PrimeX",
+    logo: PrimeX,
+    website: "https://x.com/primecrypto_tr",
   }
 ];
 
