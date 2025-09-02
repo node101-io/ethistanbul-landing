@@ -17,6 +17,7 @@ import NickyChalabi from "@/assets/contributors/speakers/nicky_chalabi.jpg";
 import Kassandra from "@/assets/contributors/speakers/kassandra.jpg";
 import DefiDave from "@/assets/contributors/speakers/defi_dave.jpg";
 import FurkanDogan from "@/assets/contributors/speakers/furkan_dogan.jpg";
+import BeratYilmaz from "@/assets/contributors/speakers/berat_yilmaz.png";
 
 // Sponsor SVG logos are rendered via components; no direct image imports needed here
 
@@ -550,7 +551,13 @@ export const scheduleData: DaySchedule[] = [
                 id: "8",
                 time: "14:00-14:45",
                 duration: "",
-                title: "Citrea Workshop 2 — TBA",
+                title: "How Others Built ₿apps on Citrea",
+                speaker: {
+                    name: "Citrea Origins team",
+                    title: "",
+                    logo: "citrea",
+                    image: "",
+                },
                 logo: "citrea",
                 type: "hackathon",
                 stage: "A",
@@ -625,7 +632,13 @@ export const scheduleData: DaySchedule[] = [
                 id: "5",
                 time: "12:00-12:45",
                 duration: "",
-                title: "Citrea Workshop 1 — TBA",
+                title:  "How to Build ₿apps on Citrea",
+                speaker: {
+                    name: "Berat Yılmaz",
+                    title: "Smart Contract Engineer",
+                    logo: "citrea",
+                    image: BeratYilmaz.src,
+                },
                 logo: "citrea",
                 type: "hackathon",
                 stage: "B",
