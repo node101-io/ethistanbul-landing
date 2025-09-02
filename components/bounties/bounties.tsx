@@ -10,6 +10,7 @@ import YellowLogo from "@/assets/sponsors/yellow";
 import CitreaLogo from "@/assets/sponsors/citrea";
 import StarPattern from "@/assets/patterns/star.svg";
 import StarPatternColored from "@/assets/patterns/star_colored.svg";
+import AptosLogo from "@/assets/sponsors/aptos";
 
 type TabKey = "main" | "company";
 
@@ -133,7 +134,7 @@ const Bounties = () => {
   const companyBountyPlaceholders: TrackData[] = [
     {
       title: "RISE Chain",
-      description: "RISE is a next-generation Ethereum Layer 2 blockchain redefining performance with infinite speed delivering instant transaction confirmation at unprecedented scale, while upholding Ethereum's core principle of decentralization. Its unique architecture enables 5 ms latency, making it the fastest blockchain. RISE is also on course to exceed 100,000 TPS throughput capacity, enabling it to support millions of users simultaneously.",
+      description: "RISE is a next-generation Ethereum Layer 2 blockchain redefining performance with infinite speed delivering instant transaction confirmation at unprecedented scale, while upholding Ethereum's core principle of decentralization. Its unique architecture enables 5 ms latency, making it the fastest blockchain. RISE is also on course to exceed 100,000 TPS throughput capacity, enabling it to support millions of users simultaneously.",
       price: "6.000",
       logo: RiseLogo,
     },
@@ -142,6 +143,12 @@ const Bounties = () => {
       description: "Yellow Network solves the problem of genuinely decentralized trading by allowing participants to swap assets across different exchanges without having to rely on block creation. This brings all parties, exchanges, blockchains, and trading firms together, creating a network of brokerages and allowing for a more efficient trading infrastructure.",
       price: "6.000",
       logo: YellowLogo,
+    },
+    {
+      title: "Aptos",
+      description: "Aptos is the Global Trading Engine designed to power the next generation of financial systems with parallel execution, sub-second finality and low fees. With atomic composability and predictable costs even during peak activity, Aptos provides the performance-driven infrastructure needed to build DeFi that actually works at scale.",
+      price: "3.000",
+      logo: AptosLogo,
     },
     {
       title: "Citrea",
