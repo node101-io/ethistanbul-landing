@@ -23,6 +23,7 @@ import ToghrulMaharramov from "@/assets/contributors/speakers/toghrul_maharramov
 import AlpErgin from "@/assets/contributors/speakers/alp_ergin.jpg";
 import BurakBudak from "@/assets/contributors/speakers/burak_budak.jpg";
 import YunusSahin from "@/assets/contributors/speakers/yunus_sahin.jpg";
+import FisherYu from "@/assets/contributors/speakers/fisher_yu.jpeg";
 // import MaximMerkulov from "@/assets/contributors/speakers/maxim_merkulov.jpg";
 
 export interface Speaker {
@@ -64,6 +65,7 @@ const speakerImageMap: Record<string, StaticImageData> = {
   "Alp Ergin": AlpErgin,
   "Burak Budak": BurakBudak,
   "Yunus Şahin": YunusSahin,
+  "Fisher Yu": FisherYu,
   // "Maxim Merkulov": MaximMerkulov,
 };
 

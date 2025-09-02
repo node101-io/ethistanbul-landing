@@ -84,7 +84,7 @@ const sponsors: Sponsor[] = [
     name: "BYBIT",
     logo: Bybit,
     hoverImage: bybitWeb,
-    website: "https://bybit.com",
+    website: "https://www.bybit.tr/",
     tier: "premium",
     category: "conference",
     size: "medium",
