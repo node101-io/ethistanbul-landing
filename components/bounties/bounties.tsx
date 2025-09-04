@@ -64,7 +64,7 @@ const BountyCard = ({ data, pattern }: { data: BountyCardData, pattern: 'flower'
         <h3 className="text-2xl sm:text-3xl font-semibold text-[#1a1a2e] mb-2">
           {data.title}
         </h3>
-        <p className="text-gray-800 leading-tight font-semibold text-xl max-sm:text-base mb-2 whitespace-pre-line">
+        <p className="text-gray-800 leading-tight font-semibold text-lg max-sm:text-base mb-2 whitespace-pre-line">
           {data.description}
         </p>
         <p className="text-gray-800 leading-tight font-normal text-base max-sm:text-sm">
@@ -147,7 +147,7 @@ const Bounties = () => {
   const companyBountyPlaceholders: TrackData[] = [
     {
       title: "RISE Chain",
-      description: `RISE is a high speed Ethereum Layer 2 blockchain built for mass adoption. It enables near-instant transactions at scale with as low as sub-5ms latency, while upholding Ethereum’s core principle of decentralization. RISE is on track to exceed 100,000 transactions per second throughput capacity, enabling it to support millions of users simultaneously.
+      description: `RISE is a high speed Ethereum Layer 2 blockchain built for mass adoption. It enables near-instant transactions at scale with as low as sub-5ms latency, while upholding Ethereum’s core principle of decentralization.
 
 🏆 DeFi 3.0 Track: $6,000
 🏆 Open Track: $3,000
