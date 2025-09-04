@@ -29,7 +29,7 @@ interface TrackData {
   logo: React.ComponentType<any>;
 }
 
-const TOTAL_BOUNTY_USD = 25000;
+const TOTAL_BOUNTY_USD = 35000;
 
 const formatUsdShort = (value: number) => {
   if (value >= 1_000_000) return `${Math.round(value / 100_000) / 10}M`;
@@ -64,7 +64,7 @@ const BountyCard = ({ data, pattern }: { data: BountyCardData, pattern: 'flower'
         <h3 className="text-2xl sm:text-3xl font-semibold text-[#1a1a2e] mb-2">
           {data.title}
         </h3>
-        <p className="text-gray-800 leading-tight font-semibold text-xl max-sm:text-base mb-2">
+        <p className="text-gray-800 leading-tight font-semibold text-xl max-sm:text-base mb-2 whitespace-pre-line">
           {data.description}
         </p>
         <p className="text-gray-800 leading-tight font-normal text-base max-sm:text-sm">
@@ -93,12 +93,12 @@ const TrackCard = ({ data }: { data: TrackData }) => {
           <h3 className="text-xl sm:text-3xl font-semibold">{data.title}</h3>
           <div className="text-xl sm:text-3xl font-semibold shrink-0">${data.price}</div>
         </div>
-        <p className="mt-4 text-gray-800 text-sm sm:text-base leading-tight mb-4">
+        <p className="mt-4 text-gray-800 text-sm sm:text-base leading-tight mb-4 whitespace-pre-line">
           {data.description}
         </p>
-        <div className="text-right text-sm sm:text-base opacity-70 font-medium mt-auto">
-          Bounty Details TBA
-        </div>
+        <a href="https://taikai.network/en/ethistanbul/hackathons/ethistanbul-2025/prizes" target="_blank" rel="noopener noreferrer" className="text-right text-sm sm:text-base opacity-70 font-medium mt-auto hover:text-[#7C3AED]">
+          Bounty Details
+        </a>
       </div>
     </div>
   );
@@ -110,22 +110,35 @@ const Bounties = () => {
   const mainTrackCards: BountyCardData[] = [
     {
       title: "Real Blockchain Use Cases",
-      description: "Use any blockchain technology to make a difference in the real world. Put blockchain into anything, show the world the future.",
+      description: `Use any blockchain technology to make a difference in the real world. Put blockchain into anything, show the world the future.
+
+🏆 1st Place: $3,500
+🥈 2nd Place: $2,000
+🥉 3rd Place: $1,000
+`,
       subdescription: "In order to qualify to this track, you should be solving an actual real world problem using decentralization. UI is not a must, but recommended.",
       color: "#D7C3FF",
       pattern: "flower",
     },
     {
       title: "Blockchain + AI = ?",
-      description: "21th century is huge, not because of one reason, but two. Use blockchain and AI together to discover the new frontier.",
+      description: `21th century is huge, not because of one reason, but two. Use blockchain and AI together to discover the new frontier.
+
+🏆 1st Place: $3,500
+🥈 2nd Place: $2,000
+🥉 3rd Place: $1,000
+`,
       subdescription: "In this track, the only condition is to use AI and blockchain together in the same product. There is no other limits, but your imagination.",
       color: "#FFB499",
       pattern: "plus",
     },
     {
       title: "10 Years of Ethereum",
-      description: "2025 marks a decade of Ethereum, and the best way to celebrate is by supporting the builders shaping its next one.",
-      subdescription: "In this track, any Ethereum-related project can contribute a bounty or build towards strengthening the ecosystem. There are no limits, what matters is creating something meaningful that honors Ethereum’s journey and future.",
+      description: `Ethereum has turned 10 this year, and we are celebrating it in the best way we know: backing builders.
+
+🏆 1st Place: $1,500
+`,
+      subdescription: "The 10 Years of Ethereum Track is open to all Ethereum projects in the hackathon. No limits, no minimums; just bring something meaningful to the ecosystem.",
       color: "#C0FAB2",
       pattern: "star",
     }
@@ -134,25 +147,43 @@ const Bounties = () => {
   const companyBountyPlaceholders: TrackData[] = [
     {
       title: "RISE Chain",
-      description: "RISE is a high speed Ethereum Layer 2 blockchain built for mass adoption. It enables near-instant transactions at scale with as low as sub-5ms latency, while upholding Ethereumʼs core principle of decentralization. RISE is on track to exceed 100,000 transactions per second throughput capacity, enabling it to support millions of users simultaneously. By eliminating long-standing barriers to adoption, RISE offers a radically improved experience for both developers and users, unlocking a new generation of onchain applications.",
-      price: "6.000",
+      description: `RISE is a high speed Ethereum Layer 2 blockchain built for mass adoption. It enables near-instant transactions at scale with as low as sub-5ms latency, while upholding Ethereum’s core principle of decentralization. RISE is on track to exceed 100,000 transactions per second throughput capacity, enabling it to support millions of users simultaneously.
+
+🏆 DeFi 3.0 Track: $6,000
+🏆 Open Track: $3,000
+🏆 Community Favorite: $1,000
+`,
+      price: "10.000",
       logo: RiseLogo,
     },
     {
       title: "Yellow",
-      description: "Yellow Network solves the problem of genuinely decentralized trading by allowing participants to swap assets across different exchanges without having to rely on block creation. This brings all parties, exchanges, blockchains, and trading firms together, creating a network of brokerages and allowing for a more efficient trading infrastructure.",
+      description: `Yellow is a global Web3 ecosystem of products and services, building the infrastructure that lets developers create apps with Web2 speed and Web3 trust.
+
+🏆 1st place: $2,000
+🥈 2nd place: $1,500
+🥉 3rd place: $1000
+`,
       price: "6.000",
       logo: YellowLogo,
     },
     {
       title: "Aptos",
-      description: "Aptos is the Global Trading Engine designed to power the next generation of financial systems with parallel execution, sub-second finality and low fees. With atomic composability and predictable costs even during peak activity, Aptos provides the performance-driven infrastructure needed to build DeFi that actually works at scale.",
+      description: `Aptos delivers parallel execution, sub-second finality, and low fees at scale, providing infrastructure that works for both developers and users.
+
+🏆 1st Place: $1,500
+🥈 2nd Place: $1,000
+🥉 3rd Place: $500
+`,
       price: "3.000",
       logo: AptosLogo,
     },
     {
       title: "Citrea",
-      description: "Bitcoin's First ZK Rollup. Citrea is the first rollup that enhances the capabilities of Bitcoin blockspace with zero-knowledge technology, making it possible to build everything on Bitcoin.",
+      description: `Bitcoin's First ZK Rollup. Citrea is the first rollup that enhances the capabilities of Bitcoin blockspace with zero-knowledge technology, making it possible to build everything on Bitcoin.
+
+TBA
+`,
       price: "2.500",
       logo: CitreaLogo,
     },
@@ -224,7 +255,7 @@ const Bounties = () => {
 
         {/* Note */}
         <p className="mt-6 text-right text-[#121212] text-xl font-semibold px-4 sm:px-6 max-sm:hidden">
-          You can apply every track and company bounties.
+          You can apply every track and company bounty.
         </p>
 
         {/* Content */}
