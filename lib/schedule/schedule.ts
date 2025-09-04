@@ -18,7 +18,13 @@ import Kassandra from "@/assets/contributors/speakers/kassandra.jpg";
 import DefiDave from "@/assets/contributors/speakers/defi_dave.jpg";
 import FurkanDogan from "@/assets/contributors/speakers/furkan_dogan.jpg";
 import BeratYilmaz from "@/assets/contributors/speakers/berat_yilmaz.png";
-
+import EsadYusufAtik from "@/assets/contributors/speakers/esad_yusuf_atik.jpeg";
+import EtienneWaldron from "@/assets/contributors/speakers/etienne.jpeg";
+import KatherineStefanovych from "@/assets/contributors/judges/katerina.jpg";
+import YunusGurlek from "@/assets/contributors/mentors/yunus_gurlek.webp";
+import IsmetLogoglu from "@/assets/contributors/speakers/ismet_logoglu.jpeg";
+import FatihKadirAkin from "@/assets/contributors/speakers/fatih_kadir_akin.jpeg";
+// import MaxMolEliza from "@/assets/contributors/speakers/max_mol_eliza.jpg";
 // Sponsor SVG logos are rendered via components; no direct image imports needed here
 
 export type SponsorLogoKey =
@@ -119,7 +125,7 @@ export const scheduleData: DaySchedule[] = [
                 title: "BASED APPCHAINS - EMPOWERING APP DEVELOPERS WITH SYNCHRONOUS COMPOSABILITY",
                 speaker: {
                     name: "Miszke",
-                    title: "",
+                    title: "Protocol Engineer",
                     logo: "spire",
                     image: Miszke.src,
                 },
@@ -230,10 +236,10 @@ export const scheduleData: DaySchedule[] = [
                 id: "12",
                 time: "03:00 pm",
                 duration: "20 mins",
-                title: "Babylon's Bitcoin Trustless Vaults",
+                title: "Babylon: Bringing Native BTC to the world",
                 speaker: {
                     name: "Fisher Yu",
-                    title: "CTO of Babylon Labs",
+                    title: "Co-Founder",
                     logo: "babylon",
                     image: FisherYu.src,
                 },
@@ -244,8 +250,13 @@ export const scheduleData: DaySchedule[] = [
                 id: "13",
                 time: "03:20 pm",
                 duration: "20 mins",
-                title: "TBA",
-                logo: "citrea",
+                title: "Why BTC Liquidity Never Reached Applications - Until Now",
+                speaker: {
+                    name: "Esad Yusuf Atik",
+                    title: "Co-Creator",
+                    logo: "citrea",
+                    image: EsadYusufAtik.src,
+                },
                 type: "talk",
                 stage: "A",
             },
@@ -253,10 +264,10 @@ export const scheduleData: DaySchedule[] = [
                 id: "14",
                 time: "03:40 pm",
                 duration: "40 mins",
-                title: "BITCOIN DEFI",
+                title: "Future of Bitcoin DeFi & Metaprotocols (Panel)",
                 speaker: {
-                    name: "Mora, Best in Slot, Oyl",
-                    title: "Panel",
+                    name: "Isabel Faxen Duke (Moderator), Binary (BRC20), Abdel (Starkware), Gabe Parker (Citrea)",
+                    title: "",
                     logo: "",
                     image: "",
                 },
@@ -267,8 +278,14 @@ export const scheduleData: DaySchedule[] = [
                 id: "15",
                 time: "04:20 pm",
                 duration: "",
+                speaker: {
+                    name: "Jünger",
+                    title: "",
+                    logo: "rise",
+                    image: Junger.src,
+                },
                 title: "CLOSING",
-                type: "closing",
+                type: "opening",
                 stage: "A",
             },
             {
@@ -303,7 +320,7 @@ export const scheduleData: DaySchedule[] = [
                 title: "AI X STABLECOINS",
                 speaker: {
                     name: "Melike Keçelioglu",
-                    title: "Technical Lead",
+                    title: "Technical Product Owner",
                     logo: "piku",
                     image: MelikeKecelioglu.src,
                 },
@@ -350,7 +367,7 @@ export const scheduleData: DaySchedule[] = [
                 id: "7",
                 time: "12:40 pm",
                 duration: "20 mins",
-                title: "PERMISSIONED SHARDS MEET PUBLIC DEFI: ATOMIC SETTLEMENT IN <1S",
+                title: "PERMISSIONED SHARDS MEET PUBLIC DEFI: ATOMIC SETTLEMENT IN < 1S",
                 speaker: {
                     name: "Nicky Chelebi",
                     title: "CBO",
@@ -414,10 +431,10 @@ export const scheduleData: DaySchedule[] = [
                 id: "12",
                 time: "03:00 pm",
                 duration: "40 mins",
-                title: "CRYPTO&FINTECH IN TÜRKIYE",
+                title: "CADEFI IN TÜRKIYE: OPPORTUNITIES, CHALLENGES & ROADMAP (Panel)",
                 speaker: {
-                    name: "Tether, Inverter, Poribu, Fintables",
-                    title: "Panel",
+                    name: "Yusuf Şahin (Fintables), Anadolu Aydınlı (Tether), Burak Dudak (Paribu), Alp Ergin (Inverter)",
+                    title: "",
                     logo: "",
                     image: "",
                 },
@@ -428,7 +445,13 @@ export const scheduleData: DaySchedule[] = [
                 id: "13",
                 time: "03:40 pm",
                 duration: "20 mins",
-                title: "TBA",
+                title: "Clear Signing",
+                speaker: {
+                    name: "Etienne Waldron",
+                    title: "Developer Advocate",
+                    logo: "ledger",
+                    image: EtienneWaldron.src,
+                },
                 logo: "",
                 type: "talk",
                 stage: "B",
@@ -437,8 +460,14 @@ export const scheduleData: DaySchedule[] = [
                 id: "14",
                 time: "04:00 pm",
                 duration: "20 mins",
-                title: "TBA",
-                logo: "ledger",
+                title: "Lido V3: Shared Liquidity with Customizable Ethereum Staking",
+                speaker: {
+                    name: "Max Mol Eliza",
+                    title: "Lead Analyst",
+                    logo: "",
+                    image: "",
+                },
+                logo: "",
                 type: "talk",
                 stage: "B",
             },
@@ -485,7 +514,7 @@ export const scheduleData: DaySchedule[] = [
                     name: "Yunus Gurlek",
                     title: "",
                     logo: "",
-                    image: "",
+                    image: YunusGurlek.src,
                 },
                 type: "hackathon",
                 stage: "A",
@@ -500,7 +529,7 @@ export const scheduleData: DaySchedule[] = [
                     name: "İsmet Loğoğlu",
                     title: "",
                     logo: "aptos",
-                    image: "",
+                    image: IsmetLogoglu.src,
                 },
                 logo: "aptos",
                 type: "hackathon",
@@ -518,7 +547,13 @@ export const scheduleData: DaySchedule[] = [
                 id: "5",
                 time: "11:30-12:30",
                 duration: "",
-                title: "Yellow Workshop — TBA",
+                title: "From Hack to Viral: Strategies for Launching & Scaling with Yellow",
+                speaker: {
+                    name: "Katherine Stefanovych",
+                    title: "Growth Manager",
+                    logo: "yellow",
+                    image: KatherineStefanovych.src,
+                },
                 logo: "yellow",
                 type: "hackathon",
                 stage: "A",
@@ -585,6 +620,20 @@ export const scheduleData: DaySchedule[] = [
                 type: "hackathon",
                 stage: "A",
                 spanBoth: true,
+            },
+            {
+                id: "1112421",
+                time: "20.30-21.30",
+                duration: "",
+                title: "MCP 101",
+                speaker: {
+                    name: "Fatih Kadir Akın",
+                    title: "DevRel Manager",
+                    logo: "",
+                    image: FatihKadirAkin.src,
+                },
+                type: "hackathon",
+                stage: "A",
             },
             {
                 id: "11",

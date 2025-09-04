@@ -134,7 +134,7 @@ const Bounties = () => {
   const companyBountyPlaceholders: TrackData[] = [
     {
       title: "RISE Chain",
-      description: "RISE is a next-generation Ethereum Layer 2 blockchain redefining performance with infinite speed delivering instant transaction confirmation at unprecedented scale, while upholding Ethereum's core principle of decentralization. Its unique architecture enables 5 ms latency, making it the fastest blockchain. RISE is also on course to exceed 100,000 TPS throughput capacity, enabling it to support millions of users simultaneously.",
+      description: "RISE is a high speed Ethereum Layer 2 blockchain built for mass adoption. It enables near-instant transactions at scale with as low as sub-5ms latency, while upholding Ethereumʼs core principle of decentralization. RISE is on track to exceed 100,000 transactions per second throughput capacity, enabling it to support millions of users simultaneously. By eliminating long-standing barriers to adoption, RISE offers a radically improved experience for both developers and users, unlocking a new generation of onchain applications.",
       price: "6.000",
       logo: RiseLogo,
     },
