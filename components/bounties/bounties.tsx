@@ -163,8 +163,9 @@ const Bounties = () => {
 🏆 1st place: $2,000
 🥈 2nd place: $1,500
 🥉 3rd place: $1000
+💡 Protocol / Documentation Contribution: $500
 `,
-      price: "6.000",
+      price: "5.000",
       logo: YellowLogo,
     },
     {
