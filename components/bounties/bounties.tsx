@@ -29,7 +29,7 @@ interface TrackData {
   logo: React.ComponentType<any>;
 }
 
-const TOTAL_BOUNTY_USD = 35000;
+const TOTAL_BOUNTY_USD = 41000;
 
 const formatUsdShort = (value: number) => {
   if (value >= 1_000_000) return `${Math.round(value / 100_000) / 10}M`;
